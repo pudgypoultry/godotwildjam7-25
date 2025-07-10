@@ -1,0 +1,2 @@
+Put any global scripts or nodes in this folder
+Also tools

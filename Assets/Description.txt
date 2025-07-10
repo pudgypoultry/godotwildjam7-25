@@ -1,0 +1,1 @@
+Put visual assets in this folder
