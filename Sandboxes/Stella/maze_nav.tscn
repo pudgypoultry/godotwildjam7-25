@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx37jgko4slem"]
+[gd_scene load_steps=10 format=3 uid="uid://cx37jgko4slem"]
 
 [ext_resource type="PackedScene" uid="uid://bycw3ydt4rvmd" path="res://Sandboxes/Stella/NavNPC.tscn" id="1_tdiip"]
+[ext_resource type="Script" uid="uid://csh1l3sgeuryv" path="res://Sandboxes/Stella/charcontrolltest.gd" id="2_etyeu"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_etyeu"]
 vertices = PackedVector3Array(-5.3281, 0.5, 0, -6.3281, 0.5, 0.25, -6.3281, 0.5, 1.5, -3.8281, 0.5, 1.5, -3.5781, 0.5, 0.25, -9.5781, 0.5, -9.5, -9.5781, 0.5, -7.5, -5.3281, 0.5, -7.25, -3.5781, 0.5, -9.5, -2.0781, 3, -3, 7.4219, 3, -3, -2.0781, 3, -3.25, -2.5781, 3, -0.5, -2.5781, 3, -9.5, -1.3281, 0.5, -9.5, -1.3281, 0.5, -7.75, 0.171896, 0.5, -7.75, 6.9219, 0.5, -7.75, 7.1719, 0.5, -9.5, 0.421896, 0.5, 1.5, 0.671896, 0.5, 1, 0.171896, 0.5, 0.75, -1.5781, 0.5, 0.5, 0.171896, 0.5, -5.5, -1.3281, 0.5, -4.25, 8.1719, 0.5, -4.25, 6.9219, 0.5, -5.5, 8.4219, 0.5, -2.25, 9.6719, 0.5, -1.25, 9.6719, 0.5, -9.5, 0.421896, 0.5, -1.25, -1.3281, 0.5, -2, -6.5781, 2.75, -6, -6.3281, 2.75, -0.75, -6.3281, 2.75, -6.5, -9.5781, 2.75, -6.5, -7.5781, 0.5, 0, -8.0781, 0.5, 1.75, -7.8281, 0.5, 3.75, -9.5781, 0.5, 5, -7.5781, 0.5, -5.25, -9.5781, 0.5, -5.25, -2.3281, 0.5, 5, -2.0781, 0.5, 3.75, 1.9219, 0.5, 2, 9.6719, 0.5, 1, 1.9219, 0.5, 9.5, 9.6719, 0.5, 9.5, 0.421896, 3, 2.75, 0.921896, 3, 9.5, 0.921896, 3, 2.75, -0.328104, 0.5, 3.75, -2.3281, 0.5, 7.25, -0.328104, 0.5, 9.5, -9.5781, 0.5, 7.25, -9.5781, 0.5, 9.5)
@@ -22,6 +23,10 @@ tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdiip"]
 albedo_color = Color(0.00453159, 0, 0.180372, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w7v5q"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jv7yy"]
 
 [node name="MazeNav" type="NavigationRegion3D"]
 navigation_mesh = SubResource("NavigationMesh_etyeu")
@@ -86,10 +91,21 @@ use_collision = true
 size = Vector3(7.7226, 2.71671, 1)
 
 [node name="NavNPC" parent="." instance=ExtResource("1_tdiip")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 5.4998, 1.12624, 5.60001)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6.82742, 1.12624, 5.60001)
 
-[node name="NavNPC2" parent="." instance=ExtResource("1_tdiip")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.41033, 1.12624, -7.93972)
+[node name="NavNPC3" parent="." instance=ExtResource("1_tdiip")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -8.22365, 1.12624, 0.280171)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13, 0)
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00877, 0)
+collision_layer = 3
+script = ExtResource("2_etyeu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_w7v5q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_jv7yy")
