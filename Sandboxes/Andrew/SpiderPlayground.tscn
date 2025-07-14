@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdxpgy6a5x8b1"]
+[gd_scene load_steps=10 format=3 uid="uid://cdxpgy6a5x8b1"]
 
 [ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Sandboxes/Andrew/SpiderController.tscn" id="1_7xsgv"]
+[ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Sandboxes/Andrew/ClimbableWall.gd" id="1_41bnt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_83q8s"]
 size = Vector3(20, 1, 25)
@@ -13,63 +14,34 @@ material = SubResource("StandardMaterial3D_hun4g")
 size = Vector3(20, 1, 25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xsgv"]
-albedo_color = Color(0.375, 0.00222418, 0, 1)
+albedo_color = Color(0.28125, 0.0375801, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_41bnt"]
 material = SubResource("StandardMaterial3D_7xsgv")
-size = Vector3(20, 1, 20)
+size = Vector3(20, 1, 25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfldt"]
-albedo_color = Color(0.375, 0.33004, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41bnt"]
+albedo_color = Color(0.28125, 0.273293, 0.00990771, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_cgvlm"]
-material = SubResource("StandardMaterial3D_hfldt")
-size = Vector3(20, 1, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lv5vs"]
-albedo_color = Color(0.491481, 1, 0.410998, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_komab"]
-material = SubResource("StandardMaterial3D_lv5vs")
+[sub_resource type="BoxMesh" id="BoxMesh_hfldt"]
+material = SubResource("StandardMaterial3D_41bnt")
 size = Vector3(20, 1, 25)
 
 [node name="Sandbox" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Walkable"]]
+[node name="ClimbableWall" type="StaticBody3D" parent="." node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.03655, 0)
+script = ExtResource("1_41bnt")
+climbDirection = NodePath("Marker3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClimbableWall"]
 shape = SubResource("BoxShape3D_83q8s")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbableWall"]
 mesh = SubResource("BoxMesh_mli3a")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." groups=["Walkable"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 6.97178, 10.5242)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-shape = SubResource("BoxShape3D_83q8s")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
-mesh = SubResource("BoxMesh_41bnt")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="." groups=["Walkable"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.57645, -10.4601)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
-shape = SubResource("BoxShape3D_83q8s")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
-mesh = SubResource("BoxMesh_cgvlm")
-
-[node name="StaticBody3D4" type="StaticBody3D" parent="." groups=["Walkable"]]
-transform = Transform3D(1, 0, 0, 0, 0.989836, 0.142214, 0, -0.142214, 0.989836, 0, 15.0613, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
-shape = SubResource("BoxShape3D_83q8s")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
-mesh = SubResource("BoxMesh_komab")
+[node name="Marker3D" type="Marker3D" parent="ClimbableWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.67209, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.06531, 0)
@@ -77,4 +49,34 @@ light_energy = 16.882
 omni_range = 40.655
 
 [node name="SpiderController" parent="." instance=ExtResource("1_7xsgv")]
-movementSpeed = 5.0
+
+[node name="ClimbableWall2" type="StaticBody3D" parent="." node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.9117, 12.6874)
+script = ExtResource("1_41bnt")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClimbableWall2"]
+shape = SubResource("BoxShape3D_83q8s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbableWall2"]
+mesh = SubResource("BoxMesh_41bnt")
+
+[node name="Marker3D" type="Marker3D" parent="ClimbableWall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.40362, 9.53674e-07)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.50501, -0.437479, 0.744028, 3.19482e-09, 0.862028, 0.506861, -0.863114, 0.25597, -0.435332, 17.332, 16.3408, -6.17079)
+
+[node name="ClimbableWall3" type="StaticBody3D" parent="." node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(1, 0, 0, 0, -0.778287, 0.627909, 0, -0.627909, -0.778287, 0, 30.3879, 3.70643)
+script = ExtResource("1_41bnt")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClimbableWall3"]
+shape = SubResource("BoxShape3D_83q8s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbableWall3"]
+mesh = SubResource("BoxMesh_hfldt")
+
+[node name="Marker3D" type="Marker3D" parent="ClimbableWall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.40362, 9.53674e-07)

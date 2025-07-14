@@ -1,117 +1,145 @@
-extends CharacterBody3D
+extends RigidBody3D
 
-@export_category("Game Rules")
-@export var gravity := Vector3(0,-3,0)
-@export var jumpVec := Vector3( 0, 80, 0)
-@export var mouseSensitivity := 0.005
-@export var movementSpeed := 5.0
+@export var movementSpeed : float = 1.0
+@export var rotationSpeed : float = 5.0
+@export var jumpForce : float = 10.0
+@export var camSpeedX : float = 1.0
+@export var camSpeedY : float = 1.0
+@export var verticalCameraClamp : float = 80
+@export var moveTolerance : float = 0.2
+@export var dotTolerance : float = 0.5
 
-@export_category("Plugging in Nodes")
-@export var collisionChecker : CollisionShape3D
-@export var rayContainer : Node3D
+
 @export var head : Node3D
-@export var headCamera : Camera3D
-@export var camTarget : Node3D
+# @export var headCam : Node3D
 
+var movementInput : Vector2 = Vector2.ZERO
+var tryingToJump : bool = false
+var jumping : bool = false
+var shouldReset : bool = false
+var collidedWithNewWall = false
+var cameraX : float = 0
+var cameraY : float = 0
+var startPosition : Vector3
+var localGravity : Vector3
+var moveDirection : Vector3
+var lastStrongDirection : Vector3
 
-var avgNormal : Vector3 = Vector3.ZERO
-var vel := Vector3.ZERO
-var jumpNum := 0
-var maxJumpAmt := 10
-var extraVel := Vector3.ZERO
-var theUpDir := Vector3.UP
-var jumpVectors := Vector3.ZERO
-var bodyOn : StaticBody3D
-var mouseSensMulti := 1
-var currentFloorNormal : Vector3
-
-
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	velocity = Vector3.ZERO
-
-
-func bodyEntered(body) -> void:
-	if body and body != bodyOn and body is StaticBody3D:
-		bodyOn = body
-		jumpVectors = Vector3.ZERO
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		headCamera.rotation.x += -event.relative.y * mouseSensitivity 
-		head.rotation.y += -event.relative.x * mouseSensitivity * mouseSensMulti
-	
-	if abs(headCamera.rotation_degrees.x) >= 360:
-		headCamera.rotation_degrees.x = 0
-	if abs(head.rotation_degrees.y) >= 360:
-		head.rotation_degrees.y = 0
-	if abs(headCamera.rotation_degrees.x) > 90:
-		mouseSensMulti = -1
-	else:
-		mouseSensMulti = 1
-
-
-func checkRays() -> void:
-	var avgNor := Vector3.ZERO
-	var numOfRaysColliding := 0
-	for ray in rayContainer.get_children():
-		var r : RayCast3D = ray
-		if r.is_colliding():
-			numOfRaysColliding += 1
-			avgNor += r.get_collision_normal()
-	if avgNor:
-		avgNor /= numOfRaysColliding
-		avgNormal = avgNor.normalized()
-		jumpVec = avgNormal * 50
-		up_direction = avgNormal
-		gravity = avgNormal * -3
-	else: # come back and showcase this
-		avgNormal = Vector3.UP
-		jumpVec = avgNormal * 50
-		up_direction = avgNormal
-		gravity = avgNormal * -3
-	print(avgNor)
+func _ready():
+	startPosition = position
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Reset"):
-		get_tree().reload_current_scene()
+	HandleInput()
+	if tryingToJump && !jumping:
+		jumping = true
 
 
-func jump() -> void:
-	jumpVectors += jumpVec
-	avgNormal = Vector3.UP
-	jumpVec = avgNormal * 50
-	up_direction = avgNormal
-	gravity = avgNormal * -3
+#func _physics_process(delta: float) -> void:
+	#if collidedWithNewWall:
+		#print("Collided")
+		#OrientCharacterToDirection(localGravity.cross(moveDirection).normalized(), delta)
+		#collidedWithNewWall = false
 
 
-
-func _physics_process(delta: float) -> void:
-	velocity = movementSpeed * get_dir()
-	checkRays()
-	if not is_on_floor():
-		jumpVectors += gravity
-		avgNormal = Vector3.UP
-	elif is_on_floor():
-		jumpVectors = Vector3.ZERO
+func HandleInput():
 	if Input.is_action_just_pressed("Jump"):
-		jump() 
-	velocity += jumpVectors
-	move_and_slide()
+		tryingToJump = true
 
 
-func get_dir() -> Vector3:
-	var dir : Vector3 = Vector3.ZERO
-	var fowardDir : Vector3 = ( camTarget.global_transform.origin - head.global_transform.origin  ).normalized()
-	var dirBase :Vector3= avgNormal.cross( fowardDir ).normalized()
-	if Input.is_action_pressed("MoveForward"):
-		dir = ( camTarget.global_transform.origin - head.global_transform.origin  ).normalized()
-	if Input.is_action_pressed("MoveBackward"):
-		dir = -( camTarget.global_transform.origin - head.global_transform.origin  ).normalized()
-	if Input.is_action_pressed("RotateLeft"):
-		dir = dirBase
-	if Input.is_action_pressed("RotateRight"):
-		dir = dirBase.rotated(avgNormal.normalized(), PI)
-	return dir.normalized()
+func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	if shouldReset:
+		state.transform.origin = startPosition
+		shouldReset = false
+	
+	if collidedWithNewWall:
+		print("Collided")
+		OrientCharacterToDirection(localGravity.cross(moveDirection).normalized(), state.step)
+		collidedWithNewWall = false
+	
+	localGravity = state.total_gravity.normalized()
+	
+	if moveDirection.length() > moveTolerance:
+		lastStrongDirection = moveDirection.normalized()
+		# print(moveDirection)
+	
+	moveDirection = GetModelOrientedInput()
+	# OrientCharacterToDirection(localGravity.cross(moveDirection), state.step)
+	
+	
+	if tryingToJump:
+		print(localGravity)
+		#make model jump
+		apply_central_impulse(-localGravity * jumpForce)
+		print("Jump Direction: " + str(-localGravity))
+		tryingToJump = false
+		
+	if IsOnFloor(state):
+		if moveDirection.length() == 0.0:
+			linear_velocity = Vector3.ZERO
+		elif !jumping:
+			# linear_velocity = moveDirection * movementSpeed * state.step
+			add_constant_central_force(moveDirection.normalized() * movementSpeed)
+			# position += moveDirection * movementSpeed * state.step
+		elif jumping:
+			tryingToJump = false
+			jumping = false
+	#model.velocity = state.linear_velocity
+
+
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventMouseMotion:
+			#cameraX -= deg_to_rad(camSpeedX * event.relative.x)
+			#cameraY -= deg_to_rad(camSpeedY * event.relative.y)
+			#cameraY = clampf(cameraY, -verticalCameraClamp, verticalCameraClamp)
+			#headCam.set_rotation(Vector3(cameraY, headCam.rotation.y, headCam.rotation.z))
+			#set_rotation(Vector3(rotation.x, cameraX, rotation.z))
+
+
+func GetModelOrientedInput():
+	var inputLeftRight = Input.get_axis("RotateLeft","RotateRight")
+	var inputForwardBack = Input.get_axis("MoveBackward","MoveForward")
+	
+	var rawInput = Vector2(inputLeftRight, inputForwardBack)
+	var input := Vector3.ZERO
+	
+	#input.x = rawInput.x * sqrt(1.0 - rawInput.y * rawInput.y / 2.0)
+	#input.z = rawInput.y * sqrt(1.0 - rawInput.x * rawInput.x / 2.0)
+	
+	input = Vector3(rawInput.x, 0, rawInput.y)
+	
+	#Godot 4 overloaded * for basis, it used to be "basis.xform", now it's basis * other vector
+	input = transform.basis * input
+	# print(input)
+	return input
+
+
+func OrientCharacterToDirection(direction : Vector3, delta : float):
+	if direction.length_squared() > 0:
+		var leftAxis := -localGravity.cross(direction)
+		var rotationBasis := Basis(leftAxis, -localGravity, direction).orthonormalized()
+		print("Original Basis:")
+		print(basis)
+		basis = basis.get_rotation_quaternion().slerp(rotationBasis, delta * rotationSpeed)
+
+
+func IsJumping(state : PhysicsDirectBodyState3D) -> bool:
+	return false
+
+
+func ResetPosition() -> void:
+	pass
+
+
+func IsOnFloor(state : PhysicsDirectBodyState3D) -> bool:
+	# Contacts_reported needs to be high enough to count all surfaces on body
+	for contact in state.get_contact_count():
+		var contactNormal = state.get_contact_local_normal(contact)
+		# If the contact is below us we are on the floor
+		if contactNormal.dot(-localGravity) > dotTolerance:
+			return true
+	return false
+
+
+func OnBodyEntered(body):
+	collidedWithNewWall = true
