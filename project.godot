@@ -22,6 +22,8 @@ movie_writer/movie_file="C:/Users/Andre/Documents/godotwildjam7-25/Recordings.av
 [global_group]
 
 Walkable="A surface the spider can walk on"
+npc=""
+Player=""
 
 [input]
 

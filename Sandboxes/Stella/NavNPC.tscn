@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bycw3ydt4rvmd"]
+[gd_scene load_steps=9 format=3 uid="uid://bycw3ydt4rvmd"]
 
+[ext_resource type="Script" uid="uid://dt8afqn1760yr" path="res://Sandboxes/Stella/npc_toplogic.gd" id="1_ntneb"]
 [ext_resource type="Script" uid="uid://c2k6d8rqsonv3" path="res://Sandboxes/Stella/state_machine.gd" id="2_knyxn"]
 [ext_resource type="Script" uid="uid://cpnqeyex2aora" path="res://Sandboxes/Stella/HumanExplore.gd" id="2_uafth"]
 [ext_resource type="Script" uid="uid://dwq455lenc70t" path="res://Sandboxes/Stella/player_seen.gd" id="3_uafth"]
@@ -11,7 +12,11 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_knyxn"]
 
-[node name="NavNPC" type="CharacterBody3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uafth"]
+
+[node name="NavNPC" type="CharacterBody3D" groups=["npc"]]
+collision_layer = 2
+script = ExtResource("1_ntneb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_knyxn")
@@ -22,6 +27,7 @@ shape = SubResource("ConvexPolygonShape3D_uafth")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.75
 path_max_distance = 5.41
+avoidance_enabled = true
 debug_enabled = true
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -34,15 +40,23 @@ script = ExtResource("2_uafth")
 [node name="PlayerSeen" type="Node" parent="State Machine"]
 script = ExtResource("3_uafth")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="PlayerDetector" type="Area3D" parent="."]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetector"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("SphereShape3D_knyxn")
+
+[node name="RepulsionArea" type="Area3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RepulsionArea"]
+shape = SubResource("CapsuleShape3D_uafth")
 
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
 [connection signal="target_reached" from="NavigationAgent3D" to="State Machine/IdleExplore" method="_on_navigation_agent_3d_target_reached"]
 [connection signal="target_reached" from="NavigationAgent3D" to="State Machine/PlayerSeen" method="_on_navigation_agent_3d_target_reached"]
-[connection signal="body_entered" from="Area3D" to="State Machine/IdleExplore" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="Area3D" to="State Machine/PlayerSeen" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="State Machine/IdleExplore" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="State Machine/PlayerSeen" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="RepulsionArea" to="State Machine/PlayerSeen" method="_on_repulsion_area_body_entered"]

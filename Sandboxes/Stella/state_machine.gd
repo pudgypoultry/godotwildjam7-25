@@ -1,15 +1,27 @@
 extends Node
 
+#consider moving this script to the top level navnpc
+#then could actually call move_and_slide in the navnpc itself
 @export var initial_state : State
+var player : CharacterBody3D
 var current_state : State
 var states : Dictionary = {}
+var speed : float = 2 + randf_range(0.0, 0.5)
 
 func _ready(): 
+	# here we can assign some of the child variables like references to the player
+	player = get_tree().get_first_node_in_group("Player")
+	if !player:
+		print("Error: player not found.")
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.Transitioned.connect(on_child_transition)
-			
+			child.player = player
+			child.nav_npc = $".."
+			child.navigation_agent = $"../NavigationAgent3D"
+			child.speed = speed
+
 	if initial_state:
 		initial_state.Enter()
 		current_state = initial_state
