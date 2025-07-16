@@ -1,0 +1,3 @@
+IK target 1 through 4, 4 is the back
+"Root" Legs are the foot targets
+Ones under "body" are the pull targets, like elbow bending
