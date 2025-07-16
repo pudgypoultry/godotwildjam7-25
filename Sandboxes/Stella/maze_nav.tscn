@@ -95,6 +95,7 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6.82742, 1.12624, 5.600
 
 [node name="NavNPC3" parent="." instance=ExtResource("1_tdiip")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -8.22365, 1.12624, 0.280171)
+brave = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13, 0)

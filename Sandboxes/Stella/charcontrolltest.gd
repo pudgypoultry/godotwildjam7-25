@@ -5,7 +5,7 @@ var speed = 2.5
 
 var timer = 0
 var timelimit = 5
-var havent_killed = true
+var havent_killed = false
 
 func _physics_process(delta):
 	timer += delta

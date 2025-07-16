@@ -1,11 +1,17 @@
 extends Node
 
+# if i was cleverer this would be a more abstract state machine
+# but right now it has some hardcoded stuff for specifically the npcs...
+# luckily i dont think we need other state machines in this tiny game :P
+
 #consider moving this script to the top level navnpc
 #then could actually call move_and_slide in the navnpc itself
 @export var initial_state : State
 var player : CharacterBody3D
 var current_state : State
 var states : Dictionary = {}
+# random so that hopefully if two npcs are overlapping, they will move
+# away from each other soon
 var speed : float = 2 + randf_range(0.0, 0.5)
 
 func _ready(): 
