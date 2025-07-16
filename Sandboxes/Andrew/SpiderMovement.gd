@@ -82,6 +82,9 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Reset"):
 		get_tree().reload_current_scene()
+	#if Input.is_action_just_pressed("Escape"):
+		#Input.set_mouse_mode(Input.MOUSE_MODE_MAX)
+		
 
 
 func jump() -> void:
@@ -136,8 +139,8 @@ func OrientCharacterToDirection(direction : Vector3, delta : float):
 		# Look through assets for anything that may be helpful
 
 func GetModelOrientedInput():
-	var inputLeftRight = Input.get_axis("RotateLeft","RotateRight")
-	var inputForwardBack = Input.get_axis("MoveBackward","MoveForward")
+	var inputLeftRight = Input.get_axis("RotateLeft", "RotateRight")
+	var inputForwardBack = Input.get_axis("MoveBackward", "MoveForward")
 	
 	var rawInput = Vector2(-inputLeftRight, -inputForwardBack)
 	var input := Vector3.ZERO
@@ -166,7 +169,6 @@ func ProjectVecAToPlaneWithNormalVecB(vecA : Vector3, vecB : Vector3):
 
 func Attack():
 	if Input.is_action_just_pressed("Attack"):
-		print(currentTarget.name)
 		if currentTarget:
 			print("Trying to kill " + currentTarget.name)
 			currentTarget.KillMe()

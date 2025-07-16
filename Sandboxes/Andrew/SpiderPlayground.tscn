@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cdxpgy6a5x8b1"]
 
-[ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Sandboxes/Andrew/SpiderController.tscn" id="1_7xsgv"]
-[ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Sandboxes/Andrew/ClimbableWall.gd" id="1_41bnt"]
+[ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Scenes/SpiderPlayer/SpiderController.tscn" id="1_7xsgv"]
+[ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Scripts/Spider/ClimbableWall.gd" id="1_41bnt"]
 [ext_resource type="PackedScene" uid="uid://bycw3ydt4rvmd" path="res://Sandboxes/Stella/NavNPC.tscn" id="3_cgvlm"]
 [ext_resource type="PackedScene" uid="uid://beotv63xman8r" path="res://Scenes/npc_m_actor_01.tscn" id="4_lv5vs"]
 
@@ -61,6 +61,7 @@ climbDirection = NodePath("Marker3D")
 shape = SubResource("BoxShape3D_83q8s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbableWall2"]
+visible = false
 mesh = SubResource("BoxMesh_41bnt")
 
 [node name="Marker3D" type="Marker3D" parent="ClimbableWall2"]
@@ -70,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.40362, 9.53674e-07)
 transform = Transform3D(-0.50501, -0.437479, 0.744028, 3.19482e-09, 0.862028, 0.506861, -0.863114, 0.25597, -0.435332, 17.332, 16.3408, -6.17079)
 
 [node name="ClimbableWall3" type="StaticBody3D" parent="." node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
-transform = Transform3D(1, 0, 0, 0, -0.778287, 0.627909, 0, -0.627909, -0.778287, 0, 30.3879, 3.70643)
+transform = Transform3D(1, 0, 0, 0, -0.987971, 0.154642, 0, -0.154642, -0.987971, 0, 25.449, 0.604885)
 script = ExtResource("1_41bnt")
 climbDirection = NodePath("Marker3D")
 
@@ -118,6 +119,20 @@ visible = false
 
 [node name="NPC_f" parent="NavNPC4" instance=ExtResource("4_lv5vs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.973261, 0)
+
+[node name="ClimbableWall4" type="StaticBody3D" parent="." node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(1, 0, 0, 0, -0.932929, -0.360062, 0, 0.360062, -0.932929, 0, -5.58446, -23.8814)
+script = ExtResource("1_41bnt")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClimbableWall4"]
+shape = SubResource("BoxShape3D_83q8s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbableWall4"]
+mesh = SubResource("BoxMesh_hfldt")
+
+[node name="Marker3D" type="Marker3D" parent="ClimbableWall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.30065, 0)
 
 [editable path="NavNPC"]
 [editable path="NavNPC2"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1mgas2y2yu8k"]
 
-[ext_resource type="Script" uid="uid://cbw242owap4dw" path="res://Sandboxes/Andrew/SpiderMovement.gd" id="1_nge5q"]
+[ext_resource type="Script" uid="uid://bws864di887eg" path="res://Scripts/Spider/SpiderMovementFinal.gd" id="1_a2ljo"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_a2ljo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lfcr3"]
@@ -14,7 +14,7 @@ radius = 1.0
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-script = ExtResource("1_nge5q")
+script = ExtResource("1_a2ljo")
 collisionChecker = NodePath("CollisionChecker")
 attackChecker = NodePath("AttackChecker")
 head = NodePath("CameraMount")
@@ -38,7 +38,7 @@ shape = SubResource("SphereShape3D_a2ljo")
 [node name="SpiderActor" parent="." instance=ExtResource("2_a2ljo")]
 
 [node name="AttackChecker" type="Area3D" parent="."]
-transform = Transform3D(2.15505, 0, 0, 0, 2.15505, 0, 0, 0, 2.15505, 0, 0.819745, -2.66847)
+transform = Transform3D(2.15505, 0, 0, 0, 2.15505, 0, 0, 0, 2.15505, 0, 0.819745, -2.12513)
 collision_layer = 3
 collision_mask = 3
 

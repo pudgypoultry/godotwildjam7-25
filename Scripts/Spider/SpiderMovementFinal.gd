@@ -140,7 +140,7 @@ func GetModelOrientedInput():
 	var inputLeftRight = Input.get_axis("RotateLeft","RotateRight")
 	var inputForwardBack = Input.get_axis("MoveBackward","MoveForward")
 	
-	var rawInput = Vector2(-inputLeftRight, -inputForwardBack)
+	var rawInput = Vector2(inputLeftRight, -inputForwardBack)
 	var input := Vector3.ZERO
 	
 	#input.x = rawInput.x * sqrt(1.0 - rawInput.y * rawInput.y / 2.0)
