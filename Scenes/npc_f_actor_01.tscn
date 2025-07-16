@@ -1,0 +1,76 @@
+[gd_scene load_steps=14 format=3 uid="uid://ck1g8m56f7a1l"]
+
+[ext_resource type="PackedScene" uid="uid://dsmujoyveknp8" path="res://Assets/Models/NPC.glb" id="1_ggfkv"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cymio"]
+animation = &"WalkCycle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ox637"]
+animation = &"RunCycle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_veoym"]
+animation = &"Idle_01"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h4x2s"]
+animation = &"Idle_02"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xmbn2"]
+animation = &"Idle_03"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iir1m"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0jnfm"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tb8xv"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ggfkv"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_u53cp"]
+states/Idle_01/node = SubResource("AnimationNodeAnimation_veoym")
+states/Idle_01/position = Vector2(563, 92)
+states/Idle_02/node = SubResource("AnimationNodeAnimation_h4x2s")
+states/Idle_02/position = Vector2(484, 181)
+states/Idle_03/node = SubResource("AnimationNodeAnimation_xmbn2")
+states/Idle_03/position = Vector2(612, 240)
+transitions = ["Start", "Idle_02", SubResource("AnimationNodeStateMachineTransition_iir1m"), "Idle_02", "Idle_01", SubResource("AnimationNodeStateMachineTransition_0jnfm"), "Idle_01", "Idle_03", SubResource("AnimationNodeStateMachineTransition_tb8xv"), "Idle_03", "Idle_02", SubResource("AnimationNodeStateMachineTransition_ggfkv")]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_023th"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_cymio")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_ox637")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeStateMachine_u53cp")
+blend_point_2/pos = -1.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_k06qy"]
+graph_offset = Vector2(2.20703, 65.6995)
+nodes/Idle-Walk-Run/node = SubResource("AnimationNodeBlendSpace1D_023th")
+nodes/Idle-Walk-Run/position = Vector2(600, 160)
+nodes/output/position = Vector2(1220, 100)
+node_connections = [&"output", 0, &"Idle-Walk-Run"]
+
+[node name="NPC_f" type="Node3D"]
+
+[node name="NPC" parent="." instance=ExtResource("1_ggfkv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0104462, 0, 0.0233746)
+
+[node name="HazmatSuit_m" parent="NPC/NPCArmature/Skeleton3D" index="5"]
+visible = false
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../NPC")
+tree_root = SubResource("AnimationNodeBlendTree_k06qy")
+anim_player = NodePath("../NPC/AnimationPlayer")
+parameters/Idle-Walk-Run/blend_position = -1.0
+
+[editable path="NPC"]
