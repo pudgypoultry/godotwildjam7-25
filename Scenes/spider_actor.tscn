@@ -34,6 +34,7 @@ blend_point_4/node = SubResource("AnimationNodeAnimation_upafc")
 blend_point_4/pos = Vector2(0, 0.9)
 blend_point_5/node = SubResource("AnimationNodeAnimation_n60cy")
 blend_point_5/pos = Vector2(0, 0)
+snap = Vector2(0.1, 0.19)
 
 [node name="SpiderActor" type="Node3D"]
 script = ExtResource("1_gr433")

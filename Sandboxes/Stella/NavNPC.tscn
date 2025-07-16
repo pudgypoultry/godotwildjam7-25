@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bycw3ydt4rvmd"]
 
-[ext_resource type="Script" uid="uid://dt8afqn1760yr" path="res://Sandboxes/Stella/npc_toplogic.gd" id="1_ntneb"]
+[ext_resource type="Script" path="res://Sandboxes/Stella/npc_toplogic.gd" id="1_ntneb"]
 [ext_resource type="Script" uid="uid://c2k6d8rqsonv3" path="res://Sandboxes/Stella/state_machine.gd" id="2_knyxn"]
 [ext_resource type="Script" uid="uid://cpnqeyex2aora" path="res://Sandboxes/Stella/HumanExplore.gd" id="2_uafth"]
 [ext_resource type="Script" uid="uid://dwq455lenc70t" path="res://Sandboxes/Stella/player_seen.gd" id="3_uafth"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://l8ut0drcm73x"]
+[gd_scene load_steps=14 format=3 uid="uid://beotv63xman8r"]
 
 [ext_resource type="PackedScene" uid="uid://dsmujoyveknp8" path="res://Assets/Models/NPC.glb" id="1_kqb87"]
 
@@ -63,6 +63,36 @@ node_connections = [&"output", 0, &"Idle-Walk-Run"]
 
 [node name="NPC" parent="." instance=ExtResource("1_kqb87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0104462, 0, 0.0233746)
+
+[node name="Skeleton3D" parent="NPC/NPCArmature" index="0"]
+bones/1/position = Vector3(0.000566976, -0.161318, 0.755175)
+bones/2/rotation = Quaternion(0.658326, 0.0096913, 0.00847706, 0.752623)
+bones/3/rotation = Quaternion(0.0410255, 0.0174989, 0.00177614, 0.999003)
+bones/4/rotation = Quaternion(-0.00241353, 0.993317, 0.108826, 0.0383679)
+bones/5/rotation = Quaternion(0.00204257, 0.968575, 0.248587, -0.00795797)
+bones/6/rotation = Quaternion(0.159418, -0.0388528, -0.00641316, 0.986426)
+bones/8/rotation = Quaternion(0.0342363, 0.807202, -0.587583, 0.0447139)
+bones/9/rotation = Quaternion(0.0244176, 0.0175885, -0.177364, 0.983685)
+bones/10/rotation = Quaternion(0.0455319, 0.002235, -0.078848, 0.995844)
+bones/17/rotation = Quaternion(-0.0342363, 0.807202, -0.587583, -0.044714)
+bones/18/rotation = Quaternion(0.0244176, -0.0175885, 0.177364, 0.983685)
+bones/19/rotation = Quaternion(0.045532, -0.00223486, 0.0788481, 0.995844)
+bones/26/position = Vector3(0.199948, -0.46613, -0.0505662)
+bones/26/rotation = Quaternion(-0.696947, 0.0900687, 0.707014, -0.079275)
+bones/27/position = Vector3(-0.188523, -0.0794131, -0.385445)
+bones/27/rotation = Quaternion(-0.645715, 0.00627353, 0.00530547, 0.763534)
+bones/28/position = Vector3(-0.201502, -0.46613, -0.0439688)
+bones/30/rotation = Quaternion(-0.15566, -0.425294, 0.882211, 0.128835)
+bones/31/rotation = Quaternion(-0.005566, -4.30012e-06, 0.150258, 0.988631)
+bones/32/rotation = Quaternion(0.374081, 0.582234, -0.403709, 0.598403)
+bones/35/rotation = Quaternion(0.00848663, -0.393868, 0.916425, -0.0704379)
+bones/36/rotation = Quaternion(-0.00464759, 4.32118e-06, -0.125465, 0.992087)
+bones/37/rotation = Quaternion(0.374081, -0.582234, 0.403709, 0.598403)
+bones/39/position = Vector3(0.0338055, 0.414518, 1.43395)
+bones/40/position = Vector3(-0.115938, 0.402276, 0.404886)
+bones/41/position = Vector3(-0.0987769, -0.0540813, 0.0616111)
+bones/42/position = Vector3(0.279399, 0.328992, 0.367912)
+bones/43/position = Vector3(0.140151, -0.086505, 0.0672237)
 
 [node name="HazmatSuit_f" parent="NPC/NPCArmature/Skeleton3D" index="4"]
 visible = false

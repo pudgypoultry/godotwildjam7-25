@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdxpgy6a5x8b1"]
+[gd_scene load_steps=12 format=3 uid="uid://cdxpgy6a5x8b1"]
 
 [ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Sandboxes/Andrew/SpiderController.tscn" id="1_7xsgv"]
 [ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Sandboxes/Andrew/ClimbableWall.gd" id="1_41bnt"]
+[ext_resource type="PackedScene" uid="uid://bycw3ydt4rvmd" path="res://Sandboxes/Stella/NavNPC.tscn" id="3_cgvlm"]
+[ext_resource type="PackedScene" uid="uid://beotv63xman8r" path="res://Scenes/npc_m_actor_01.tscn" id="4_lv5vs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_83q8s"]
 size = Vector3(20, 1, 25)
@@ -80,3 +82,44 @@ mesh = SubResource("BoxMesh_hfldt")
 
 [node name="Marker3D" type="Marker3D" parent="ClimbableWall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.40362, 9.53674e-07)
+
+[node name="NavNPC" parent="." instance=ExtResource("3_cgvlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93832, 0.439279, -5.74825)
+
+[node name="MeshInstance3D" parent="NavNPC" index="0"]
+visible = false
+
+[node name="NPC_f" parent="NavNPC" instance=ExtResource("4_lv5vs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.973261, 0)
+
+[node name="NavNPC2" parent="." instance=ExtResource("3_cgvlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62734, 0.439278, -7.98349)
+
+[node name="MeshInstance3D" parent="NavNPC2" index="0"]
+visible = false
+
+[node name="NPC_f" parent="NavNPC2" instance=ExtResource("4_lv5vs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.973261, 0)
+
+[node name="NavNPC3" parent="." instance=ExtResource("3_cgvlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42696, 0.439279, -8.18928)
+
+[node name="MeshInstance3D" parent="NavNPC3" index="0"]
+visible = false
+
+[node name="NPC_f" parent="NavNPC3" instance=ExtResource("4_lv5vs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.973261, 0)
+
+[node name="NavNPC4" parent="." instance=ExtResource("3_cgvlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.59527, 0.439279, -8.73795)
+
+[node name="MeshInstance3D" parent="NavNPC4" index="0"]
+visible = false
+
+[node name="NPC_f" parent="NavNPC4" instance=ExtResource("4_lv5vs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.973261, 0)
+
+[editable path="NavNPC"]
+[editable path="NavNPC2"]
+[editable path="NavNPC3"]
+[editable path="NavNPC4"]

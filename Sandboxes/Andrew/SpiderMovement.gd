@@ -11,7 +11,6 @@ extends CharacterBody3D
 
 @export_category("Plugging in Nodes")
 @export var collisionChecker : Area3D
-@export var playerCollision : CollisionShape3D
 @export var attackChecker : Area3D
 @export var head : Node3D
 @export var headCamera : Camera3D
@@ -34,7 +33,7 @@ var currentTarget : Node3D = null
 
 
 func _ready() -> void:
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	velocity = Vector3.ZERO
 	originalUpDirection = up_direction
 	originalColliderPosition = collisionChecker.position
@@ -53,11 +52,14 @@ func BodyEntered(body) -> void:
 
 func PlayerSensed(body) -> void:
 	if body.is_in_group("npc"):
+		print("Found Player")
 		currentTarget = body
+		print(currentTarget.name)
 
 
 func PlayerLost(body) -> void:
 	if body.is_in_group("npc"):
+		print("Eew Player is missing")
 		currentTarget = null
 
 
@@ -99,10 +101,7 @@ func _physics_process(delta: float) -> void:
 		needsToReorient = false
 	if needsToReorient:
 		print("Trying to reorient")
-		playerCollision.position += -basis.z * transitionDistance
 		OrientCharacterToDirection(up_direction, delta)
-	else:
-		playerCollision.position = originalColliderPosition
 	
 	if not is_on_floor():
 		if !needsToReorient:
@@ -112,8 +111,12 @@ func _physics_process(delta: float) -> void:
 		jumping = false
 	if Input.is_action_just_pressed("Jump"):
 		jump()
+		up_direction = originalUpDirection
+		needsToReorient = true
+		gravityVector = originalUpDirection * -gravityForce
 	velocity += jumpVector
 	move_and_slide()
+	Attack()
 
 
 func OrientCharacterToDirection(direction : Vector3, delta : float):
@@ -153,9 +156,6 @@ func GetModelOrientedInput():
 	
 	animationTree.set("parameters/blend_position", Vector2(rawInput.x, abs(rawInput.y)))
 	
-	# print(input)
-	#if rawInput.length() > 0:
-		#print(input)
 	return input
 
 
@@ -165,7 +165,9 @@ func ProjectVecAToPlaneWithNormalVecB(vecA : Vector3, vecB : Vector3):
 
 
 func Attack():
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_action_just_pressed("Attack"):
+		print(currentTarget.name)
 		if currentTarget:
+			print("Trying to kill " + currentTarget.name)
 			currentTarget.KillMe()
 			currentTarget = null
