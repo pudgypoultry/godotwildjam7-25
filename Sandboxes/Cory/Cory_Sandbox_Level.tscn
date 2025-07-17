@@ -1,0 +1,448 @@
+[gd_scene load_steps=8 format=3 uid="uid://3urq6owncb4e"]
+
+[ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Scenes/SpiderPlayer/SpiderController.tscn" id="1_vqsy8"]
+[ext_resource type="PackedScene" uid="uid://csrjey5pksccj" path="res://Sandboxes/Cory/climbable_wall.tscn" id="2_fep32"]
+[ext_resource type="PackedScene" uid="uid://h4qfqqn0s712" path="res://Sandboxes/Cory/climbable_wall_single.tscn" id="3_ccysc"]
+[ext_resource type="PackedScene" uid="uid://u83l8hycbpc1" path="res://Sandboxes/Cory/ceiling_light_01.tscn" id="4_t0glr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_fep32"]
+sky_material = SubResource("ProceduralSkyMaterial_vqsy8")
+
+[sub_resource type="Environment" id="Environment_ccysc"]
+background_mode = 2
+sky = SubResource("Sky_fep32")
+tonemap_mode = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, -16.9404, 0, 91.5499)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ccysc")
+
+[node name="SpiderController" parent="." instance=ExtResource("1_vqsy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9404, 4.45269, 4.91662)
+
+[node name="Mall" type="Node3D" parent="."]
+
+[node name="ClimbableWall8" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 0, 2.33084, -1.01884e-07, 0, 0, 0, 2.33084, 120.576, 24.3278, 109.399)
+
+[node name="ClimbableWall9" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 0, 2.33084, -1.01884e-07, 0, 0, 0, 2.33084, 120.576, 24.3278, 51.162)
+
+[node name="ClimbableWall10" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 0, 2.33084, -1.01884e-07, 0, 0, 0, 2.33084, 120.576, 24.3278, -7.04516)
+
+[node name="ClimbableWall5" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20432e-08, 1.64816, -1.64816, 2.33084, -1.01884e-07, 0, -7.20432e-08, -1.64816, -1.64816, 43.334, 24.3278, 180.402)
+
+[node name="ClimbableWall6" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(0, 0, -2.33084, 2.33084, -1.01884e-07, 0, -1.01884e-07, -2.33084, 0, -5.83719, 24.3278, 159.596)
+
+[node name="ClimbableWall7" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20432e-08, -1.64816, -1.64816, 2.33084, -1.01884e-07, 0, -7.20432e-08, -1.64816, 1.64816, -54.905, 24.3278, 179.882)
+
+[node name="ClimbableWall11" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20432e-08, -1.64816, 1.64816, 2.33084, -1.01884e-07, 0, 7.20432e-08, 1.64816, 1.64816, -54.0544, 24.3278, 76.4819)
+
+[node name="ClimbableWall12" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-8.90702e-15, -2.03769e-07, 2.33084, 2.33084, -1.01884e-07, 0, 1.01884e-07, 2.33084, 2.03769e-07, -4.88321, 24.3278, 97.2884)
+
+[node name="ClimbableWall13" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20431e-08, 1.64816, 1.64816, 2.33084, -1.01884e-07, 0, 7.20432e-08, 1.64816, -1.64816, 44.1846, 24.3278, 77.0024)
+
+[node name="ClimbableWall14" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 0, 2.33084, -1.01884e-07, 5.85542e-15, 6.62466e-15, 0, -2.33084, 64.4202, 24.3278, 27.46)
+
+[node name="ClimbableWall15" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20432e-08, 1.64816, -1.64816, 2.33084, -1.01884e-07, -7.23932e-22, -7.20432e-08, -1.64816, -1.64816, 44.3633, 24.3278, -22.0217)
+
+[node name="ClimbableWall16" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.31233e-15, 0, -2.33084, 2.33084, -1.01884e-07, 0, -1.01884e-07, -2.33084, 0, -4.67728, 24.3278, -42.3735)
+
+[node name="ClimbableWall51" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.31233e-15, 0, -2.33084, 2.33084, -1.01884e-07, 0, -1.01884e-07, -2.33084, 0, -101.449, 24.3278, -61.8693)
+
+[node name="ClimbableWall17" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.65468e-14, 3.05653e-07, -2.33084, 2.33084, -1.01884e-07, 5.85542e-15, -1.01884e-07, -2.33084, -3.05653e-07, 190.119, 24.3278, -133.487)
+
+[node name="ClimbableWall18" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20432e-08, -1.64816, -1.64816, 2.33084, -1.01884e-07, -3.35631e-21, -7.20432e-08, -1.64816, 1.64816, 140.637, 24.3278, -113.43)
+
+[node name="ClimbableWall19" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, -3.05653e-07, 2.33084, -1.01884e-07, -1.31609e-22, -3.32345e-14, -3.05653e-07, 2.33084, 120.285, 24.3278, -64.3896)
+
+[node name="ClimbableWall20" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 2.33084, -1.01884e-07, 2.63218e-22, 1.01884e-07, 2.33084, -1.01884e-07, 218.924, 24.3278, -101.909)
+
+[node name="ClimbableWall33" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 197.701, 15.0045, -27.7855)
+
+[node name="ClimbableWall34" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 197.701, 15.0045, -71.4942)
+
+[node name="ClimbableWall35" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 197.701, 15.0045, 61.7332)
+
+[node name="ClimbableWall36" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 197.701, 15.0045, 18.0245)
+
+[node name="ClimbableWall37" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 197.701, 15.0045, 157.515)
+
+[node name="ClimbableWall38" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 197.701, 15.0045, 113.806)
+
+[node name="ClimbableWall39" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 166.389, 15.0045, -27.7855)
+
+[node name="ClimbableWall40" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 166.389, 15.0045, -71.4942)
+
+[node name="ClimbableWall41" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 166.389, 15.0045, 61.7332)
+
+[node name="ClimbableWall42" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 166.389, 15.0045, 18.0245)
+
+[node name="ClimbableWall43" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 166.389, 15.0045, 157.515)
+
+[node name="ClimbableWall44" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 166.389, 15.0045, 113.806)
+
+[node name="ClimbableWall45" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 200.373, 41.758, -27.7855)
+
+[node name="ClimbableWall46" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 200.373, 41.758, -71.4942)
+
+[node name="ClimbableWall47" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 200.373, 41.758, 61.7332)
+
+[node name="ClimbableWall48" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 200.373, 41.758, 18.0245)
+
+[node name="ClimbableWall49" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 200.373, 41.758, 157.515)
+
+[node name="ClimbableWall50" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11307e-08, 1.39851, 1.39851, -6.11307e-08, 1.57931e-22, 6.11307e-08, 1.39851, -6.11307e-08, 200.373, 41.758, 113.806)
+
+[node name="ClimbableWall28" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 1.32493e-14, 2.33084, -1.01884e-07, -2.33084, 1.32493e-14, 4.45351e-15, 186.139, 28.6402, -49.2139)
+
+[node name="ClimbableWall29" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 1.32493e-14, 2.33084, -1.01884e-07, -2.33084, 1.32493e-14, 4.45351e-15, 186.139, 28.6402, -3.06827)
+
+[node name="ClimbableWall30" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 1.32493e-14, 2.33084, -1.01884e-07, -2.33084, 1.32493e-14, 4.45351e-15, 186.139, 28.6402, 43.3004)
+
+[node name="ClimbableWall31" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 1.32493e-14, 2.33084, -1.01884e-07, -2.33084, 1.32493e-14, 4.45351e-15, 186.139, 28.6402, 88.8811)
+
+[node name="ClimbableWall32" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 1.32493e-14, 2.33084, -1.01884e-07, -2.33084, 1.32493e-14, 4.45351e-15, 186.139, 28.6402, 134.526)
+
+[node name="ClimbableWall21" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, -2.03769e-07, 2.33084, -1.01884e-07, 0, -8.90702e-15, -2.03769e-07, -2.33084, 218.924, 24.3278, -43.7018)
+
+[node name="ClimbableWall22" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, -2.03769e-07, 2.33084, -1.01884e-07, 0, -8.90702e-15, -2.03769e-07, -2.33084, 218.924, 24.3278, 14.5356)
+
+[node name="ClimbableWall23" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, -2.03769e-07, 2.33084, -1.01884e-07, 0, -8.90702e-15, -2.03769e-07, -2.33084, 218.924, 24.3278, 72.7427)
+
+[node name="ClimbableWall24" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-2.76398e-14, -1.01884e-07, 2.33084, 2.33084, -1.01884e-07, 5.85542e-15, 1.01884e-07, 2.33084, 1.01884e-07, 149.382, 24.3278, 199.185)
+
+[node name="ClimbableWall27" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.65468e-14, 3.05653e-07, -2.33084, 2.33084, -1.01884e-07, 5.85542e-15, -1.01884e-07, -2.33084, -3.05653e-07, 91.6031, 24.3278, 199.815)
+
+[node name="ClimbableWall25" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20432e-08, 1.64816, 1.64816, 2.33084, -1.01884e-07, -6.71263e-21, 7.20432e-08, 1.64816, -1.64816, 198.864, 24.3278, 179.128)
+
+[node name="ClimbableWall26" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 1.01884e-07, 2.33084, -1.01884e-07, -2.33627e-21, 2.43275e-14, 1.01884e-07, -2.33084, 219.215, 24.3278, 130.087)
+
+[node name="ClimbableWall52" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 2.03769e-07, 2.33084, -1.01884e-07, 0, 8.90702e-15, 2.03769e-07, -2.33084, -128.753, 24.3278, -114.986)
+
+[node name="ClimbableWall53" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 2.03769e-07, 2.33084, -1.01884e-07, 0, 8.90702e-15, 2.03769e-07, -2.33084, -128.753, 24.3278, -56.7486)
+
+[node name="ClimbableWall54" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 2.03769e-07, 2.33084, -1.01884e-07, 0, 8.90702e-15, 2.03769e-07, -2.33084, -128.753, 24.3278, 1.4586)
+
+[node name="ClimbableWall55" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20432e-08, -1.64816, 1.64816, 2.33084, -1.01884e-07, 0, 7.20432e-08, 1.64816, 1.64816, -52.3955, 24.3278, -185.296)
+
+[node name="ClimbableWall56" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-8.90702e-15, -2.03769e-07, 2.33084, 2.33084, -1.01884e-07, 0, 1.01884e-07, 2.33084, 2.03769e-07, -3.22437, 24.3278, -164.489)
+
+[node name="ClimbableWall57" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20431e-08, 1.64816, 1.64816, 2.33084, -1.01884e-07, 0, 7.20432e-08, 1.64816, -1.64816, 45.8435, 24.3278, -184.775)
+
+[node name="ClimbableWall58" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20432e-08, 1.64816, -1.64816, 2.33084, -1.01884e-07, 5.85542e-15, -7.20432e-08, -1.64816, -1.64816, 45.8779, 24.3278, -82.0685)
+
+[node name="ClimbableWall59" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.7814e-14, 4.07538e-07, -2.33084, 2.33084, -1.01884e-07, -7.23932e-22, -1.01884e-07, -2.33084, -4.07538e-07, -3.29325, 24.3278, -102.875)
+
+[node name="ClimbableWall60" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20431e-08, -1.64816, -1.64816, 2.33084, -1.01884e-07, 0, -7.20432e-08, -1.64816, 1.64816, -52.3611, 24.3278, -82.5889)
+
+[node name="ClimbableWall61" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, -2.03769e-07, 2.33084, -1.01884e-07, 5.85542e-15, -1.55317e-14, -2.03769e-07, 2.33084, -72.5967, 24.3278, -33.0465)
+
+[node name="ClimbableWall62" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20432e-08, -1.64816, 1.64816, 2.33084, -1.01884e-07, 5.85542e-15, 7.20432e-08, 1.64816, 1.64816, -52.5398, 24.3278, 16.4352)
+
+[node name="ClimbableWall63" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.22193e-14, -2.03769e-07, 2.33084, 2.33084, -1.01884e-07, 0, 1.01884e-07, 2.33084, 2.03769e-07, -3.4992, 24.3278, 36.787)
+
+[node name="ClimbableWall98" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.22193e-14, -2.03769e-07, 2.33084, 2.33084, -1.01884e-07, 0, 1.01884e-07, 2.33084, 2.03769e-07, 93.6568, 24.3278, 55.0554)
+
+[node name="ClimbableWall64" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-4.54538e-14, -5.09422e-07, 2.33084, 2.33084, -1.01884e-07, 5.85542e-15, 1.01884e-07, 2.33084, 5.09422e-07, -198.295, 24.3278, 127.901)
+
+[node name="ClimbableWall65" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20432e-08, 1.64816, 1.64816, 2.33084, -1.01884e-07, -6.71263e-21, 7.20432e-08, 1.64816, -1.64816, -148.814, 24.3278, 107.844)
+
+[node name="ClimbableWall66" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 5.09422e-07, 2.33084, -1.01884e-07, -2.33627e-21, 4.21415e-14, 5.09422e-07, -2.33084, -128.462, 24.3278, 58.803)
+
+[node name="ClimbableWall100" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 2.03769e-07, 2.33084, -1.01884e-07, 0, 8.90702e-15, 2.03769e-07, -2.33084, 252.505, 24.3278, -115.986)
+
+[node name="ClimbableWall101" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 2.03769e-07, 2.33084, -1.01884e-07, 0, 8.90702e-15, 2.03769e-07, -2.33084, 252.505, 24.3278, -57.7486)
+
+[node name="ClimbableWall102" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 2.03769e-07, 2.33084, -1.01884e-07, 0, 8.90702e-15, 2.03769e-07, -2.33084, 252.505, 24.3278, 0.458595)
+
+[node name="ClimbableWall103" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 5.09422e-07, 2.33084, -1.01884e-07, -2.33627e-21, 4.21415e-14, 5.09422e-07, -2.33084, 252.796, 24.3278, 57.803)
+
+[node name="ClimbableWall104" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 2.03769e-07, 2.33084, -1.01884e-07, 0, 8.90702e-15, 2.03769e-07, -2.33084, 252.505, 24.3278, 115.622)
+
+[node name="ClimbableWall105" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 2.03769e-07, 2.33084, -1.01884e-07, 0, 8.90702e-15, 2.03769e-07, -2.33084, 252.505, 24.3278, 173.829)
+
+[node name="ClimbableWall106" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20432e-08, 1.64816, 1.64816, 2.33084, -1.01884e-07, 7.23932e-22, 7.20432e-08, 1.64816, -1.64816, 232.191, 24.3278, 223.697)
+
+[node name="ClimbableWall107" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20432e-08, 1.64816, 1.64816, 2.33084, -1.01884e-07, 7.23932e-22, 7.20432e-08, 1.64816, -1.64816, 191.032, 24.3278, 264.855)
+
+[node name="ClimbableWall108" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-4.26326e-14, -7.15256e-07, 2.33084, 2.33084, -1.01884e-07, 2.21446e-21, 1.01884e-07, 2.33084, 7.15256e-07, 140.39, 24.3278, 286.568)
+
+[node name="ClimbableWall109" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, -2.33084, 2.33084, -1.01884e-07, 7.23932e-22, -1.01884e-07, -2.33084, -1.01884e-07, 139.57, 24.3278, -285.741)
+
+[node name="ClimbableWall110" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20432e-08, 1.64816, -1.64816, 2.33084, -1.01884e-07, 5.85543e-15, -7.20432e-08, -1.64816, -1.64816, 189.438, 24.3278, -265.427)
+
+[node name="ClimbableWall111" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(7.20432e-08, 1.64816, -1.64816, 2.33084, -1.01884e-07, 5.85543e-15, -7.20432e-08, -1.64816, -1.64816, 230.596, 24.3278, -224.269)
+
+[node name="ClimbableWall112" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(1.01884e-07, 2.33084, 6.13371e-07, 2.33084, -1.01884e-07, 9.27096e-21, 4.64599e-14, 6.13371e-07, -2.33084, 252.309, 24.3278, -173.626)
+
+[node name="ClimbableWall113" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 2.84217e-14, 2.33084, -1.01884e-07, 7.23932e-22, 1.69407e-21, 2.84217e-14, 2.33084, -259.888, 24.3278, 116.991)
+
+[node name="ClimbableWall114" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 2.84217e-14, 2.33084, -1.01884e-07, 7.23932e-22, 1.69407e-21, 2.84217e-14, 2.33084, -259.888, 24.3278, 58.754)
+
+[node name="ClimbableWall115" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 2.84217e-14, 2.33084, -1.01884e-07, 7.23932e-22, 1.69407e-21, 2.84217e-14, 2.33084, -259.888, 24.3278, 0.546837)
+
+[node name="ClimbableWall116" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, -3.05653e-07, 2.33084, -1.01884e-07, 1.0859e-21, -3.32345e-14, -3.05653e-07, 2.33084, -260.179, 24.3278, -56.7976)
+
+[node name="ClimbableWall117" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 2.84217e-14, 2.33084, -1.01884e-07, 7.23932e-22, 1.69407e-21, 2.84217e-14, 2.33084, -259.888, 24.3278, -114.617)
+
+[node name="ClimbableWall118" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 2.84217e-14, 2.33084, -1.01884e-07, 7.23932e-22, 1.69407e-21, 2.84217e-14, 2.33084, -259.888, 24.3278, -172.824)
+
+[node name="ClimbableWall119" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20431e-08, -1.64816, -1.64816, 2.33084, -1.01884e-07, 5.85543e-15, -7.20432e-08, -1.64816, 1.64816, -239.574, 24.3278, -222.691)
+
+[node name="ClimbableWall120" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20431e-08, -1.64816, -1.64816, 2.33084, -1.01884e-07, 5.85543e-15, -7.20432e-08, -1.64816, 1.64816, -198.415, 24.3278, -263.85)
+
+[node name="ClimbableWall121" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.37256e-14, 5.11487e-07, -2.33084, 2.33084, -1.01884e-07, 9.51112e-21, -1.01884e-07, -2.33084, -5.11487e-07, -147.773, 24.3278, -285.563)
+
+[node name="ClimbableWall122" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 2.33084, -1.01884e-07, 1.67822e-21, 1.01884e-07, 2.33084, -1.01884e-07, -146.953, 24.3278, 286.747)
+
+[node name="ClimbableWall126" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.37256e-14, 5.11487e-07, -2.33084, 2.33084, -1.01884e-07, 9.51112e-21, -1.01884e-07, -2.33084, -5.11487e-07, -91.7728, 24.3278, -285.563)
+
+[node name="ClimbableWall127" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 2.33084, -1.01884e-07, 1.67822e-21, 1.01884e-07, 2.33084, -1.01884e-07, -90.9534, 24.3278, 286.747)
+
+[node name="ClimbableWall128" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.37256e-14, 5.11487e-07, -2.33084, 2.33084, -1.01884e-07, 9.51112e-21, -1.01884e-07, -2.33084, -5.11487e-07, -33.1649, 24.3278, -285.563)
+
+[node name="ClimbableWall129" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 2.33084, -1.01884e-07, 1.67822e-21, 1.01884e-07, 2.33084, -1.01884e-07, -32.3455, 24.3278, 286.747)
+
+[node name="ClimbableWall130" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.37256e-14, 5.11487e-07, -2.33084, 2.33084, -1.01884e-07, 9.51112e-21, -1.01884e-07, -2.33084, -5.11487e-07, 22.8351, 24.3278, -285.563)
+
+[node name="ClimbableWall131" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 2.33084, -1.01884e-07, 1.67822e-21, 1.01884e-07, 2.33084, -1.01884e-07, 23.6545, 24.3278, 286.747)
+
+[node name="ClimbableWall132" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.37256e-14, 5.11487e-07, -2.33084, 2.33084, -1.01884e-07, 9.51112e-21, -1.01884e-07, -2.33084, -5.11487e-07, 80.8351, 24.3278, -285.563)
+
+[node name="ClimbableWall133" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, 2.33084, 2.33084, -1.01884e-07, 1.67822e-21, 1.01884e-07, 2.33084, -1.01884e-07, 81.6545, 24.3278, 286.747)
+
+[node name="ClimbableWall123" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20432e-08, -1.64816, 1.64816, 2.33084, -1.01884e-07, 4.02341e-21, 7.20432e-08, 1.64816, 1.64816, -196.821, 24.3278, 266.433)
+
+[node name="ClimbableWall124" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20432e-08, -1.64816, 1.64816, 2.33084, -1.01884e-07, 4.02341e-21, 7.20432e-08, 1.64816, 1.64816, -237.979, 24.3278, 225.274)
+
+[node name="ClimbableWall125" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, -4.09602e-07, 2.33084, -1.01884e-07, 1.08495e-20, -3.75529e-14, -4.09602e-07, 2.33084, -259.693, 24.3278, 174.632)
+
+[node name="ClimbableWall67" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(4.45351e-15, 1.01884e-07, -2.33084, 2.33084, -1.01884e-07, 8.88403e-22, -1.01884e-07, -2.33084, -1.01884e-07, -227.101, 24.3278, 96.3225)
+
+[node name="ClimbableWall68" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -205.877, 15.0045, 22.1989)
+
+[node name="ClimbableWall69" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -205.877, 15.0045, 65.9076)
+
+[node name="ClimbableWall70" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -205.877, 15.0045, -67.3198)
+
+[node name="ClimbableWall71" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -205.877, 15.0045, -23.611)
+
+[node name="ClimbableWall72" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -205.877, 15.0045, -163.101)
+
+[node name="ClimbableWall73" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -205.877, 15.0045, -119.393)
+
+[node name="ClimbableWall74" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -174.566, 15.0045, 22.1989)
+
+[node name="ClimbableWall75" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -174.566, 15.0045, 65.9076)
+
+[node name="ClimbableWall76" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -174.566, 15.0045, -67.3198)
+
+[node name="ClimbableWall77" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -174.566, 15.0045, -23.611)
+
+[node name="ClimbableWall78" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -174.566, 15.0045, -163.101)
+
+[node name="ClimbableWall79" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -174.566, 15.0045, -119.393)
+
+[node name="ClimbableWall80" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -208.549, 41.758, 22.1989)
+
+[node name="ClimbableWall81" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -208.549, 41.758, 65.9076)
+
+[node name="ClimbableWall82" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -208.549, 41.758, -67.3198)
+
+[node name="ClimbableWall83" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -208.549, 41.758, -23.611)
+
+[node name="ClimbableWall84" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -208.549, 41.758, -163.101)
+
+[node name="ClimbableWall85" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(2.67211e-15, 6.11306e-08, -1.39851, 1.39851, -6.11307e-08, 2.36897e-22, -6.11307e-08, -1.39851, -6.11306e-08, -208.549, 41.758, -119.393)
+
+[node name="ClimbableWall86" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-2.03769e-07, -1.01884e-07, -2.33084, 1.32493e-14, 2.33084, -1.01884e-07, 2.33084, -2.21563e-14, -2.03769e-07, -194.315, 28.6402, 43.6273)
+
+[node name="ClimbableWall87" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-2.03769e-07, -1.01884e-07, -2.33084, 1.32493e-14, 2.33084, -1.01884e-07, 2.33084, -2.21563e-14, -2.03769e-07, -194.315, 28.6402, -2.5183)
+
+[node name="ClimbableWall88" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-2.03769e-07, -1.01884e-07, -2.33084, 1.32493e-14, 2.33084, -1.01884e-07, 2.33084, -2.21563e-14, -2.03769e-07, -194.315, 28.6402, -48.887)
+
+[node name="ClimbableWall89" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-2.03769e-07, -1.01884e-07, -2.33084, 1.32493e-14, 2.33084, -1.01884e-07, 2.33084, -2.21563e-14, -2.03769e-07, -194.315, 28.6402, -94.4676)
+
+[node name="ClimbableWall90" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-2.03769e-07, -1.01884e-07, -2.33084, 1.32493e-14, 2.33084, -1.01884e-07, 2.33084, -2.21563e-14, -2.03769e-07, -194.315, 28.6402, -140.112)
+
+[node name="ClimbableWall91" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 2.64986e-14, 2.33084, -1.01884e-07, 2.63218e-22, 0, 2.64986e-14, 2.33084, -227.101, 24.3278, 38.1153)
+
+[node name="ClimbableWall92" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 2.64986e-14, 2.33084, -1.01884e-07, 2.63218e-22, 0, 2.64986e-14, 2.33084, -227.101, 24.3278, -20.1222)
+
+[node name="ClimbableWall93" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, 2.64986e-14, 2.33084, -1.01884e-07, 2.63218e-22, 0, 2.64986e-14, 2.33084, -227.101, 24.3278, -78.3293)
+
+[node name="ClimbableWall94" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(3.65468e-14, 3.05653e-07, -2.33084, 2.33084, -1.01884e-07, 5.85542e-15, -1.01884e-07, -2.33084, -3.05653e-07, -157.558, 24.3278, -204.771)
+
+[node name="ClimbableWall95" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-4.54538e-14, -5.09422e-07, 2.33084, 2.33084, -1.01884e-07, 5.85542e-15, 1.01884e-07, 2.33084, 5.09422e-07, -99.7796, 24.3278, -204.888)
+
+[node name="ClimbableWall96" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-7.20432e-08, -1.64816, -1.64816, 2.33084, -1.01884e-07, -1.34253e-20, -7.20432e-08, -1.64816, 1.64816, -207.04, 24.3278, -184.714)
+
+[node name="ClimbableWall97" parent="Mall" instance=ExtResource("2_fep32")]
+transform = Transform3D(-1.01884e-07, -2.33084, -3.05653e-07, 2.33084, -1.01884e-07, -1.84269e-21, -3.32345e-14, -3.05653e-07, 2.33084, -227.392, 24.3278, -135.674)
+
+[node name="Floor-Roof" type="Node3D" parent="."]
+
+[node name="ClimbableWall4" parent="Floor-Roof" instance=ExtResource("3_ccysc")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, -6.42186, 0)
+
+[node name="ClimbableWall5" parent="Floor-Roof" instance=ExtResource("3_ccysc")]
+transform = Transform3D(-30, 2.62268e-06, 0, -2.62268e-06, -30, 0, 0, 0, 30, 0, 52.9842, 0)
+
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.721165, 0)
+
+[node name="Ceiling_Light_01" parent="Lights" instance=ExtResource("4_t0glr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67672, 45.7722, -2.50541)
+
+[node name="Ceiling_Light_02" parent="Lights" instance=ExtResource("4_t0glr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67672, 45.7722, -70.7989)
+
+[node name="Ceiling_Light_03" parent="Lights" instance=ExtResource("4_t0glr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67672, 45.7722, -131.356)
+
+[node name="Ceiling_Light_04" parent="Lights" instance=ExtResource("4_t0glr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67672, 45.7722, 64.9237)
+
+[node name="Ceiling_Light_05" parent="Lights" instance=ExtResource("4_t0glr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67672, 45.7722, 124.854)
+
+[node name="Ceiling_Light_06" parent="Lights" instance=ExtResource("4_t0glr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67672, 45.7722, 186.906)
+
+[node name="Ceiling_Light_07" parent="Lights" instance=ExtResource("4_t0glr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67672, 45.7722, -195.658)

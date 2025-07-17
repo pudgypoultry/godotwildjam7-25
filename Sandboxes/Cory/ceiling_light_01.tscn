@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://u83l8hycbpc1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_42rwx"]
+top_radius = 0.3
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4omrk"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.95, 0.494, 0.038, 1)
+emission_energy_multiplier = 12.41
+
+[node name="Ceiling_Light_01" type="Node3D"]
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.138866, 0)
+light_color = Color(1, 0.637333, 0.36, 1)
+light_size = 0.072
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 31.97
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_42rwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_4omrk")
