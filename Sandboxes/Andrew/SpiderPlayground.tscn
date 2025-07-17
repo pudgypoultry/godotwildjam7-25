@@ -61,7 +61,6 @@ climbDirection = NodePath("Marker3D")
 shape = SubResource("BoxShape3D_83q8s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbableWall2"]
-visible = false
 mesh = SubResource("BoxMesh_41bnt")
 
 [node name="Marker3D" type="Marker3D" parent="ClimbableWall2"]

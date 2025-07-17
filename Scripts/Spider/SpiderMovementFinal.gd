@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 @export_category("Game Rules")
 @export var gravityForce = 3
-@export var jumpForce : float = 50
+@export var baseJumpForce : float = 50
+@export var jumpForce : float = 10
 @export var mouseSensitivity : float = 0.005
 @export var movementSpeed : float = 5.0
 @export var rotationSpeed : float = 5.0
@@ -14,7 +15,9 @@ extends CharacterBody3D
 @export var attackChecker : Area3D
 @export var head : Node3D
 @export var headCamera : Camera3D
+@export var spawnRay : RayCast3D
 @export var spiderAnimation : Node3D
+@export var spiderlingCamera : PackedScene
 
 var animation_interp_factor := 0.3 # 1 = no interpolation, 0.1 = very slow transitions
 var jumpNum := 0
@@ -31,6 +34,9 @@ var originalUpDirection : Vector3
 var originalColliderPosition : Vector3
 var justStarted = true
 var currentTarget : Node3D = null
+var canSpawnSpider : bool = true
+var isActiveController : bool = true
+var spiderlingArray : Array[Node3D]
 
 
 func _ready() -> void:
@@ -65,18 +71,19 @@ func PlayerLost(body) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		headCamera.rotation.x += -event.relative.y * mouseSensitivity 
-		rotate(up_direction, -event.relative.x * mouseSensitivity * mouseSensMulti)
-	
-	if abs(headCamera.rotation_degrees.x) >= 360:
-		headCamera.rotation_degrees.x = 0
-	if abs(head.rotation_degrees.y) >= 360:
-		head.rotation_degrees.y = 0
-	if abs(headCamera.rotation_degrees.x) > 90:
-		mouseSensMulti = -1
-	else:
-		mouseSensMulti = 1
+	if isActiveController:
+		if event is InputEventMouseMotion:
+			headCamera.rotation.x += -event.relative.y * mouseSensitivity 
+			rotate(up_direction, -event.relative.x * mouseSensitivity * mouseSensMulti)
+		
+		if abs(headCamera.rotation_degrees.x) >= 360:
+			headCamera.rotation_degrees.x = 0
+		if abs(head.rotation_degrees.y) >= 360:
+			head.rotation_degrees.y = 0
+		if abs(headCamera.rotation_degrees.x) > 90:
+			mouseSensMulti = -1
+		else:
+			mouseSensMulti = 1
 
 
 
@@ -87,37 +94,43 @@ func _process(delta: float) -> void:
 
 func jump() -> void:
 	print("Trying to jump")
-	jumpVector = up_direction * jumpForce
-	up_direction = originalUpDirection
+	if up_direction == originalUpDirection:
+		jumpVector = up_direction * baseJumpForce
+	else:
+		jumpVector = up_direction * jumpForce
+		up_direction = originalUpDirection
 	gravityVector = up_direction * -gravityForce
 	jumping = true
 
 
 
 func _physics_process(delta: float) -> void:
-	velocity = movementSpeed * GetModelOrientedInput()
-	# checkRays()
-	# stop reorienting when we're close enough to the correct angle
-	if acos(basis.y.dot(up_direction)) < dotTolerance:
-		needsToReorient = false
-	if needsToReorient:
-		print("Trying to reorient")
-		OrientCharacterToDirection(up_direction, delta)
-	
-	if not is_on_floor():
-		if !needsToReorient:
-			jumpVector += gravityVector
-	elif is_on_floor() && jumping:
-		jumpVector = Vector3.ZERO
-		jumping = false
-	if Input.is_action_just_pressed("Jump"):
-		jump()
-		up_direction = originalUpDirection
-		needsToReorient = true
-		gravityVector = originalUpDirection * -gravityForce
-	velocity += jumpVector
-	move_and_slide()
-	Attack()
+	if isActiveController:
+		velocity = movementSpeed * GetModelOrientedInput()
+		# checkRays()
+		# stop reorienting when we're close enough to the correct angle
+		if acos(basis.y.dot(up_direction)) < dotTolerance:
+			needsToReorient = false
+		if needsToReorient:
+			print("Trying to reorient")
+			OrientCharacterToDirection(up_direction, delta)
+		
+		if not is_on_floor():
+			if !needsToReorient:
+				jumpVector += gravityVector
+		elif is_on_floor() && jumping:
+			jumpVector = Vector3.ZERO
+			jumping = false
+		if Input.is_action_just_pressed("Jump"):
+			jump()
+			up_direction = originalUpDirection
+			needsToReorient = true
+			gravityVector = originalUpDirection * -gravityForce
+		velocity += jumpVector
+		move_and_slide()
+		Attack()
+		SpawnSpider()
+		SwapToSpiderling()
 
 
 func OrientCharacterToDirection(direction : Vector3, delta : float):
@@ -168,8 +181,35 @@ func ProjectVecAToPlaneWithNormalVecB(vecA : Vector3, vecB : Vector3):
 
 
 func Attack():
-	if Input.is_action_just_pressed("Attack"):
+	if Input.is_action_just_pressed("Attack") && isActiveController:
 		if currentTarget:
 			print("Trying to kill " + currentTarget.name)
 			currentTarget.KillMe()
 			currentTarget = null
+
+
+func SpawnSpider():
+	if Input.is_action_just_pressed("SpawnSpider") && isActiveController:
+		print("Spawning dude")
+		if canSpawnSpider && spawnRay.is_colliding():
+			canSpawnSpider = false
+			var newSpiderling : Node3D = spiderlingCamera.instantiate()
+			get_tree().root.add_child(newSpiderling)
+			newSpiderling.global_position = spawnRay.get_collision_point()
+			newSpiderling.basis = basis
+			newSpiderling.parentSpider = self
+			spiderlingArray.append(newSpiderling)
+
+func SwapToSpiderling():
+	if Input.is_action_just_pressed("SwapPerspective") && isActiveController:
+		print("Swapping from parent")
+		if len(spiderlingArray) > 0:
+			isActiveController = false
+			# creating time since for some reason it just calls both
+			await get_tree().create_timer(0.05).timeout
+			spiderlingArray[0].MakeActiveController()
+
+
+func MakeActiveController():
+	headCamera.current = true
+	isActiveController = true
