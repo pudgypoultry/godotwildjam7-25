@@ -6,10 +6,18 @@ extends Area3D
 @export_category("Plugging in Nodes")
 @export var head : Node3D
 @export var headCamera : Camera3D
+@export var spiderAnimation : Node3D
 
 var mouseSensMulti := 1
 var isActiveController = false
 var parentSpider : CharacterBody3D = null
+
+func _ready():
+	var animationTree : AnimationTree
+	animationTree = spiderAnimation.Anim_Tree
+	var current_blend_pos : Vector2 = animationTree.get("parameters/blend_position")
+	#print("current blend pos: ", current_blend_pos, " current input: ", rawInput)
+	animationTree.set("parameters/blend_position", Vector2.ZERO)
 
 func _process(delta):
 	SwapBackToParentSpider()

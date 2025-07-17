@@ -5,10 +5,11 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0qwrr"]
 
-[node name="Spiderling" type="Area3D" node_paths=PackedStringArray("head", "headCamera")]
+[node name="Spiderling" type="Area3D" node_paths=PackedStringArray("head", "headCamera", "spiderAnimation")]
 script = ExtResource("1_qss24")
 head = NodePath("Head")
 headCamera = NodePath("Head/HeadCamera")
+spiderAnimation = NodePath("SpiderActor")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_0qwrr")
@@ -19,4 +20,4 @@ transform = Transform3D(0.111184, 0, 0, 0, 0.111184, 0, 0, 0, 0.111184, 0, 0, 0)
 [node name="Head" type="Node3D" parent="."]
 
 [node name="HeadCamera" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43393, 0.580547)
+transform = Transform3D(1, 0, 0, 0, 0.995416, 0.0956373, 0, -0.0956373, 0.995416, 0, 0.227884, 0.118501)
