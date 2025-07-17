@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dl7jlb8rwftgr"]
 
-[ext_resource type="Script" uid="uid://pf013qo52ltr" path="res://Sandboxes/Andrew/SpiderlingControl.gd" id="1_qss24"]
+[ext_resource type="Script" uid="uid://pf013qo52ltr" path="res://Scripts/CameraSpiderling/SpiderlingControl.gd" id="1_qss24"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_7d4ns"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0qwrr"]

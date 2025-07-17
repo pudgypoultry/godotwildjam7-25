@@ -35,6 +35,7 @@ var originalColliderPosition : Vector3
 var justStarted = true
 var currentTarget : Node3D = null
 var canSpawnSpider : bool = true
+var canSpawnWebbing : bool = true
 var isActiveController : bool = true
 var spiderlingArray : Array[Node3D]
 
@@ -131,6 +132,7 @@ func _physics_process(delta: float) -> void:
 		Attack()
 		SpawnSpider()
 		SwapToSpiderling()
+		SpawnWebbing()
 
 
 func OrientCharacterToDirection(direction : Vector3, delta : float):
@@ -199,6 +201,20 @@ func SpawnSpider():
 			newSpiderling.basis = basis
 			newSpiderling.parentSpider = self
 			spiderlingArray.append(newSpiderling)
+
+
+func SpawnWebbing():
+	if Input.is_action_just_pressed("SpawnWeb") && isActiveController:
+		print("Spawning webbing")
+		if canSpawnWebbing && spawnRay.is_colliding():
+			canSpawnSpider = false
+			var newSpiderling : Node3D = spiderlingCamera.instantiate()
+			get_tree().root.add_child(newSpiderling)
+			newSpiderling.global_position = spawnRay.get_collision_point()
+			newSpiderling.basis = basis
+			newSpiderling.parentSpider = self
+			spiderlingArray.append(newSpiderling)
+
 
 func SwapToSpiderling():
 	if Input.is_action_just_pressed("SwapPerspective") && isActiveController:

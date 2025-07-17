@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bws864di887eg" path="res://Scripts/Spider/SpiderMovementFinal.gd" id="1_a2ljo"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_a2ljo"]
-[ext_resource type="PackedScene" uid="uid://dl7jlb8rwftgr" path="res://Sandboxes/Andrew/Spiderling.tscn" id="2_dsk13"]
+[ext_resource type="PackedScene" uid="uid://dl7jlb8rwftgr" path="res://Scripts/CameraSpiderling/Spiderling.tscn" id="2_dsk13"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lfcr3"]
 
