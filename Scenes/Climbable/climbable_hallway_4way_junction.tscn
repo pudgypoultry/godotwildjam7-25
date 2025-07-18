@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7qn5pcyc7cou"]
+
+[ext_resource type="PackedScene" uid="uid://h4qfqqn0s712" path="res://Scenes/Climbable/climbable_wall_single.tscn" id="1_yiwi5"]
+
+[node name="climbable_hallway_stacked" type="Node3D"]
+
+[node name="climbable_wall_single" parent="." instance=ExtResource("1_yiwi5")]
+
+[node name="climbable_wall_single3" parent="." instance=ExtResource("1_yiwi5")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 10, 0)

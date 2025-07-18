@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://bp8jb8up5hwlt"]
+
+[ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Scripts/Spider/ClimbableWall.gd" id="1_fcbxy"]
+[ext_resource type="Material" uid="uid://cqy4q2exdnktp" path="res://Materials/climbable_wall_Mat.material" id="2_uolm4"]
+[ext_resource type="PackedScene" uid="uid://jml8r0cye2e" path="res://Scenes/Climbable/climbable_hallway_01.tscn" id="3_jie8e"]
+[ext_resource type="PackedScene" uid="uid://b77xa3vijt13p" path="res://Scenes/Climbable/climbable_wall_single_half.tscn" id="4_3jfp7"]
+[ext_resource type="PackedScene" uid="uid://h4qfqqn0s712" path="res://Scenes/Climbable/climbable_wall_single.tscn" id="5_rx6ak"]
+[ext_resource type="PackedScene" uid="uid://b3uunq61vblay" path="res://Scenes/Window.tscn" id="6_r5fku"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dc17i"]
+size = Vector3(20, 0.5, 26.5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_eng71"]
+size = Vector2(20, 26.5)
+
+[node name="climbable_ramp" type="Node3D"]
+
+[node name="climbable_ramp_single" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.891007, -0.453991, 0, 0.453991, 0.891007, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="climbable_ramp_single" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.19615, -3)
+script = ExtResource("1_fcbxy")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="climbable_ramp_single/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_dc17i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="climbable_ramp_single/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 0, 0)
+material_override = ExtResource("2_uolm4")
+mesh = SubResource("QuadMesh_eng71")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="climbable_ramp_single/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.58405, 0)
+
+[node name="climbable_ramp_single2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.866025, 0.5, 0, -0.5, -0.866025, 0.0942419, 29.8629, -0.00930536)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="climbable_ramp_single2" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.19615, -3)
+script = ExtResource("1_fcbxy")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="climbable_ramp_single2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_dc17i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="climbable_ramp_single2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0.5, 0.866026)
+material_override = ExtResource("2_uolm4")
+mesh = SubResource("QuadMesh_eng71")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="climbable_ramp_single2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.58405, 0)
+
+[node name="climbable_hallway_stacked" parent="." instance=ExtResource("3_jie8e")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 20)
+
+[node name="climbable_hallway_stacked2" parent="." instance=ExtResource("3_jie8e")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 12, -22)
+
+[node name="climbable_wall_single_half" parent="." instance=ExtResource("4_3jfp7")]
+transform = Transform3D(-1, -8.74228e-08, -1.14641e-14, 0, 1.31134e-07, -1, 8.74228e-08, -1, -1.31134e-07, 0, 20, 10)
+
+[node name="climbable_wall_single_half2" parent="." instance=ExtResource("4_3jfp7")]
+transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 32, -12)
+
+[node name="climbable_wall_single" parent="." instance=ExtResource("5_rx6ak")]
+transform = Transform3D(-5.24537e-08, 1.2, 0, -1.2, -1.54857e-08, 7.15256e-08, 0, 0, 1.2, -10, 10, 0)
+
+[node name="climbable_wall_single2" parent="." instance=ExtResource("5_rx6ak")]
+transform = Transform3D(5.24537e-08, -1.2, 1.04907e-07, -1.2, -1.54857e-08, 7.15256e-08, 4.58565e-15, -1.04907e-07, -1.2, 10, 10, 0)
+
+[node name="Window_Asset" parent="." instance=ExtResource("6_r5fku")]
+transform = Transform3D(2.5, 0, 0, 0, -1.09278e-07, 3.52739, 0, -2.5, -1.54187e-07, 0, 13.9705, 9.70523)
+
+[node name="Window_Asset2" parent="." instance=ExtResource("6_r5fku")]
+transform = Transform3D(-2.5, -2.18557e-07, -1.34795e-14, 0, -1.09278e-07, 3.52739, -2.18557e-07, 2.5, 1.54187e-07, 0, 26.13, -11.8041)
+
+[node name="climbable_wall_single_half3" parent="." instance=ExtResource("4_3jfp7")]
+transform = Transform3D(0, -1, -1.31134e-07, 3.67804e-15, 1.31134e-07, -1, 1, 0, 3.55271e-15, 10, 32, -2)
+
+[node name="climbable_wall_single_half4" parent="." instance=ExtResource("4_3jfp7")]
+transform = Transform3D(-8.74228e-08, 1, 1.31134e-07, 3.67804e-15, 1.31134e-07, -1, -1, -8.74228e-08, -1.50168e-14, -10, 32, -2)
