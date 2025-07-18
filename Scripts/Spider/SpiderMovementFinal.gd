@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export_category("Game Rules")
 @export var gravityForce = 3
+var originalGravityForce
 @export var baseJumpForce : float = 50
 @export var jumpForce : float = 10
 @export var mouseSensitivity : float = 0.005
@@ -11,6 +12,7 @@ extends CharacterBody3D
 @export var transitionDistance : float = 0.5
 
 @export_category("Plugging in Nodes")
+@export var spiderCollision : CollisionShape3D
 @export var collisionChecker : Area3D
 @export var attackChecker : Area3D
 @export var head : Node3D
@@ -18,6 +20,7 @@ extends CharacterBody3D
 @export var spawnRay : RayCast3D
 @export var spiderAnimation : Node3D
 @export var spiderlingCamera : PackedScene
+@export var webbingScene : PackedScene
 
 var animation_interp_factor := 0.3 # 1 = no interpolation, 0.1 = very slow transitions
 var jumpNum := 0
@@ -45,6 +48,7 @@ func _ready() -> void:
 	velocity = Vector3.ZERO
 	originalUpDirection = up_direction
 	originalColliderPosition = collisionChecker.position
+	originalGravityForce = gravityForce
 
 
 func BodyEntered(body) -> void:
@@ -115,6 +119,11 @@ func _physics_process(delta: float) -> void:
 		if needsToReorient:
 			print("Trying to reorient")
 			OrientCharacterToDirection(up_direction, delta)
+			spiderCollision.disabled = true
+			gravityForce = 0
+		else:
+			spiderCollision.disabled = false
+			gravityForce = originalGravityForce
 		
 		if not is_on_floor():
 			if !needsToReorient:
@@ -208,12 +217,16 @@ func SpawnWebbing():
 		print("Spawning webbing")
 		if canSpawnWebbing && spawnRay.is_colliding():
 			canSpawnSpider = false
-			var newSpiderling : Node3D = spiderlingCamera.instantiate()
-			get_tree().root.add_child(newSpiderling)
-			newSpiderling.global_position = spawnRay.get_collision_point()
-			newSpiderling.basis = basis
-			newSpiderling.parentSpider = self
-			spiderlingArray.append(newSpiderling)
+			var newWeb : Node3D = webbingScene.instantiate()
+			get_tree().root.add_child(newWeb)
+			newWeb.global_position = spawnRay.get_collision_point()
+			newWeb.basis = basis
+			newWeb.parentSpider = self
+
+
+func SenseWebbing():
+	pass
+	# if standing on webbing, go faster
 
 
 func SwapToSpiderling():

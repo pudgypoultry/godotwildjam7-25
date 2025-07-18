@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://h4qfqqn0s712"]
+[gd_scene load_steps=5 format=3 uid="uid://cgy8ydqlwhsku"]
 
 [ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Scripts/Spider/ClimbableWall.gd" id="1_llfs2"]
 [ext_resource type="Material" uid="uid://cqy4q2exdnktp" path="res://Materials/climbable_wall_Mat.material" id="2_q1xen"]
@@ -10,7 +10,6 @@ size = Vector3(20, 0.5, 25)
 size = Vector2(20, 25)
 
 [node name="ClimbableWall4" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
 script = ExtResource("1_llfs2")

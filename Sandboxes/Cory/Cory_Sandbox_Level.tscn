@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://3urq6owncb4e"]
 
 [ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Scenes/SpiderPlayer/SpiderController.tscn" id="1_vqsy8"]
-[ext_resource type="PackedScene" uid="uid://csrjey5pksccj" path="res://Sandboxes/Cory/climbable_wall.tscn" id="2_fep32"]
-[ext_resource type="PackedScene" uid="uid://h4qfqqn0s712" path="res://Sandboxes/Cory/climbable_wall_single.tscn" id="3_ccysc"]
+[ext_resource type="PackedScene" uid="uid://cf5yo0w1ukg2q" path="res://Sandboxes/Cory/climbable_wall.tscn" id="2_fep32"]
+[ext_resource type="PackedScene" uid="uid://cgy8ydqlwhsku" path="res://Sandboxes/Cory/climbable_wall_single.tscn" id="3_ccysc"]
 [ext_resource type="PackedScene" uid="uid://u83l8hycbpc1" path="res://Sandboxes/Cory/ceiling_light_01.tscn" id="4_t0glr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
