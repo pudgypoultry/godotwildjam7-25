@@ -27,7 +27,7 @@ spiderlingCamera = ExtResource("2_dsk13")
 webbingScene = ExtResource("2_dsk13")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-3.25302e-08, 0, 0.744205, 0, 0.744205, 0, -0.744205, 0, -3.25302e-08, -2.88332e-08, 0, -0.659627)
 shape = SubResource("SphereShape3D_lfcr3")
 
 [node name="CameraMount" type="Node3D" parent="."]
