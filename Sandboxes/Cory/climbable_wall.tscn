@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://csrjey5pksccj"]
+[gd_scene load_steps=5 format=3 uid="uid://cf5yo0w1ukg2q"]
 
 [ext_resource type="PackedScene" uid="uid://h4qfqqn0s712" path="res://Scenes/Climbable/climbable_wall_single.tscn" id="1_j6q72"]
 [ext_resource type="Material" uid="uid://cqy4q2exdnktp" path="res://Materials/climbable_wall_Mat.material" id="2_j6q72"]

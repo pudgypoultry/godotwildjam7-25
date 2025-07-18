@@ -11,11 +11,12 @@ radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fj6if"]
 
-[node name="SpiderController" type="CharacterBody3D" node_paths=PackedStringArray("collisionChecker", "attackChecker", "head", "headCamera", "spawnRay", "spiderAnimation")]
+[node name="SpiderController" type="CharacterBody3D" node_paths=PackedStringArray("spiderCollision", "collisionChecker", "attackChecker", "head", "headCamera", "spawnRay", "spiderAnimation")]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_a2ljo")
+spiderCollision = NodePath("CollisionShape3D")
 collisionChecker = NodePath("CollisionChecker")
 attackChecker = NodePath("AttackChecker")
 head = NodePath("CameraMount")
@@ -23,6 +24,7 @@ headCamera = NodePath("CameraMount/Camera3D")
 spawnRay = NodePath("UtilitySpawner/RayCast3D")
 spiderAnimation = NodePath("SpiderActor")
 spiderlingCamera = ExtResource("2_dsk13")
+webbingScene = ExtResource("2_dsk13")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -39,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 0.993795, 0.111226, 0, -0.111226, 0.993795, 
 shape = SubResource("SphereShape3D_a2ljo")
 
 [node name="SpiderActor" parent="." instance=ExtResource("2_a2ljo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.208656, 0)
 
 [node name="AttackChecker" type="Area3D" parent="."]
 transform = Transform3D(2.15505, 0, 0, 0, 2.15505, 0, 0, 0, 2.15505, 0, 0.819745, -2.12513)
