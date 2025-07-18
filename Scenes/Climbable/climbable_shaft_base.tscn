@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://ggv8ikw1m42u"]
+
+[ext_resource type="PackedScene" uid="uid://cgy8ydqlwhsku" path="res://Scenes/Climbable/climbable_wall_single.tscn" id="1_6iach"]
+[ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Scripts/Spider/ClimbableWall.gd" id="2_fuwpl"]
+[ext_resource type="Material" uid="uid://cqy4q2exdnktp" path="res://Materials/climbable_wall_Mat.material" id="3_vfmkm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkplm"]
+size = Vector3(20, 0.5, 12)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1hib6"]
+size = Vector2(20, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cki6b"]
+size = Vector3(20, 0.5, 2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_bnrtj"]
+size = Vector2(20, 2)
+
+[node name="climbable_shaft_base" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="climbable_wall_single" parent="." instance=ExtResource("1_6iach")]
+
+[node name="climbable_wall_single_half" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4, -10)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="climbable_wall_single_half" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, 0, -7)
+script = ExtResource("2_fuwpl")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="climbable_wall_single_half/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, -0.249999, 5)
+shape = SubResource("BoxShape3D_mkplm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="climbable_wall_single_half/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.90735e-06, 5)
+material_override = ExtResource("3_vfmkm")
+mesh = SubResource("QuadMesh_1hib6")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="climbable_wall_single_half/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, 5.58405, 5)
+
+[node name="climbable_wall_single_half2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -10, 4, 4.37114e-07)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="climbable_wall_single_half2" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, 0, -7)
+script = ExtResource("2_fuwpl")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="climbable_wall_single_half2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, -0.249999, 5)
+shape = SubResource("BoxShape3D_mkplm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="climbable_wall_single_half2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.90735e-06, 5)
+material_override = ExtResource("3_vfmkm")
+mesh = SubResource("QuadMesh_1hib6")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="climbable_wall_single_half2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, 5.58405, 5)
+
+[node name="climbable_wall_single_half3" type="Node3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 4.37114e-07, 4, 10)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="climbable_wall_single_half3" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, 0, -7)
+script = ExtResource("2_fuwpl")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="climbable_wall_single_half3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, -0.249999, 5)
+shape = SubResource("BoxShape3D_mkplm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="climbable_wall_single_half3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.90735e-06, 5)
+material_override = ExtResource("3_vfmkm")
+mesh = SubResource("QuadMesh_1hib6")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="climbable_wall_single_half3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, 5.58405, 5)
+
+[node name="climbable_wall_single_half7" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91068e-15, 10, 9, -4.37114e-07)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="climbable_wall_single_half7" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, 0, -7)
+script = ExtResource("2_fuwpl")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="climbable_wall_single_half7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, -0.249999, 5)
+shape = SubResource("BoxShape3D_cki6b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="climbable_wall_single_half7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.90735e-06, 5)
+material_override = ExtResource("3_vfmkm")
+mesh = SubResource("QuadMesh_bnrtj")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="climbable_wall_single_half7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, 0, 5.58405, 5)

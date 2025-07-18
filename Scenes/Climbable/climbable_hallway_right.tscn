@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg6rp5ee115au"]
+
+[ext_resource type="PackedScene" uid="uid://cgy8ydqlwhsku" path="res://Scenes/Climbable/climbable_wall_single.tscn" id="1_qqk3w"]
+[ext_resource type="PackedScene" uid="uid://b77xa3vijt13p" path="res://Scenes/Climbable/climbable_wall_single_half.tscn" id="2_i4bor"]
+
+[node name="climbable_hallway_stacked" type="Node3D"]
+
+[node name="climbable_wall_single" parent="." instance=ExtResource("1_qqk3w")]
+
+[node name="climbable_wall_single3" parent="." instance=ExtResource("1_qqk3w")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 10, 0)
+
+[node name="climbable_wall_single_half2" parent="." instance=ExtResource("2_i4bor")]
+transform = Transform3D(1.31134e-07, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, 1.31134e-07, -5.73206e-15, -10, 10, 0)
+
+[node name="climbable_wall_single_half3" parent="." instance=ExtResource("2_i4bor")]
+transform = Transform3D(1, -1.74845e-07, 7.64275e-15, 0, -4.37114e-08, -1, 1.74845e-07, 1, -4.37114e-08, 0, 10, -10)

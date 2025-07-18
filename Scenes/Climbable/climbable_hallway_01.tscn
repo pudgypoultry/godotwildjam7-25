@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://jml8r0cye2e"]
 
-[ext_resource type="PackedScene" uid="uid://h4qfqqn0s712" path="res://Scenes/Climbable/climbable_wall_single.tscn" id="1_a7r71"]
+[ext_resource type="PackedScene" uid="uid://cgy8ydqlwhsku" path="res://Scenes/Climbable/climbable_wall_single.tscn" id="1_a7r71"]
 [ext_resource type="PackedScene" uid="uid://b77xa3vijt13p" path="res://Scenes/Climbable/climbable_wall_single_half.tscn" id="2_aaol3"]
 
 [node name="climbable_hallway_stacked" type="Node3D"]

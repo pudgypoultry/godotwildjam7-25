@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3urq6owncb4e"]
+[gd_scene load_steps=14 format=3 uid="uid://3urq6owncb4e"]
 
 [ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Scenes/SpiderPlayer/SpiderController.tscn" id="1_vqsy8"]
 [ext_resource type="PackedScene" uid="uid://jml8r0cye2e" path="res://Scenes/Climbable/climbable_hallway_01.tscn" id="2_t0glr"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bp8jb8up5hwlt" path="res://Scenes/Climbable/climbable_ramp_hallway.tscn" id="4_q7451"]
 [ext_resource type="PackedScene" uid="uid://c7qn5pcyc7cou" path="res://Scenes/Climbable/climbable_hallway_4way_junction.tscn" id="5_kfdvg"]
 [ext_resource type="PackedScene" uid="uid://ch831xpyj3tt6" path="res://Scenes/Climbable/column.tscn" id="5_t0glr"]
+[ext_resource type="PackedScene" uid="uid://dg6rp5ee115au" path="res://Scenes/Climbable/climbable_hallway_right.tscn" id="7_68fjc"]
+[ext_resource type="PackedScene" uid="uid://ggv8ikw1m42u" path="res://Scenes/Climbable/climbable_shaft_base.tscn" id="8_mi2vx"]
+[ext_resource type="PackedScene" uid="uid://du2w4ji1h06i1" path="res://Scenes/Climbable/climbable_shaft_mid.tscn" id="9_tuuhh"]
+[ext_resource type="PackedScene" uid="uid://dpstxx8vkncfr" path="res://Scenes/Climbable/climbable_shaft_top.tscn" id="10_hpvs8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -29,34 +33,38 @@ shadow_enabled = true
 environment = SubResource("Environment_ccysc")
 
 [node name="SpiderController" parent="." instance=ExtResource("1_vqsy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="World" type="Node3D" parent="."]
 
 [node name="mall-section-01" type="Node3D" parent="World"]
 
 [node name="climbable_hallway_stacked" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 18)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 1, 18)
 
 [node name="climbable_hallway_stacked3" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 0, 38)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 22, 1, 38)
 
 [node name="climbable_hallway_stacked4" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0, 38)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 1, 38)
 
 [node name="climbable_hallway_stacked2" parent="World/mall-section-01" instance=ExtResource("3_0egql")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 38)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 1, 38)
 
 [node name="climbable_ramp" parent="World/mall-section-01" instance=ExtResource("4_q7451")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -20)
 
 [node name="climbable_ramp2" parent="World/mall-section-01" instance=ExtResource("4_q7451")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 62, -12, 38)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 63, -12, 38)
 
 [node name="climbable_hallway_stacked5" parent="World/mall-section-01" instance=ExtResource("5_kfdvg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, -12, 38)
 
 [node name="climbable_hallway_stacked6" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102, -12, 18)
+
+[node name="climbable_hallway_stacked13" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 82, -12, -2)
 
 [node name="climbable_hallway_stacked7" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102, -12, 58)
@@ -66,3 +74,33 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 122, -
 
 [node name="Column" parent="World/mall-section-01" instance=ExtResource("5_t0glr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 36)
+
+[node name="climbable_hallway_stacked9" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102, -12, -2)
+
+[node name="climbable_hallway_stacked10" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 14, -62)
+
+[node name="climbable_hallway_stacked11" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42, 14, -62)
+
+[node name="climbable_hallway_stacked15" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 42, 14, -22)
+
+[node name="climbable_hallway_stacked16" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 62, 14, -22)
+
+[node name="climbable_hallway_stacked12" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 14, -62)
+
+[node name="climbable_hallway_stacked14" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42, 14, -42)
+
+[node name="climbable_shaft_base" parent="World/mall-section-01" instance=ExtResource("8_mi2vx")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 62, -12, -2)
+
+[node name="climbable_shaft_mid" parent="World/mall-section-01" instance=ExtResource("9_tuuhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 0, -2)
+
+[node name="climbable_shaft_top" parent="World/mall-section-01" instance=ExtResource("10_hpvs8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 62, 12, -2)
