@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccfwrjsxc26mo"]
+[gd_scene load_steps=7 format=3 uid="uid://1v6iq7d5a8rg"]
 
-[ext_resource type="Script" uid="uid://djxdmtsp2ecol" path="res://Scripts/CameraSpiderling/SpiderControlRedux.gd" id="1_pxwkk"]
+[ext_resource type="Script" path="res://Scripts/CameraSpiderling/SpiderControlRedux.gd" id="1_pxwkk"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_7blp2"]
-[ext_resource type="PackedScene" uid="uid://dl7jlb8rwftgr" path="res://Scenes/SpiderPlayer/Spiderling.tscn" id="2_acyfo"]
+[ext_resource type="PackedScene" path="res://Scripts/CameraSpiderling/Spiderling.tscn" id="2_acyfo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7blp2"]
 radius = 1.25
@@ -59,6 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82571, 2.43965)
 target_position = Vector3(0, -3, 0)
 
 [node name="RayFolder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00648648, 0.264776)
 
 [node name="UP" type="RayCast3D" parent="RayFolder"]
 target_position = Vector3(0, 3, 0)
@@ -85,6 +86,38 @@ target_position = Vector3(0, 3, 0)
 
 [node name="RayCast3D5" type="RayCast3D" parent="RayFolder"]
 transform = Transform3D(0, 0.707107, 0.707107, -1, 0, 0, 0, -0.707107, 0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D25" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, 0.258819, 0.965926, -0.965926, 0.25, -0.0669873, -0.258819, -0.933013, 0.25, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D29" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0.0669873, 0.491482, 0.868308, -0.965926, 0.25, -0.0669873, -0.25, -0.834234, 0.491482, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D30" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-0.183013, -0.476727, 0.85979, -0.965926, 0.25, -0.0669873, -0.183013, -0.842752, -0.506236, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D27" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0.183013, 0.842753, 0.506236, -0.965926, 0.25, -0.0669873, -0.183013, -0.476727, 0.85979, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D31" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0.224144, 0.937423, 0.266457, -0.965926, 0.25, -0.0669873, -0.12941, -0.242363, 0.961517, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D32" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-0.258819, -0.933013, 0.25, -0.965926, 0.25, -0.0669873, -7.45058e-09, -0.258819, -0.965926, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D28" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-0.25, -0.834234, 0.491482, -0.965926, 0.25, -0.0669873, -0.0669873, -0.491481, -0.868308, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D26" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, -0.258819, 0.965926, -0.965926, 0.25, 0.0669873, -0.258819, -0.933013, -0.25, 0, 0, 0)
 target_position = Vector3(0, 3, 0)
 
 [node name="RayCast3D6" type="RayCast3D" parent="RayFolder"]
