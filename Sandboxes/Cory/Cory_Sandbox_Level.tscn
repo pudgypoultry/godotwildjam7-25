@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://3urq6owncb4e"]
 
 [ext_resource type="PackedScene" uid="uid://cbjlg73v3v262" path="res://Scenes/mall_level.tscn" id="1_vqsy8"]
-[ext_resource type="LightmapGIData" uid="uid://ru3multrw3qr" path="res://Sandboxes/Cory/Cory_Sandbox_Level.lmbake" id="4_ccysc"]
+[ext_resource type="LightmapGIData" uid="uid://bnw4wxh25atw4" path="res://Scenes/LightmapData/CorySandbox/corysandbox_lightmap_gi_data.tres" id="3_fep32"]
 [ext_resource type="PackedScene" uid="uid://1v6iq7d5a8rg" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="21_da7aj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
@@ -36,4 +36,4 @@ supersampling = true
 directional = true
 interior = true
 generate_probes_subdiv = 4
-light_data = ExtResource("4_ccysc")
+light_data = ExtResource("3_fep32")
