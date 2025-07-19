@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://3urq6owncb4e"]
+[gd_scene load_steps=15 format=3 uid="uid://3urq6owncb4e"]
 
 [ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Scenes/SpiderPlayer/SpiderController.tscn" id="1_vqsy8"]
 [ext_resource type="PackedScene" uid="uid://jml8r0cye2e" path="res://Scenes/Climbable/climbable_hallway_01.tscn" id="2_t0glr"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ggv8ikw1m42u" path="res://Scenes/Climbable/climbable_shaft_base.tscn" id="8_mi2vx"]
 [ext_resource type="PackedScene" uid="uid://du2w4ji1h06i1" path="res://Scenes/Climbable/climbable_shaft_mid.tscn" id="9_tuuhh"]
 [ext_resource type="PackedScene" uid="uid://dpstxx8vkncfr" path="res://Scenes/Climbable/climbable_shaft_top.tscn" id="10_hpvs8"]
+[ext_resource type="PackedScene" uid="uid://li6nk4mc48mt" path="res://Scenes/Climbable/store_fronts_section.tscn" id="11_mi2vx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -33,7 +34,7 @@ shadow_enabled = true
 environment = SubResource("Environment_ccysc")
 
 [node name="SpiderController" parent="." instance=ExtResource("1_vqsy8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="World" type="Node3D" parent="."]
 
@@ -104,3 +105,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 0, -2)
 
 [node name="climbable_shaft_top" parent="World/mall-section-01" instance=ExtResource("10_hpvs8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 62, 12, -2)
+
+[node name="store_fronts_section" parent="World/mall-section-01" instance=ExtResource("11_mi2vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132, -12, 68)
+
+[node name="store_fronts_section2" parent="World/mall-section-01" instance=ExtResource("11_mi2vx")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 132, -12, 168)
