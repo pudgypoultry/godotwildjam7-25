@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://3gs752pk6yef"]
+
+[ext_resource type="PackedScene" uid="uid://ov87avxda5uo" path="res://Assets/Models/clutter_box_01.glb" id="2_2b4yk"]
+[ext_resource type="PackedScene" uid="uid://cjemtx4hq5xmn" path="res://Assets/Models/clutter_plant_01.glb" id="2_nrcn5"]
+[ext_resource type="PackedScene" uid="uid://hn3kmt40ii4s" path="res://Assets/Models/clutter_web_03.glb" id="3_2b4yk"]
+
+[node name="Clutter Pile 01" type="Node3D"]
+
+[node name="clutter_box_01" parent="." instance=ExtResource("2_2b4yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97867, 4.76837e-07, -5.54336)
+
+[node name="clutter_box_02" parent="." instance=ExtResource("2_2b4yk")]
+transform = Transform3D(0.868598, 0, 1.09566, 0, 0.762323, 0, -1.0413, 0, 0.913941, -2.27797, 0, 0.949944)
+
+[node name="clutter_box_03" parent="." instance=ExtResource("2_2b4yk")]
+transform = Transform3D(0.421426, 0, 0.531593, 0, 1.23159, 0, -0.50522, 0, 0.443426, 0.292462, 0, -3.7416)
+
+[node name="clutter_box_04" parent="." instance=ExtResource("2_2b4yk")]
+transform = Transform3D(0.605639, 0, 0.763962, 0, 1.48654, 0, -0.72606, 0, 0.637255, 0.374204, 0, 2.14813)
+
+[node name="clutter_plant_01" parent="." instance=ExtResource("2_nrcn5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.85499, -4.76837e-07, -4.52065)
+
+[node name="clutter_plant_02" parent="." instance=ExtResource("2_nrcn5")]
+transform = Transform3D(0.361576, 0, -1.15612, 0, 1.21134, 0, 1.15612, 0, 0.361576, -1.84488, -4.76837e-07, 3.47407)
+
+[node name="clutter_web_03" parent="." instance=ExtResource("3_2b4yk")]
+transform = Transform3D(2.57511, 0.291498, 2.29894, 1.83866, 1.83481, -2.29218, -1.41047, 2.924, 1.20916, 2.59705, 0.835584, -4.08126)
+
+[node name="clutter_web_04" parent="." instance=ExtResource("3_2b4yk")]
+transform = Transform3D(3.10372, -1.20348, 0.959077, -0.0501215, -2.23694, -2.64478, 1.53808, 2.35563, -2.02153, -0.288471, 0.835584, 1.61822)

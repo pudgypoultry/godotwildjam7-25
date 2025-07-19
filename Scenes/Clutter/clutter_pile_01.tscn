@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://gnts3gt0apwl"]
+
+[ext_resource type="PackedScene" uid="uid://bw6ooyils43at" path="res://Assets/Models/clutter_trash_01.glb" id="1_swo03"]
+[ext_resource type="PackedScene" uid="uid://cjemtx4hq5xmn" path="res://Assets/Models/clutter_plant_01.glb" id="2_eo8dk"]
+[ext_resource type="PackedScene" uid="uid://ov87avxda5uo" path="res://Assets/Models/clutter_box_01.glb" id="3_kgojd"]
+[ext_resource type="PackedScene" uid="uid://d0vq4ph84ji6r" path="res://Assets/Models/clutter_web_01.glb" id="4_kgojd"]
+[ext_resource type="PackedScene" uid="uid://hn3kmt40ii4s" path="res://Assets/Models/clutter_web_03.glb" id="5_qvhct"]
+
+[node name="Clutter Pile 01" type="Node3D"]
+
+[node name="clutter_trash_01" parent="." instance=ExtResource("1_swo03")]
+transform = Transform3D(0.745777, 0, 0, 0, 0.745777, 0, 0, 0, 0.745777, 0, 0, -0.382089)
+
+[node name="clutter_plant_01" parent="." instance=ExtResource("2_eo8dk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67565, 0, 0)
+
+[node name="clutter_box_01" parent="." instance=ExtResource("3_kgojd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.88272, 0, 0.949944)
+
+[node name="clutter_box_02" parent="." instance=ExtResource("3_kgojd")]
+transform = Transform3D(0.868598, 0, 1.09566, 0, 0.762323, 0, -1.0413, 0, 0.913941, -2.27797, 0, 0.949944)
+
+[node name="clutter_box_03" parent="." instance=ExtResource("3_kgojd")]
+transform = Transform3D(0.421426, 0, 0.531593, 0, 1.23159, 0, -0.50522, 0, 0.443426, 0.292462, 0, 2.47705)
+
+[node name="clutter_web_01" parent="." instance=ExtResource("4_kgojd")]
+transform = Transform3D(2.58834, 0, 0, 0, 1.90441, 1.75292, 0, -1.75292, 1.90441, 1.35146, 0.880064, -1.05181)
+
+[node name="clutter_web_03" parent="." instance=ExtResource("5_qvhct")]
+transform = Transform3D(-1.94912, -1.35875, -1.19832, -3.8249e-08, 1.76014, -1.99579, 1.81168, -1.46183, -1.28923, -2.52624, 0.601642, -0.377607)
+
+[node name="clutter_web_04" parent="." instance=ExtResource("5_qvhct")]
+transform = Transform3D(2.48179, -0.82599, -0.52925, -9.22412e-08, 2.01887, -1.66314, 0.960183, 2.13494, 1.36796, -0.860967, 0.601642, 1.7079)

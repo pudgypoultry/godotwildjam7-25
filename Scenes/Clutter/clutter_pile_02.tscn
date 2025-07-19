@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://s6sxw6i0kqtr"]
+
+[ext_resource type="PackedScene" uid="uid://bw6ooyils43at" path="res://Assets/Models/clutter_trash_01.glb" id="1_6om6v"]
+[ext_resource type="PackedScene" uid="uid://ov87avxda5uo" path="res://Assets/Models/clutter_box_01.glb" id="3_2p4cc"]
+[ext_resource type="PackedScene" uid="uid://b3k5l2ucr6hnq" path="res://Assets/Models/clutter_web_02.glb" id="3_6om6v"]
+
+[node name="Clutter Pile 01" type="Node3D"]
+
+[node name="clutter_trash_01" parent="." instance=ExtResource("1_6om6v")]
+transform = Transform3D(0.745777, 0, 0, 0, 0.745777, 0, 0, 0, 0.745777, 0, 0, -0.382089)
+
+[node name="clutter_trash_02" parent="." instance=ExtResource("1_6om6v")]
+transform = Transform3D(0.250246, 0, -0.702538, 0, 0.745777, 0, 0.702538, 0, 0.250246, 3.01255, 0, -3.27663)
+
+[node name="clutter_trash_03" parent="." instance=ExtResource("1_6om6v")]
+transform = Transform3D(0.483293, 0, 0.567988, 0, 0.745777, 0, -0.567988, 0, 0.483293, -2.57778, 0, 2.97457)
+
+[node name="clutter_box_01" parent="." instance=ExtResource("3_2p4cc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97867, 4.76837e-07, -5.54336)
+
+[node name="clutter_box_02" parent="." instance=ExtResource("3_2p4cc")]
+transform = Transform3D(0.868598, 0, 1.09566, 0, 0.762323, 0, -1.0413, 0, 0.913941, -2.27797, 0, 0.949944)
+
+[node name="clutter_box_03" parent="." instance=ExtResource("3_2p4cc")]
+transform = Transform3D(0.421426, 0, 0.531593, 0, 1.23159, 0, -0.50522, 0, 0.443426, 0.292462, 0, -3.7416)
+
+[node name="clutter_web_02" parent="." instance=ExtResource("3_6om6v")]
+transform = Transform3D(1.68151, 0.675423, -1.7208, 0.558322, 2.03201, 1.34315, 1.76228, -1.28824, 1.2164, 3.02143, 0.578043, -5.73891)
+
+[node name="clutter_web_03" parent="." instance=ExtResource("3_6om6v")]
+transform = Transform3D(1.4155, -1.49738, 1.41388, 1.71961e-07, 1.71565, 1.81698, -2.05942, -1.0292, 0.971803, -0.585804, 0.442616, -2.71898)

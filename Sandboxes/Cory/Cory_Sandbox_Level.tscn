@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://3urq6owncb4e"]
+[gd_scene load_steps=25 format=3 uid="uid://3urq6owncb4e"]
 
 [ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Scenes/SpiderPlayer/SpiderController.tscn" id="1_vqsy8"]
 [ext_resource type="PackedScene" uid="uid://jml8r0cye2e" path="res://Scenes/Climbable/climbable_hallway_01.tscn" id="2_t0glr"]
@@ -15,6 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://rsa7s2fy2jgw" path="res://Scenes/Climbable/climbable_shaft_mid_exit.tscn" id="13_jrol3"]
 [ext_resource type="PackedScene" uid="uid://b77xa3vijt13p" path="res://Scenes/Climbable/climbable_wall_single_half.tscn" id="14_br7gk"]
 [ext_resource type="PackedScene" uid="uid://dy6sfofvnum2d" path="res://Scenes/Entry.tscn" id="15_c0to6"]
+[ext_resource type="PackedScene" uid="uid://3gs752pk6yef" path="res://Scenes/Clutter/clutter_pile_03.tscn" id="16_w55ic"]
+[ext_resource type="PackedScene" uid="uid://gnts3gt0apwl" path="res://Scenes/Clutter/clutter_pile_01.tscn" id="17_h78j2"]
+[ext_resource type="PackedScene" uid="uid://s6sxw6i0kqtr" path="res://Scenes/Clutter/clutter_pile_02.tscn" id="18_1fey8"]
+[ext_resource type="PackedScene" uid="uid://hn3kmt40ii4s" path="res://Assets/Models/clutter_web_03.glb" id="19_da7aj"]
+[ext_resource type="PackedScene" uid="uid://b3k5l2ucr6hnq" path="res://Assets/Models/clutter_web_02.glb" id="20_cgffd"]
+[ext_resource type="PackedScene" uid="uid://d0vq4ph84ji6r" path="res://Assets/Models/clutter_web_01.glb" id="21_02yj0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -42,367 +48,506 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="mall-section-01" type="Node3D" parent="World"]
+[node name="mall" type="Node3D" parent="World"]
 
-[node name="climbable_hallway_stacked" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 1, 18)
 
-[node name="climbable_hallway_stacked3" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked3" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 22, 1, 38)
 
-[node name="climbable_hallway_stacked4" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked4" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 1, 38)
 
-[node name="climbable_hallway_stacked26" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked26" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -218, -38, 58)
 
-[node name="climbable_hallway_stacked2" parent="World/mall-section-01" instance=ExtResource("3_0egql")]
+[node name="climbable_hallway_stacked2" parent="World/mall" instance=ExtResource("3_0egql")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 1, 38)
 
-[node name="climbable_hallway_stacked56" parent="World/mall-section-01" instance=ExtResource("3_0egql")]
+[node name="climbable_hallway_stacked56" parent="World/mall" instance=ExtResource("3_0egql")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -18, -38, 78)
 
-[node name="climbable_hallway_stacked24" parent="World/mall-section-01" instance=ExtResource("3_0egql")]
+[node name="climbable_hallway_stacked24" parent="World/mall" instance=ExtResource("3_0egql")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 62, 26, 58)
 
-[node name="climbable_hallway_stacked30" parent="World/mall-section-01" instance=ExtResource("3_0egql")]
+[node name="climbable_hallway_stacked30" parent="World/mall" instance=ExtResource("3_0egql")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -38, 26, 58)
 
-[node name="climbable_ramp" parent="World/mall-section-01" instance=ExtResource("4_q7451")]
+[node name="climbable_ramp" parent="World/mall" instance=ExtResource("4_q7451")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -20)
 
-[node name="climbable_ramp3" parent="World/mall-section-01" instance=ExtResource("4_q7451")]
+[node name="climbable_ramp3" parent="World/mall" instance=ExtResource("4_q7451")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -60, -12, 38)
 
-[node name="climbable_ramp6" parent="World/mall-section-01" instance=ExtResource("4_q7451")]
+[node name="climbable_ramp6" parent="World/mall" instance=ExtResource("4_q7451")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, -25, 158)
 
-[node name="climbable_ramp7" parent="World/mall-section-01" instance=ExtResource("4_q7451")]
+[node name="climbable_ramp7" parent="World/mall" instance=ExtResource("4_q7451")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, -38, 117)
 
-[node name="climbable_ramp4" parent="World/mall-section-01" instance=ExtResource("4_q7451")]
+[node name="climbable_ramp4" parent="World/mall" instance=ExtResource("4_q7451")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -121, -25, 38)
 
-[node name="climbable_ramp5" parent="World/mall-section-01" instance=ExtResource("4_q7451")]
+[node name="climbable_ramp5" parent="World/mall" instance=ExtResource("4_q7451")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -179, -38, 38)
 
-[node name="climbable_ramp2" parent="World/mall-section-01" instance=ExtResource("4_q7451")]
+[node name="climbable_ramp2" parent="World/mall" instance=ExtResource("4_q7451")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 63, -12, 38)
 
-[node name="climbable_hallway_stacked5" parent="World/mall-section-01" instance=ExtResource("5_kfdvg")]
+[node name="climbable_hallway_stacked5" parent="World/mall" instance=ExtResource("5_kfdvg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, -12, 38)
 
-[node name="climbable_hallway_stacked6" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked6" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102, -12, 18)
 
-[node name="climbable_hallway_stacked65" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked65" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 122, -12, 178)
 
-[node name="climbable_hallway_stacked71" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked71" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, -12, 178)
 
-[node name="climbable_hallway_stacked13" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked13" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 82, -12, -2)
 
-[node name="climbable_hallway_stacked7" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked7" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102, -12, 58)
 
-[node name="climbable_hallway_stacked17" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked17" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 142, -12, 58)
 
-[node name="climbable_hallway_stacked8" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked8" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 122, -12, 38)
 
-[node name="Column" parent="World/mall-section-01" instance=ExtResource("5_t0glr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 36)
+[node name="Column" parent="World/mall" instance=ExtResource("5_t0glr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132, -25, 120)
 
-[node name="climbable_hallway_stacked9" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked9" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102, -12, -2)
 
-[node name="climbable_hallway_stacked44" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked44" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -38, 26, 178)
 
-[node name="climbable_hallway_stacked47" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked47" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -98, 26, 178)
 
-[node name="climbable_hallway_stacked49" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked49" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -98, 26, 218)
 
-[node name="climbable_hallway_stacked18" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked18" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 142, -12, 38)
 
-[node name="climbable_hallway_stacked10" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked10" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 14, -62)
 
-[node name="climbable_hallway_stacked25" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked25" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -218, -38, 38)
 
-[node name="climbable_hallway_stacked11" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked11" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42, 14, -62)
 
-[node name="climbable_hallway_stacked15" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked15" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 42, 14, -22)
 
-[node name="climbable_hallway_stacked16" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked16" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 62, 14, -22)
 
-[node name="climbable_hallway_stacked12" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked12" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 14, -62)
 
-[node name="climbable_hallway_stacked14" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked14" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42, 14, -42)
 
-[node name="climbable_hallway_stacked19" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked19" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 62, 26, 18)
 
-[node name="climbable_hallway_stacked20" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked20" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 62, 26, 38)
 
-[node name="climbable_hallway_stacked21" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked21" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 42, 26, 58)
 
-[node name="climbable_hallway_stacked27" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked27" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 22, 26, 58)
 
-[node name="climbable_hallway_stacked28" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked28" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 26, 58)
 
-[node name="climbable_hallway_stacked29" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked29" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 26, 58)
 
-[node name="climbable_hallway_stacked31" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked31" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 26, 78)
 
-[node name="climbable_hallway_stacked40" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked40" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 26, 98)
 
-[node name="climbable_hallway_stacked41" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked41" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 26, 118)
 
-[node name="climbable_hallway_stacked42" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked42" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 26, 138)
 
-[node name="climbable_hallway_stacked43" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked43" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 26, 158)
 
-[node name="climbable_hallway_stacked52" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked52" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -18, -25, 158)
 
-[node name="climbable_hallway_stacked53" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked53" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, -25, 158)
 
-[node name="climbable_hallway_stacked54" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked54" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -58, -38, 78)
 
-[node name="climbable_hallway_stacked69" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked69" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -138, -38, 198)
 
-[node name="climbable_hallway_stacked70" parent="World/mall-section-01" instance=ExtResource("7_68fjc")]
+[node name="climbable_hallway_stacked70" parent="World/mall" instance=ExtResource("7_68fjc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -58, -38, 198)
 
-[node name="climbable_hallway_stacked55" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked55" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -38, -38, 78)
 
-[node name="climbable_hallway_stacked60" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked60" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -58, -38, 98)
 
-[node name="climbable_hallway_stacked61" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked61" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -58, -38, 118)
 
-[node name="climbable_hallway_stacked62" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked62" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -58, -38, 138)
 
-[node name="climbable_hallway_stacked63" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked63" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -58, -38, 158)
 
-[node name="climbable_hallway_stacked64" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked64" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -58, -38, 178)
 
-[node name="climbable_hallway_stacked66" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked66" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -78, -38, 198)
 
-[node name="climbable_hallway_stacked67" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked67" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -98, -38, 198)
 
-[node name="climbable_hallway_stacked68" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked68" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -118, -38, 198)
 
-[node name="climbable_hallway_stacked57" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked57" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 2, -38, 78)
 
-[node name="climbable_hallway_stacked58" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked58" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 22, -38, 78)
 
-[node name="climbable_hallway_stacked59" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked59" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 42, -38, 78)
 
-[node name="climbable_hallway_stacked45" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked45" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -58, 26, 178)
 
-[node name="climbable_hallway_stacked46" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked46" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -78, 26, 178)
 
-[node name="climbable_hallway_stacked50" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked50" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -98, 26, 198)
 
-[node name="climbable_hallway_stacked51" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked51" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -118, 26, 218)
 
-[node name="climbable_hallway_stacked48" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked48" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -138, -18, 198)
 
-[node name="climbable_hallway_stacked32" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked32" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -58, 26, 58)
 
-[node name="climbable_hallway_stacked33" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked33" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -78, 26, 58)
 
-[node name="climbable_hallway_stacked34" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked34" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -98, 26, 58)
 
-[node name="climbable_hallway_stacked35" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked35" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -118, 26, 58)
 
-[node name="climbable_hallway_stacked36" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked36" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -138, 26, 58)
 
-[node name="climbable_hallway_stacked37" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked37" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -158, 26, 58)
 
-[node name="climbable_hallway_stacked38" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked38" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -178, 26, 58)
 
-[node name="climbable_hallway_stacked39" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked39" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -198, 26, 58)
 
-[node name="climbable_hallway_stacked22" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked22" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 62, 26, 78)
 
-[node name="climbable_hallway_stacked23" parent="World/mall-section-01" instance=ExtResource("2_t0glr")]
+[node name="climbable_hallway_stacked23" parent="World/mall" instance=ExtResource("2_t0glr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 62, 26, 98)
 
-[node name="climbable_shaft_base" parent="World/mall-section-01" instance=ExtResource("8_mi2vx")]
+[node name="climbable_shaft_base" parent="World/mall" instance=ExtResource("8_mi2vx")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 62, -12, -2)
 
-[node name="climbable_shaft_mid" parent="World/mall-section-01" instance=ExtResource("9_tuuhh")]
+[node name="climbable_shaft_mid" parent="World/mall" instance=ExtResource("9_tuuhh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 0, -2)
 
-[node name="climbable_shaft_base2" parent="World/mall-section-01" instance=ExtResource("8_mi2vx")]
+[node name="climbable_shaft_base2" parent="World/mall" instance=ExtResource("8_mi2vx")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 62, -12, 118)
 
-[node name="climbable_shaft_mid2" parent="World/mall-section-01" instance=ExtResource("9_tuuhh")]
+[node name="climbable_shaft_mid2" parent="World/mall" instance=ExtResource("9_tuuhh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 0, 118)
 
-[node name="climbable_shaft_mid3" parent="World/mall-section-01" instance=ExtResource("9_tuuhh")]
+[node name="climbable_shaft_mid3" parent="World/mall" instance=ExtResource("9_tuuhh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 12, 118)
 
-[node name="climbable_shaft_top2" parent="World/mall-section-01" instance=ExtResource("10_hpvs8")]
+[node name="climbable_shaft_top2" parent="World/mall" instance=ExtResource("10_hpvs8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 62, 24, 118)
 
-[node name="climbable_shaft_base5" parent="World/mall-section-01" instance=ExtResource("8_mi2vx")]
+[node name="climbable_shaft_base5" parent="World/mall" instance=ExtResource("8_mi2vx")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 62, -38, 78)
 
-[node name="climbable_shaft_mid9" parent="World/mall-section-01" instance=ExtResource("9_tuuhh")]
+[node name="climbable_shaft_mid9" parent="World/mall" instance=ExtResource("9_tuuhh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 62, -26, 78)
 
-[node name="climbable_shaft_top6" parent="World/mall-section-01" instance=ExtResource("10_hpvs8")]
+[node name="climbable_shaft_top6" parent="World/mall" instance=ExtResource("10_hpvs8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 62, -14, 78)
 
-[node name="climbable_shaft_base3" parent="World/mall-section-01" instance=ExtResource("8_mi2vx")]
+[node name="climbable_shaft_base3" parent="World/mall" instance=ExtResource("8_mi2vx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -218, 2, 58)
 
-[node name="climbable_shaft_mid5" parent="World/mall-section-01" instance=ExtResource("9_tuuhh")]
+[node name="climbable_shaft_mid5" parent="World/mall" instance=ExtResource("9_tuuhh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -218, 12, 58)
 
-[node name="climbable_shaft_top4" parent="World/mall-section-01" instance=ExtResource("10_hpvs8")]
+[node name="climbable_shaft_top4" parent="World/mall" instance=ExtResource("10_hpvs8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -218, 24, 58)
 
-[node name="climbable_shaft_base4" parent="World/mall-section-01" instance=ExtResource("8_mi2vx")]
+[node name="climbable_shaft_base4" parent="World/mall" instance=ExtResource("8_mi2vx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -138, -18, 218)
 
-[node name="climbable_shaft_mid6" parent="World/mall-section-01" instance=ExtResource("9_tuuhh")]
+[node name="climbable_shaft_mid6" parent="World/mall" instance=ExtResource("9_tuuhh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -138, 12, 218)
 
-[node name="climbable_shaft_mid7" parent="World/mall-section-01" instance=ExtResource("9_tuuhh")]
+[node name="climbable_shaft_mid7" parent="World/mall" instance=ExtResource("9_tuuhh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -138, 0, 218)
 
-[node name="climbable_shaft_mid8" parent="World/mall-section-01" instance=ExtResource("9_tuuhh")]
+[node name="climbable_shaft_mid8" parent="World/mall" instance=ExtResource("9_tuuhh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -138, -6, 218)
 
-[node name="climbable_shaft_top5" parent="World/mall-section-01" instance=ExtResource("10_hpvs8")]
+[node name="climbable_shaft_top5" parent="World/mall" instance=ExtResource("10_hpvs8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -138, 24, 218)
 
-[node name="climbable_shaft_top3" parent="World/mall-section-01" instance=ExtResource("10_hpvs8")]
+[node name="climbable_shaft_top3" parent="World/mall" instance=ExtResource("10_hpvs8")]
 transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 62, 24, -2)
 
-[node name="store_fronts_section" parent="World/mall-section-01" instance=ExtResource("11_mi2vx")]
+[node name="store_fronts_section" parent="World/mall" instance=ExtResource("11_mi2vx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132, -12, 68)
 
-[node name="store_fronts_section2" parent="World/mall-section-01" instance=ExtResource("11_mi2vx")]
+[node name="store_fronts_section2" parent="World/mall" instance=ExtResource("11_mi2vx")]
 transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 132, -12, 168)
 
-[node name="multi_level_area" parent="World/mall-section-01" instance=ExtResource("12_hpvs8")]
+[node name="multi_level_area" parent="World/mall" instance=ExtResource("12_hpvs8")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -128, -38, 128)
 
-[node name="multi_level_area2" parent="World/mall-section-01" instance=ExtResource("12_hpvs8")]
+[node name="multi_level_area2" parent="World/mall" instance=ExtResource("12_hpvs8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -228, -38, 128)
 
-[node name="climbable_shaft_top" parent="World/mall-section-01" instance=ExtResource("13_jrol3")]
+[node name="climbable_shaft_top" parent="World/mall" instance=ExtResource("13_jrol3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 62, 12, -2)
 
-[node name="climbable_wall_single_half" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, -138, 12, 68)
 
-[node name="climbable_wall_single_half2" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half2" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, -178, 12, 68)
 
-[node name="climbable_wall_single_half3" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half3" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, -138, -8, 68)
 
-[node name="climbable_wall_single_half4" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half4" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, -178, -8, 68)
 
-[node name="climbable_wall_single_half5" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half5" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, -138, -28, 68)
 
-[node name="climbable_wall_single_half6" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half6" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, -178, -28, 68)
 
-[node name="climbable_wall_single_half7" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half7" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1, 8.74228e-08, 1.14641e-14, 0, 1.31134e-07, -1, -8.74228e-08, -1, -1.31134e-07, -218, -28, 188)
 
-[node name="climbable_wall_single_half8" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half8" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1, 8.74228e-08, 1.14641e-14, 0, 1.31134e-07, -1, -8.74228e-08, -1, -1.31134e-07, -178, -28, 188)
 
-[node name="climbable_wall_single_half9" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half9" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1, 8.74228e-08, 1.14641e-14, 0, 1.31134e-07, -1, -8.74228e-08, -1, -1.31134e-07, -218, -8, 188)
 
-[node name="climbable_wall_single_half10" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half10" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1, 8.74228e-08, 1.14641e-14, 0, 1.31134e-07, -1, -8.74228e-08, -1, -1.31134e-07, -178, -8, 188)
 
-[node name="climbable_wall_single_half11" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half11" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1, 8.74228e-08, 1.14641e-14, 0, 1.31134e-07, -1, -8.74228e-08, -1, -1.31134e-07, -218, 12, 188)
 
-[node name="climbable_wall_single_half13" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half13" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1, 8.74228e-08, 1.14641e-14, 0, 1.31134e-07, -1, -8.74228e-08, -1, -1.31134e-07, -138, 12, 188)
 
-[node name="climbable_wall_single_half14" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half14" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(1, -1.74846e-07, -2.29282e-14, 0, 1.31134e-07, -1, 1.74846e-07, 1, 1.31134e-07, -218, -8, 68)
 
-[node name="climbable_wall_single_half15" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half15" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1.93715e-07, -1, -1.31134e-07, 0, 1.31134e-07, -1, 1, -1.93715e-07, -1.77636e-14, 192, -2, 78)
 
-[node name="climbable_wall_single_half16" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half16" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1.93715e-07, -1, -1.31134e-07, 0, 1.31134e-07, -1, 1, -1.93715e-07, -1.77636e-14, 192, -2, 118)
 
-[node name="climbable_wall_single_half17" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half17" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1.93715e-07, -1, -1.31134e-07, 0, 1.31134e-07, -1, 1, -1.93715e-07, -1.77636e-14, 192, -2, 158)
 
-[node name="climbable_wall_single_half12" parent="." instance=ExtResource("14_br7gk")]
+[node name="climbable_wall_single_half12" parent="World/mall" instance=ExtResource("14_br7gk")]
 transform = Transform3D(-1, 8.74228e-08, 1.14641e-14, 0, 1.31134e-07, -1, -8.74228e-08, -1, -1.31134e-07, -178, 12, 188)
 
-[node name="climbable_wall_single_half18" parent="." instance=ExtResource("15_c0to6")]
+[node name="climbable_wall_single_half18" parent="World/mall" instance=ExtResource("15_c0to6")]
 transform = Transform3D(-1, -8.74228e-08, -1.14641e-14, 0, 1.31134e-07, -1, 8.74228e-08, -1, -1.31134e-07, 122, -2, 188)
 
-[node name="climbable_wall_single_half19" parent="." instance=ExtResource("15_c0to6")]
+[node name="climbable_wall_single_half19" parent="World/mall" instance=ExtResource("15_c0to6")]
 transform = Transform3D(-1, -8.74228e-08, -1.14641e-14, 0, 1.31134e-07, -1, 8.74228e-08, -1, -1.31134e-07, 162, -2, 188)
+
+[node name="clutter" type="Node3D" parent="World"]
+
+[node name="Clutter Pile 01" parent="World/clutter" instance=ExtResource("16_w55ic")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 9.41926, 1.05656, 43.6398)
+
+[node name="Clutter Pile 02" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.901, -11.906, 127.407)
+
+[node name="Clutter Pile 07" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(-0.74936, 0, 0.662162, 0, 1, 0, -0.662162, 0, -0.74936, 144.739, -11.906, 33.1783)
+
+[node name="Clutter Pile 03" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.461, -11.906, 81.0517)
+
+[node name="Clutter Pile 04" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 185.461, -11.906, 81.0517)
+
+[node name="Clutter Pile 06" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(-0.972577, 0, 0.23258, 0, 1, 0, -0.23258, 0, -0.972577, 185.461, -11.906, 121.475)
+
+[node name="Clutter Pile 05" parent="World/clutter" instance=ExtResource("16_w55ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.011, -11.9556, 159.292)
+
+[node name="Clutter Pile 08" parent="World/clutter" instance=ExtResource("16_w55ic")]
+transform = Transform3D(-0.542984, 0, -0.839743, 0, 1, 0, 0.839743, 0, -0.542984, 167.585, -11.9556, 179.023)
+
+[node name="Clutter Pile 09" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(0.638539, 0, -0.769589, 0, 1, 0, 0.769589, 0, 0.638539, 48.1293, 14.0404, -69.4196)
+
+[node name="Clutter Pile 10" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(-0.300456, 0, 0.953796, 0, 1, 0, -0.953796, 0, -0.300456, 40.933, 14.0552, -18.2614)
+
+[node name="Clutter Pile 11" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(-0.589944, 0, 0.807444, 0, 1, 0, -0.807444, 0, -0.589944, -144.588, -24.933, 43.2068)
+
+[node name="Clutter Pile 12" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(-0.452092, 0, -0.891971, 0, 1, 0, 0.891971, 0, -0.452092, -222.711, -37.827, 34.3541)
+
+[node name="Clutter Pile 13" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(-0.957737, 0, -0.287645, 0, 1, 0, 0.287645, 0, -0.957737, -159.051, -37.827, 119.068)
+
+[node name="Clutter Pile 14" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(0.533378, 0, -0.845877, 0, 1, 0, 0.845877, 0, 0.533378, -190.767, -37.9566, 142.585)
+
+[node name="Clutter Pile 15" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(-0.887711, 0, 0.460401, 0, 1, 0, -0.460401, 0, -0.887711, -216.554, -37.9566, 180.157)
+
+[node name="Clutter Pile 16" parent="World/clutter" instance=ExtResource("16_w55ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.878, -17.9556, 98.6403)
+
+[node name="Clutter Pile 17" parent="World/clutter" instance=ExtResource("16_w55ic")]
+transform = Transform3D(0.193207, 0, -0.981158, 0, 1, 0, 0.981158, 0, 0.193207, -218.901, 2.02495, 157.881)
+
+[node name="Clutter Pile 18" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(-0.63905, 0, -0.769165, 0, 1, 0, 0.769165, 0, -0.63905, -214.699, 2.10786, 72.1131)
+
+[node name="Clutter Pile 19" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(-0.614946, 0, -0.788569, 0, 1, 0, 0.788569, 0, -0.614946, -222.167, 2.05417, 57.2155)
+
+[node name="Clutter Pile 20" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(-0.366306, 0, -0.930494, 0, 1, 0, 0.930494, 0, -0.366306, -175.579, -17.7981, 180.346)
+
+[node name="Clutter Pile 21" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(-0.94903, 0, 0.315185, 0, 1, 0, -0.315185, 0, -0.94903, -134.937, -17.7981, 209.177)
+
+[node name="Clutter Pile 22" parent="World/clutter" instance=ExtResource("16_w55ic")]
+transform = Transform3D(0.374671, 0, 0.927158, 0, 1, 0, -0.927158, 0, 0.374671, -127.617, -37.9556, 189.916)
+
+[node name="Clutter Pile 23" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(0.843823, 0, 0.536622, 0, 1, 0, -0.536622, 0, 0.843823, -140.591, 2.08131, 175.889)
+
+[node name="Clutter Pile 24" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(-0.3289, 0, 0.944365, 0, 1, 0, -0.944365, 0, -0.3289, -168.487, 2.08279, 90.3567)
+
+[node name="Clutter Pile 25" parent="World/clutter" instance=ExtResource("16_w55ic")]
+transform = Transform3D(-0.534234, 0, -0.845336, 0, 1, 0, 0.845336, 0, -0.534234, 94.9997, -11.9662, 2.6954)
+
+[node name="Clutter Pile 26" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(0.668014, 0, -0.744148, 0, 1, 0, 0.744148, 0, 0.668014, 19.5617, -24.8897, 152.995)
+
+[node name="Clutter Pile 27" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(0.939836, 0, -0.341626, 0, 1, 0, 0.341626, 0, 0.939836, -22.7767, -24.7322, 163.481)
+
+[node name="Clutter Pile 28" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(0.306792, 0, 0.951777, 0, 1, 0, -0.951777, 0, 0.306792, 65.8327, -37.8984, 75.1463)
+
+[node name="Clutter Pile 29" parent="World/clutter" instance=ExtResource("17_h78j2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2766, -37.7548, 84.2507)
+
+[node name="Clutter Pile 30" parent="World/clutter" instance=ExtResource("16_w55ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.6615, -37.9556, 88.9395)
+
+[node name="Clutter Pile 31" parent="World/clutter" instance=ExtResource("18_1fey8")]
+transform = Transform3D(-0.536652, 0, 0.843804, 0, 1, 0, -0.843804, 0, -0.536652, -91.8488, -37.7678, 190.491)
+
+[node name="web_clutter" type="Node3D" parent="World"]
+
+[node name="clutter_web_03" parent="World/web_clutter" instance=ExtResource("19_da7aj")]
+transform = Transform3D(11.874, 0, 0, 0, 8.86571, -7.89878, 0, 7.89878, 8.86571, -114.433, 29.2639, 210.988)
+
+[node name="clutter_web_02" parent="World/web_clutter" instance=ExtResource("20_cgffd")]
+transform = Transform3D(8.67922, -10.5888, 0, 6.81982, 5.58991, 10.4736, -8.10023, -6.63941, 8.81799, -91.2292, 30.5567, 222.177)
+
+[node name="clutter_web_01" parent="World/web_clutter" instance=ExtResource("21_02yj0")]
+transform = Transform3D(6.34097, 9.31303, -5.49904, -10.7666, 4.83104, -4.23331, -1.02566, 6.86355, 10.4412, -103.124, 30.6953, 173.003)
+
+[node name="clutter_web_07" parent="World/web_clutter" instance=ExtResource("20_cgffd")]
+transform = Transform3D(-4.64516, -13.335, 10.1418, 8.65992, 7.09817, 13.2995, -14.3417, 8.60519, 4.74579, -160.201, 30.538, 63.0433)
+
+[node name="clutter_web_08" parent="World/web_clutter" instance=ExtResource("21_02yj0")]
+transform = Transform3D(8.09663, 8.93778, -10.3925, -13.6716, 6.13454, -5.37553, 0.98667, 11.6587, 10.7955, -223.159, 30.7139, 52.3886)
+
+[node name="clutter_web_04" parent="World/web_clutter" instance=ExtResource("19_da7aj")]
+transform = Transform3D(-11.8565, -0.429083, -0.48161, 0.336805, 3.44281, -11.3589, 0.550112, -11.3558, -3.42556, -20.7994, 29.2639, 66.416)
+
+[node name="clutter_web_05" parent="World/web_clutter" instance=ExtResource("20_cgffd")]
+transform = Transform3D(-20.4058, -0.772542, 4.35588, 2.72095, 14.0185, 15.2329, -3.48812, 15.4548, -13.5996, -44.577, 30.5567, 51.1704)
+
+[node name="clutter_web_06" parent="World/web_clutter" instance=ExtResource("21_02yj0")]
+transform = Transform3D(-4.15064, -11.5384, -2.61119, -10.7666, 4.83104, -4.23331, 4.90225, 0.840924, -11.5083, -30.028, 30.6953, 104.959)
+
+[node name="clutter_web_09" parent="World/web_clutter" instance=ExtResource("19_da7aj")]
+transform = Transform3D(-8.69421, 7.80744, 2.10859, 0.336805, 3.44281, -11.3589, -8.08015, -8.25727, -2.74231, 68.9404, 29.2639, 43.6836)
+
+[node name="clutter_web_10" parent="World/web_clutter" instance=ExtResource("20_cgffd")]
+transform = Transform3D(-11.7969, -11.5754, 12.7597, 2.72095, 14.0185, 15.2329, -17.0116, 10.2693, -6.4119, 63.1773, 30.5567, 16.0323)
+
+[node name="clutter_web_11" parent="World/web_clutter" instance=ExtResource("21_02yj0")]
+transform = Transform3D(-6.40625, -8.67912, 6.38847, -10.7666, 4.83104, -4.23331, 0.468881, -7.64942, -9.92201, 34.9596, 30.6953, 64.0809)
+
+[node name="clutter_web_12" parent="World/web_clutter" instance=ExtResource("19_da7aj")]
+transform = Transform3D(-1.16825, -10.3011, -5.78907, -0.879525, 5.87696, -10.28, 11.7836, -0.582619, -1.34124, 69.6243, 29.2639, 96.4243)
+
+[node name="clutter_web_13" parent="World/web_clutter" instance=ExtResource("20_cgffd")]
+transform = Transform3D(14.7753, 9.44627, -11.3324, 2.72095, 14.0185, 15.2329, 14.5001, -12.2562, 8.68906, 46.9808, 30.5567, 62.4873)
+
+[node name="clutter_web_14" parent="World/web_clutter" instance=ExtResource("21_02yj0")]
+transform = Transform3D(6.20495, 9.95865, -4.41631, -10.7666, 4.83104, -4.23331, -1.66088, 5.88779, 10.9433, 65.6962, 30.6953, 10.0026)

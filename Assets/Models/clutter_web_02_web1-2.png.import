@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfg2ohcxqqeqy"
-path.s3tc="res://.godot/imported/web1-1.png-f1c4a2c2695a9b511824dc7bb5e46cc8.s3tc.ctex"
+uid="uid://dfp2mnn5jqy7k"
+path.s3tc="res://.godot/imported/clutter_web_02_web1-2.png-841ecd5df6a702d0c63eb67bd81e7bc7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "40c6bab13d3d0181222e079280635bee"
+}
 
 [deps]
 
-source_file="res://Assets/Webs/web1-1.png"
-dest_files=["res://.godot/imported/web1-1.png-f1c4a2c2695a9b511824dc7bb5e46cc8.s3tc.ctex"]
+source_file="res://Assets/Models/clutter_web_02_web1-2.png"
+dest_files=["res://.godot/imported/clutter_web_02_web1-2.png-841ecd5df6a702d0c63eb67bd81e7bc7.s3tc.ctex"]
 
 [params]
 
