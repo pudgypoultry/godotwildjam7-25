@@ -45,7 +45,7 @@ func MakeActiveController():
 
 
 func SwapBackToParentSpider():
-	if Input.is_action_just_pressed("SwapPerspective") && isActiveController:
+	if Input.is_action_just_pressed("SwapToSpiderling") && isActiveController:
 		print("Swapping to parent")
 		await get_tree().create_timer(0.05).timeout
 		isActiveController = false

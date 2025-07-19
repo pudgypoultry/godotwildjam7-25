@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1mgas2y2yu8k"]
+[gd_scene load_steps=8 format=3 uid="uid://boqfausr61fjm"]
 
 [ext_resource type="Script" uid="uid://bws864di887eg" path="res://Scripts/Spider/SpiderMovementFinal.gd" id="1_a2ljo"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_a2ljo"]
@@ -6,10 +6,15 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lfcr3"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_a2ljo"]
-radius = 1.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dsk13"]
+radius = 1.13877
+height = 2.27753
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fj6if"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g375c"]
+radius = 0.1852
+height = 1.01414
 
 [node name="SpiderController" type="CharacterBody3D" node_paths=PackedStringArray("spiderCollision", "collisionChecker", "attackChecker", "head", "headCamera", "spawnRay", "spiderAnimation")]
 axis_lock_angular_x = true
@@ -27,7 +32,11 @@ spiderlingCamera = ExtResource("2_dsk13")
 webbingScene = ExtResource("2_dsk13")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-3.25302e-08, 0, 0.744205, 0, 0.744205, 0, -0.744205, 0, -3.25302e-08, -2.88332e-08, 0, -0.659627)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_lfcr3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.927489, 0.954413)
 shape = SubResource("SphereShape3D_lfcr3")
 
 [node name="CameraMount" type="Node3D" parent="."]
@@ -38,7 +47,8 @@ transform = Transform3D(1, 0, 0, 0, 0.993795, 0.111226, 0, -0.111226, 0.993795, 
 [node name="CollisionChecker" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionChecker"]
-shape = SubResource("SphereShape3D_a2ljo")
+transform = Transform3D(-4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_dsk13")
 
 [node name="SpiderActor" parent="." instance=ExtResource("2_a2ljo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.208656, 0)
@@ -51,6 +61,15 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackChecker"]
 shape = SubResource("SphereShape3D_fj6if")
 
+[node name="GoingToCollider" type="Area3D" parent="."]
+transform = Transform3D(2.15505, 0, 0, 0, 2.15505, 0, 0, 0, 2.15505, 0, 0.819745, -1.34713)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GoingToCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41894, -0.106179)
+shape = SubResource("CapsuleShape3D_g375c")
+
 [node name="UtilitySpawner" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82571, 3.23656)
 
@@ -60,3 +79,4 @@ target_position = Vector3(0, -3, 0)
 [connection signal="body_entered" from="CollisionChecker" to="." method="BodyEntered"]
 [connection signal="body_entered" from="AttackChecker" to="." method="PlayerSensed"]
 [connection signal="body_exited" from="AttackChecker" to="." method="PlayerLost"]
+[connection signal="body_entered" from="GoingToCollider" to="." method="GoingToBodyEntered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cdxpgy6a5x8b1"]
 
-[ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Scenes/SpiderPlayer/SpiderController.tscn" id="1_7xsgv"]
 [ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Scripts/Spider/ClimbableWall.gd" id="1_41bnt"]
+[ext_resource type="PackedScene" uid="uid://ccfwrjsxc26mo" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="2_41bnt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_83q8s"]
 size = Vector3(19.5004, 1, 25)
@@ -36,9 +36,6 @@ size = Vector3(7.5, 1, 25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.06531, 0)
 light_energy = 16.882
 omni_range = 40.655
-
-[node name="SpiderController" parent="." instance=ExtResource("1_7xsgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2586, 0, -18.2409)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.50501, -0.437479, 0.744028, 3.19482e-09, 0.862028, 0.506861, -0.863114, 0.25597, -0.435332, 17.332, 16.3408, -6.17079)
@@ -464,3 +461,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.67209, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.662032, 0.749476, 0, -0.749476, 0.662032, 0, 8.8862, -11.02)
+
+[node name="SpiderControlTest" parent="." instance=ExtResource("2_41bnt")]
+transform = Transform3D(-0.899802, 0, 0.436299, 0, 1, 0, -0.436299, 0, -0.899802, 9.13842, 1.90735e-06, -18.113)

@@ -1,0 +1,186 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1mgas2y2yu8k"]
+
+[ext_resource type="Script" uid="uid://bws864di887eg" path="res://Sandboxes/Andrew/SpiderMovementFinal.gd" id="1_a2ljo"]
+[ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_a2ljo"]
+[ext_resource type="PackedScene" uid="uid://dl7jlb8rwftgr" path="res://Scenes/SpiderPlayer/Spiderling.tscn" id="2_dsk13"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lfcr3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dsk13"]
+radius = 0.1852
+height = 2.44779
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fj6if"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g375c"]
+radius = 0.1852
+height = 1.01414
+
+[node name="SpiderController" type="CharacterBody3D" node_paths=PackedStringArray("spiderCollision", "collisionChecker", "attackChecker", "head", "headCamera", "spawnRay", "spiderAnimation", "rayFolder")]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+floor_max_angle = 0.0872665
+script = ExtResource("1_a2ljo")
+spiderCollision = NodePath("CollisionShape3D")
+collisionChecker = NodePath("CollisionChecker")
+attackChecker = NodePath("AttackChecker")
+head = NodePath("CameraMount")
+headCamera = NodePath("CameraMount/Camera3D")
+spawnRay = NodePath("UtilitySpawner/RayCast3D")
+spiderAnimation = NodePath("SpiderActor")
+spiderlingCamera = ExtResource("2_dsk13")
+webbingScene = ExtResource("2_dsk13")
+rayFolder = NodePath("RayFolder")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_lfcr3")
+
+[node name="CameraMount" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraMount"]
+transform = Transform3D(1, 0, 0, 0, 0.993795, 0.111226, 0, -0.111226, 0.993795, 0, 1.70434, 0.399427)
+
+[node name="CollisionChecker" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.39216)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionChecker"]
+transform = Transform3D(-1.91069e-15, -4.37114e-08, 1, 1.06581e-14, 1, 4.37114e-08, -1, 1.06581e-14, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_dsk13")
+
+[node name="SpiderActor" parent="." instance=ExtResource("2_a2ljo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.208656, 0)
+
+[node name="AttackChecker" type="Area3D" parent="."]
+transform = Transform3D(2.15505, 0, 0, 0, 2.15505, 0, 0, 0, 2.15505, 0, 0.819745, -2.12513)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackChecker"]
+shape = SubResource("SphereShape3D_fj6if")
+
+[node name="GoingToCollider" type="Area3D" parent="."]
+transform = Transform3D(2.15505, 0, 0, 0, 2.15505, 0, 0, 0, 2.15505, 0, 0.819745, -1.34713)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GoingToCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41894, -0.106179)
+shape = SubResource("CapsuleShape3D_g375c")
+
+[node name="UtilitySpawner" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82571, 3.23656)
+
+[node name="RayCast3D" type="RayCast3D" parent="UtilitySpawner"]
+target_position = Vector3(0, -3, 0)
+
+[node name="RayFolder" type="Node3D" parent="."]
+
+[node name="UP" type="RayCast3D" parent="RayFolder"]
+target_position = Vector3(0, 3, 0)
+
+[node name="DOWN" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D2" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D3" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D4" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0.5, 0.5, 0.707107, -0.707107, 0.707107, 0, -0.5, -0.5, 0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D5" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, 0.707107, 0.707107, -1, 0, 0, 0, -0.707107, 0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D6" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-0.5, 0.5, 0.707107, -0.707107, -0.707107, 0, 0.5, -0.5, 0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D7" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-3.09086e-08, -3.09086e-08, 1, -0.707107, 0.707107, 0, -0.707107, -0.707107, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D8" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, -4.37114e-08, 1, -1, 0, 0, 0, -1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D9" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(3.09086e-08, -3.09086e-08, 1, -0.707107, -0.707107, 0, 0.707107, -0.707107, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D10" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-0.5, -0.5, 0.707107, -0.707107, 0.707107, 0, -0.5, -0.5, -0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D11" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, -0.707107, 0.707107, -1, 0, 0, 0, -0.707107, -0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D12" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0.5, -0.5, 0.707107, -0.707107, -0.707107, 0, 0.5, -0.5, -0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D13" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-0.707107, -0.707107, 8.74228e-08, -0.707107, 0.707107, 0, -6.18172e-08, -6.18172e-08, -1, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D14" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, -1, 8.74228e-08, -1, 0, 0, 0, -8.74228e-08, -1, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D15" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0.707107, -0.707107, 8.74228e-08, -0.707107, -0.707107, 0, 6.18172e-08, -6.18172e-08, -1, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D16" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-0.5, -0.5, -0.707107, -0.707107, 0.707107, 0, 0.5, 0.5, -0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D17" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, -0.707107, -0.707107, -1, 0, 0, 0, 0.707107, -0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D18" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0.5, -0.5, -0.707107, -0.707107, -0.707107, 0, -0.5, 0.5, -0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D19" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-3.09086e-08, -3.09086e-08, -1, -0.707107, 0.707107, 0, 0.707107, 0.707107, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D20" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, -4.37114e-08, -1, -1, 0, 0, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D21" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(3.09086e-08, -3.09086e-08, -1, -0.707107, -0.707107, 0, -0.707107, 0.707107, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D22" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0.5, 0.5, -0.707107, -0.707107, 0.707107, 0, 0.5, 0.5, 0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D23" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(0, 0.707107, -0.707107, -1, 0, 0, 0, 0.707107, 0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="RayCast3D24" type="RayCast3D" parent="RayFolder"]
+transform = Transform3D(-0.5, 0.5, -0.707107, -0.707107, -0.707107, 0, -0.5, 0.5, 0.707107, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+
+[connection signal="body_entered" from="CollisionChecker" to="." method="BodyEntered"]
+[connection signal="body_entered" from="AttackChecker" to="." method="PlayerSensed"]
+[connection signal="body_exited" from="AttackChecker" to="." method="PlayerLost"]
+[connection signal="body_entered" from="GoingToCollider" to="." method="GoingToBodyEntered"]

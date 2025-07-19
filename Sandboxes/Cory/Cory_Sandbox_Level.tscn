@@ -1,16 +1,15 @@
 [gd_scene load_steps=25 format=3 uid="uid://3urq6owncb4e"]
 
-[ext_resource type="PackedScene" uid="uid://c1mgas2y2yu8k" path="res://Scenes/SpiderPlayer/SpiderController.tscn" id="1_vqsy8"]
 [ext_resource type="PackedScene" uid="uid://jml8r0cye2e" path="res://Scenes/Climbable/climbable_hallway_01.tscn" id="2_t0glr"]
 [ext_resource type="PackedScene" uid="uid://b2rpj6l63akrm" path="res://Scenes/Climbable/climbable_hallway_3way_junction.tscn" id="3_0egql"]
 [ext_resource type="PackedScene" uid="uid://bp8jb8up5hwlt" path="res://Scenes/Climbable/climbable_ramp_hallway.tscn" id="4_q7451"]
 [ext_resource type="PackedScene" uid="uid://c7qn5pcyc7cou" path="res://Scenes/Climbable/climbable_hallway_4way_junction.tscn" id="5_kfdvg"]
 [ext_resource type="PackedScene" uid="uid://ch831xpyj3tt6" path="res://Scenes/Climbable/column.tscn" id="5_t0glr"]
-[ext_resource type="PackedScene" uid="uid://dg6rp5ee115au" path="res://Scenes/Climbable/climbable_hallway_right.tscn" id="7_68fjc"]
-[ext_resource type="PackedScene" uid="uid://ggv8ikw1m42u" path="res://Scenes/Climbable/climbable_shaft_base.tscn" id="8_mi2vx"]
-[ext_resource type="PackedScene" uid="uid://du2w4ji1h06i1" path="res://Scenes/Climbable/climbable_shaft_mid.tscn" id="9_tuuhh"]
-[ext_resource type="PackedScene" uid="uid://dpstxx8vkncfr" path="res://Scenes/Climbable/climbable_shaft_top.tscn" id="10_hpvs8"]
-[ext_resource type="PackedScene" uid="uid://li6nk4mc48mt" path="res://Scenes/Climbable/store_fronts_section.tscn" id="11_mi2vx"]
+[ext_resource type="PackedScene" path="res://Scenes/Climbable/climbable_hallway_right.tscn" id="7_68fjc"]
+[ext_resource type="PackedScene" path="res://Scenes/Climbable/climbable_shaft_base.tscn" id="8_mi2vx"]
+[ext_resource type="PackedScene" path="res://Scenes/Climbable/climbable_shaft_mid.tscn" id="9_tuuhh"]
+[ext_resource type="PackedScene" path="res://Scenes/Climbable/climbable_shaft_top.tscn" id="10_hpvs8"]
+[ext_resource type="PackedScene" path="res://Scenes/Climbable/store_fronts_section.tscn" id="11_mi2vx"]
 [ext_resource type="PackedScene" uid="uid://05ccieqhy5g3" path="res://Scenes/Climbable/multi_level_area.tscn" id="12_hpvs8"]
 [ext_resource type="PackedScene" uid="uid://rsa7s2fy2jgw" path="res://Scenes/Climbable/climbable_shaft_mid_exit.tscn" id="13_jrol3"]
 [ext_resource type="PackedScene" uid="uid://b77xa3vijt13p" path="res://Scenes/Climbable/climbable_wall_single_half.tscn" id="14_br7gk"]
@@ -21,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://hn3kmt40ii4s" path="res://Assets/Models/clutter_web_03.glb" id="19_da7aj"]
 [ext_resource type="PackedScene" uid="uid://b3k5l2ucr6hnq" path="res://Assets/Models/clutter_web_02.glb" id="20_cgffd"]
 [ext_resource type="PackedScene" uid="uid://d0vq4ph84ji6r" path="res://Assets/Models/clutter_web_01.glb" id="21_02yj0"]
+[ext_resource type="PackedScene" uid="uid://ccfwrjsxc26mo" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="21_da7aj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -42,9 +42,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ccysc")
-
-[node name="SpiderController" parent="." instance=ExtResource("1_vqsy8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="World" type="Node3D" parent="."]
 
@@ -551,3 +548,6 @@ transform = Transform3D(14.7753, 9.44627, -11.3324, 2.72095, 14.0185, 15.2329, 1
 
 [node name="clutter_web_14" parent="World/web_clutter" instance=ExtResource("21_02yj0")]
 transform = Transform3D(6.20495, 9.95865, -4.41631, -10.7666, 4.83104, -4.23331, -1.66088, 5.88779, 10.9433, 65.6962, 30.6953, 10.0026)
+
+[node name="SpiderControlTest" parent="." instance=ExtResource("21_da7aj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.83762, 0)
