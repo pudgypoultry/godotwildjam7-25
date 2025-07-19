@@ -4,10 +4,6 @@ enum SpiderState {CRAWLING, JUMPING, REORIENTING, ATTACKING}
 
 @export_category("Game Rules")
 @export var gravityForce = 3
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
-=======
-
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
 @export var baseJumpForce : float = 50
 @export var jumpForce : float = 10
 @export var mouseSensitivity : float = 0.005

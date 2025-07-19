@@ -26,10 +26,9 @@ spiderlingScene = ExtResource("2_acyfo")
 webbingScene = ExtResource("2_acyfo")
 
 [node name="CameraMount" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53058, 0.362818)
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount"]
-transform = Transform3D(1, 0, 0, 0, 0.993795, 0.111226, 0, -0.111226, 0.993795, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.993795, 0.111226, 0, -0.111226, 0.993795, 0, 1.70434, 0.399427)
 current = true
 
 [node name="Marker3D" type="Marker3D" parent="CameraMount/Camera3D"]

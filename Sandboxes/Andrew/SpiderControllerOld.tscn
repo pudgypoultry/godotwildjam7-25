@@ -22,6 +22,16 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 floor_max_angle = 0.0872665
 script = ExtResource("1_a2ljo")
+gravityForce = null
+baseJumpForce = null
+jumpForce = null
+mouseSensitivity = null
+movementSpeed = null
+rotationSpeed = null
+dotTolerance = null
+transitionDistance = null
+spiderlingCamera = ExtResource("2_dsk13")
+webbingScene = ExtResource("2_dsk13")
 spiderCollision = NodePath("CollisionShape3D")
 collisionChecker = NodePath("CollisionChecker")
 attackChecker = NodePath("AttackChecker")
@@ -29,8 +39,6 @@ head = NodePath("CameraMount")
 headCamera = NodePath("CameraMount/Camera3D")
 spawnRay = NodePath("UtilitySpawner/RayCast3D")
 spiderAnimation = NodePath("SpiderActor")
-spiderlingCamera = ExtResource("2_dsk13")
-webbingScene = ExtResource("2_dsk13")
 rayFolder = NodePath("RayFolder")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
