@@ -11,7 +11,7 @@ radius = 1.25
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_acyfo"]
 
-[node name="SpiderControlTest" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "camTarget", "rayFolder", "spiderAnimation", "spawnRay")]
+[node name="SpiderControl" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "camTarget", "rayFolder", "spiderAnimation", "spawnRay")]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
