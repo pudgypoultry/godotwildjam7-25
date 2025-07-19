@@ -99,7 +99,7 @@ func _process(delta: float) -> void:
 
 func jump() -> void:
 	print("Trying to jump")
-	if up_direction == originalUpDirection:
+	if up_direction == originalUpDirection or needsToReorient:
 		jumpVector = up_direction * baseJumpForce
 	else:
 		jumpVector = up_direction * jumpForce
@@ -120,12 +120,11 @@ func _physics_process(delta: float) -> void:
 			print("Trying to reorient")
 			OrientCharacterToDirection(up_direction, delta)
 			spiderCollision.disabled = true
-			gravityForce = 0
 		else:
 			spiderCollision.disabled = false
-			gravityForce = originalGravityForce
 		
 		if not is_on_floor():
+			
 			if !needsToReorient:
 				jumpVector += gravityVector
 		elif is_on_floor() && jumping:
