@@ -11,6 +11,8 @@
 size = Vector3(20, 0.5, 26.5)
 
 [sub_resource type="QuadMesh" id="QuadMesh_eng71"]
+lightmap_size_hint = Vector2i(102, 134)
+add_uv2 = true
 size = Vector2(20, 26.5)
 
 [node name="climbable_ramp" type="Node3D"]

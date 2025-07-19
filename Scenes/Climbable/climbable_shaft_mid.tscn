@@ -7,6 +7,8 @@
 size = Vector3(20, 0.5, 12)
 
 [sub_resource type="QuadMesh" id="QuadMesh_1hib6"]
+lightmap_size_hint = Vector2i(102, 62)
+add_uv2 = true
 size = Vector2(20, 12)
 
 [node name="climbable_shaft_mid" type="Node3D"]

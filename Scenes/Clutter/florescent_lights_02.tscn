@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://crwhgflmsfeni"]
+
+[ext_resource type="PackedScene" uid="uid://djbpjtjf1x64" path="res://Assets/Models/lights_02.glb" id="1_61rm7"]
+
+[node name="florescent_lights_02" type="Node3D"]
+
+[node name="lights_022" parent="." instance=ExtResource("1_61rm7")]
+
+[node name="florescent_light_source" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="florescent_light_source"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454079, -1.45235)
+light_color = Color(0.817785, 0.875748, 0.908723, 1)
+light_bake_mode = 1
+omni_range = 15.0
+
+[node name="florescent_light_source2" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="florescent_light_source2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454079, -1.45235)
+light_color = Color(0.817785, 0.875748, 0.908723, 1)
+light_bake_mode = 1
+omni_range = 15.0
+
+[node name="florescent_light_dynamic_source" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="florescent_light_dynamic_source"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.360419, 0)
+light_color = Color(0.819608, 0.87451, 0.909804, 1)
+shadow_enabled = true
+spot_range = 10.184

@@ -4,9 +4,13 @@
 [ext_resource type="Material" uid="uid://cqy4q2exdnktp" path="res://Materials/climbable_wall_Mat.material" id="2_j6q72"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_exdki"]
+lightmap_size_hint = Vector2i(102, 14)
+add_uv2 = true
 size = Vector2(20, 2.5)
 
 [sub_resource type="QuadMesh" id="QuadMesh_0bmum"]
+lightmap_size_hint = Vector2i(102, 14)
+add_uv2 = true
 size = Vector2(20, 2.5)
 
 [node name="ClimbableWall4" type="Node3D"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bmsn8ec0wnhpb"]
+
+[node name="florescent_light_source" type="Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454079, -1.45235)
+light_color = Color(0.817785, 0.875748, 0.908723, 1)
+light_energy = 5.0
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 15.0
+omni_attenuation = 0.868

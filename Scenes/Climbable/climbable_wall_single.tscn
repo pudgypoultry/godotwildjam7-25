@@ -7,6 +7,8 @@
 size = Vector3(20, 0.5, 20)
 
 [sub_resource type="QuadMesh" id="QuadMesh_q1xen"]
+lightmap_size_hint = Vector2i(102, 102)
+add_uv2 = true
 size = Vector2(20, 20)
 
 [node name="climbable_wall_single" type="Node3D"]

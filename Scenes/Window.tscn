@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3uunq61vblay"]
+[gd_scene load_steps=4 format=3 uid="uid://b3uunq61vblay"]
 
 [ext_resource type="PackedScene" uid="uid://drusfmbimkcgi" path="res://Assets/Models/window.glb" id="1_ulj07"]
+[ext_resource type="Material" uid="uid://bxwxlh4mlursu" path="res://Materials/outdoor_light_material_3d.tres" id="2_1ooxe"]
 [ext_resource type="Material" uid="uid://cqy4q2exdnktp" path="res://Materials/climbable_wall_Mat.material" id="2_808q2"]
 
 [node name="Window_Asset" type="Node3D"]
@@ -8,6 +9,7 @@
 [node name="window" parent="." instance=ExtResource("1_ulj07")]
 
 [node name="Window" parent="window" index="0"]
+surface_material_override/0 = ExtResource("2_1ooxe")
 surface_material_override/1 = ExtResource("2_808q2")
 
 [editable path="window"]

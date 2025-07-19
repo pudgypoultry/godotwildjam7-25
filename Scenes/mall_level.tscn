@@ -427,10 +427,10 @@ transform = Transform3D(-0.589944, 0, 0.807444, 0, 1, 0, -0.807444, 0, -0.589944
 transform = Transform3D(-0.452092, 0, -0.891971, 0, 1, 0, 0.891971, 0, -0.452092, -222.711, -37.827, 34.3541)
 
 [node name="Clutter Pile 13" parent="clutter" instance=ExtResource("16_llt4m")]
-transform = Transform3D(-0.957737, 0, -0.287645, 0, 1, 0, 0.287645, 0, -0.957737, -159.051, -37.827, 119.068)
+transform = Transform3D(-0.957737, 0, -0.287645, 0, 1, 0, 0.287645, 0, -0.957737, -159.051, -37.9346, 119.068)
 
 [node name="Clutter Pile 14" parent="clutter" instance=ExtResource("17_aachs")]
-transform = Transform3D(0.533378, 0, -0.845877, 0, 1, 0, 0.845877, 0, 0.533378, -190.767, -37.9566, 142.585)
+transform = Transform3D(0.533378, 0, -0.845877, 0, 1, 0, 0.845877, 0, 0.533378, -190.767, -37.9461, 142.585)
 
 [node name="Clutter Pile 15" parent="clutter" instance=ExtResource("17_aachs")]
 transform = Transform3D(-0.887711, 0, 0.460401, 0, 1, 0, -0.460401, 0, -0.887711, -216.554, -37.9566, 180.157)

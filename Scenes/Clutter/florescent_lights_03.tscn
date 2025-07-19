@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b02rlapr1y80n"]
+
+[ext_resource type="PackedScene" uid="uid://cqbm6tr6kw863" path="res://Assets/Models/lights_03.glb" id="1_polsr"]
+[ext_resource type="PackedScene" uid="uid://bmsn8ec0wnhpb" path="res://Scenes/Clutter/resources/florescent_light_source.tscn" id="2_el5sv"]
+[ext_resource type="PackedScene" uid="uid://crjyas1gomgk8" path="res://Scenes/Clutter/resources/florescent_light_dynamic_source.tscn" id="3_gjyfi"]
+
+[node name="florescent_lights_03" type="Node3D"]
+
+[node name="lights_032" parent="." instance=ExtResource("1_polsr")]
+
+[node name="florescent_light_source" parent="." instance=ExtResource("2_el5sv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="florescent_light_dynamic_source" parent="." instance=ExtResource("3_gjyfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.37192)

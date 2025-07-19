@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bapr6nymlyejw"]
+[gd_scene load_steps=13 format=3 uid="uid://bapr6nymlyejw"]
 
 [ext_resource type="Script" uid="uid://cik1hlaqrmjyn" path="res://Scripts/Spider/spider_actor.gd" id="1_gr433"]
 [ext_resource type="PackedScene" uid="uid://8sl1e7qrqhv7" path="res://Assets/Models/Spider.glb" id="2_gomfp"]
+[ext_resource type="Material" uid="uid://dheab0kq4q07l" path="res://Materials/spider_mat.tres" id="3_lciw4"]
+[ext_resource type="Material" uid="uid://ctmwsji8ioq2i" path="res://Materials/spider_fang_mat.tres" id="4_upafc"]
+[ext_resource type="Material" uid="uid://bgk0rdph7xa07" path="res://Materials/spider_eye_mat.tres" id="5_n60cy"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gr433"]
 animation = &"BackupCycle"
@@ -88,6 +91,11 @@ bones/60/rotation = Quaternion(-0.291485, -0.160585, 0.82595, -0.455033)
 bones/61/position = Vector3(2.97839, 0.992262, -0.0805772)
 bones/62/position = Vector3(3.13327, 0.525288, 3.52342)
 bones/63/position = Vector3(2.50949, 0.667058, 3.90513)
+
+[node name="Body_001" parent="Spider/Spider/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("3_lciw4")
+surface_material_override/1 = ExtResource("4_upafc")
+surface_material_override/2 = ExtResource("5_n60cy")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Spider")

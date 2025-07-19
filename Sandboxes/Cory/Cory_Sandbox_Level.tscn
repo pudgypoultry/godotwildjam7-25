@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://3urq6owncb4e"]
+[gd_scene load_steps=7 format=3 uid="uid://3urq6owncb4e"]
 
 [ext_resource type="PackedScene" uid="uid://cbjlg73v3v262" path="res://Scenes/mall_level.tscn" id="1_vqsy8"]
+[ext_resource type="LightmapGIData" uid="uid://ru3multrw3qr" path="res://Sandboxes/Cory/Cory_Sandbox_Level.lmbake" id="4_ccysc"]
 [ext_resource type="PackedScene" uid="uid://1v6iq7d5a8rg" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="21_da7aj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
@@ -11,15 +12,15 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 sky_material = SubResource("ProceduralSkyMaterial_vqsy8")
 
 [sub_resource type="Environment" id="Environment_ccysc"]
-background_mode = 2
+background_mode = 1
 sky = SubResource("Sky_fep32")
 tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.187177, 0.206743, 0.237501, 1)
+fog_light_energy = 0.35
+fog_density = 0.0235
 
-[node name="Node3D" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, -16.9404, 0, 91.5499)
-shadow_enabled = true
+[node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ccysc")
@@ -27,4 +28,12 @@ environment = SubResource("Environment_ccysc")
 [node name="Mall_Level" parent="." instance=ExtResource("1_vqsy8")]
 
 [node name="SpiderControl" parent="." instance=ExtResource("21_da7aj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.6399, 27.65, 55.5128)
+transform = Transform3D(0.999754, -0.0221988, 0, 0.0221988, 0.999754, 0, 0, 0, 1, 62.4426, 26.5278, 99.3217)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 0
+supersampling = true
+directional = true
+interior = true
+generate_probes_subdiv = 4
+light_data = ExtResource("4_ccysc")

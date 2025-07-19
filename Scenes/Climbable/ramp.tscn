@@ -7,12 +7,18 @@
 size = Vector3(5, 0.5, 30)
 
 [sub_resource type="QuadMesh" id="QuadMesh_dfjs5"]
+lightmap_size_hint = Vector2i(27, 152)
+add_uv2 = true
 size = Vector2(5, 30)
 
 [sub_resource type="QuadMesh" id="QuadMesh_ilk7l"]
+lightmap_size_hint = Vector2i(7, 152)
+add_uv2 = true
 size = Vector2(1, 30)
 
 [sub_resource type="QuadMesh" id="QuadMesh_ljqos"]
+lightmap_size_hint = Vector2i(7, 27)
+add_uv2 = true
 size = Vector2(1, 5)
 
 [node name="Ramp" type="Node3D"]

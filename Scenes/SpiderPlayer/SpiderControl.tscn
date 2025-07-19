@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/CameraSpiderling/SpiderControlRedux.gd" id="1_pxwkk"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_7blp2"]
-[ext_resource type="PackedScene" path="res://Scripts/CameraSpiderling/Spiderling.tscn" id="2_acyfo"]
+[ext_resource type="PackedScene" path="res://Scenes/SpiderPlayer/Spiderling.tscn" id="2_acyfo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7blp2"]
 radius = 1.25

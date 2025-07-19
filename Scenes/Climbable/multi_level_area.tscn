@@ -13,12 +13,16 @@
 size = Vector3(100, 0.5, 40)
 
 [sub_resource type="QuadMesh" id="QuadMesh_jrol3"]
+lightmap_size_hint = Vector2i(502, 202)
+add_uv2 = true
 size = Vector2(100, 40)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_palbq"]
 size = Vector3(100, 0.5, 50)
 
 [sub_resource type="QuadMesh" id="QuadMesh_o8iy4"]
+lightmap_size_hint = Vector2i(502, 252)
+add_uv2 = true
 size = Vector2(100, 50)
 
 [node name="multi_level_area" type="Node3D"]
@@ -259,3 +263,5 @@ transform = Transform3D(-1.5, 1.97583e-43, 1.31134e-07, 6.66134e-15, 1.5, -1.767
 
 [node name="Ramp6" parent="." instance=ExtResource("8_dwvmc")]
 transform = Transform3D(-1.5, 1.97583e-43, 1.31134e-07, 6.66134e-15, 1.5, -1.76722e-29, -1.31134e-07, -4.5139e-36, -1.5, -20.1594, 39.9806, 17)
+
+[node name="DynamicLights" type="Node3D" parent="."]

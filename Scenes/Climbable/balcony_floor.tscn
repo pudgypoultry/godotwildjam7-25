@@ -1,18 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://52v55fhdoadb"]
+[gd_scene load_steps=10 format=3 uid="uid://52v55fhdoadb"]
 
 [ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Scripts/Spider/ClimbableWall.gd" id="1_o7hmg"]
 [ext_resource type="Material" uid="uid://cqy4q2exdnktp" path="res://Materials/climbable_wall_Mat.material" id="2_o2dq6"]
+[ext_resource type="PackedScene" uid="uid://b02rlapr1y80n" path="res://Scenes/Clutter/florescent_lights_03.tscn" id="3_d21qp"]
+[ext_resource type="PackedScene" uid="uid://dvcbmq3ytw0jt" path="res://Scenes/Clutter/florescent_lights_01.tscn" id="4_1tp5l"]
+[ext_resource type="PackedScene" uid="uid://crwhgflmsfeni" path="res://Scenes/Clutter/florescent_lights_02.tscn" id="5_dolkd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hyjp0"]
 size = Vector3(100, 0.5, 16)
 
 [sub_resource type="QuadMesh" id="QuadMesh_d21qp"]
+lightmap_size_hint = Vector2i(502, 82)
+add_uv2 = true
 size = Vector2(100, 16)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1tp5l"]
 size = Vector3(100, 0.5, 5)
 
 [sub_resource type="QuadMesh" id="QuadMesh_dolkd"]
+lightmap_size_hint = Vector2i(502, 32)
+add_uv2 = true
 size = Vector2(100, 6)
 
 [node name="balcony_floor" type="Node3D"]
@@ -79,3 +86,12 @@ skeleton = NodePath("")
 
 [node name="Marker3D" type="Marker3D" parent="storefronts_floor4/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.58405, 0)
+
+[node name="florescent_lights_01" parent="." instance=ExtResource("3_d21qp")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -31, 14, 80)
+
+[node name="florescent_lights_02" parent="." instance=ExtResource("4_1tp5l")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -31, 14, 20)
+
+[node name="florescent_lights_03" parent="." instance=ExtResource("5_dolkd")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -31, 14, 50)

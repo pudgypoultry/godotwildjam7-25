@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://crjyas1gomgk8"]
+
+[node name="florescent_light_dynamic_source" type="Node3D"]

@@ -11,6 +11,8 @@
 size = Vector3(100, 0.5, 40)
 
 [sub_resource type="QuadMesh" id="QuadMesh_jrol3"]
+lightmap_size_hint = Vector2i(502, 202)
+add_uv2 = true
 size = Vector2(100, 40)
 
 [node name="store_fronts_section" type="Node3D"]
@@ -128,3 +130,5 @@ transform = Transform3D(7.7859e-15, -2.62268e-07, 5.98293, 1.78121e-07, -3, -5.2
 
 [node name="Window_Asset15" parent="." instance=ExtResource("6_ws2pq")]
 transform = Transform3D(7.7859e-15, -2.62268e-07, 5.98293, 1.78121e-07, -3, -5.23044e-07, 4.07492, 1.31134e-07, 1.14315e-14, -9.655, 19.4755, 16.6093)
+
+[node name="DynamicLights" type="Node3D" parent="."]

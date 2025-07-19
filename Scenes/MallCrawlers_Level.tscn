@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://baqyi4mjhxol"]
+
+[ext_resource type="PackedScene" uid="uid://cbjlg73v3v262" path="res://Scenes/mall_level.tscn" id="1_amoki"]
+[ext_resource type="PackedScene" uid="uid://1v6iq7d5a8rg" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="2_6mh82"]
+[ext_resource type="LightmapGIData" uid="uid://2hkluqkt3xah" path="res://Scenes/LightmapData/mainscene_lightmap_gi_data.tres" id="3_cp3sp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_fep32"]
+sky_material = SubResource("ProceduralSkyMaterial_vqsy8")
+
+[sub_resource type="Environment" id="Environment_ccysc"]
+background_mode = 1
+sky = SubResource("Sky_fep32")
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.187177, 0.206743, 0.237501, 1)
+fog_light_energy = 0.35
+fog_density = 0.0235
+
+[node name="Level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ccysc")
+
+[node name="Mall_Level" parent="." instance=ExtResource("1_amoki")]
+
+[node name="SpiderControl" parent="." instance=ExtResource("2_6mh82")]
+transform = Transform3D(0.999754, -0.0221988, 0, 0.0221988, 0.999754, 0, 0, 0, 1, 62.4426, 26.5278, 99.3217)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 2
+supersampling = true
+directional = true
+interior = true
+generate_probes_subdiv = 4
+light_data = ExtResource("3_cp3sp")

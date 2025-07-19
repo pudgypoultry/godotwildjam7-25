@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cdxpgy6a5x8b1"]
 
 [ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Scripts/Spider/ClimbableWall.gd" id="1_41bnt"]
-[ext_resource type="PackedScene" uid="uid://ccfwrjsxc26mo" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="2_41bnt"]
+[ext_resource type="PackedScene" uid="uid://1v6iq7d5a8rg" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="2_41bnt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_83q8s"]
 size = Vector3(19.5004, 1, 25)

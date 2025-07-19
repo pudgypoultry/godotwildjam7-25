@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2rpj6l63akrm"]
+[gd_scene load_steps=4 format=3 uid="uid://b2rpj6l63akrm"]
 
 [ext_resource type="PackedScene" uid="uid://cgy8ydqlwhsku" path="res://Scenes/Climbable/climbable_wall_single.tscn" id="1_xhim3"]
 [ext_resource type="PackedScene" uid="uid://b77xa3vijt13p" path="res://Scenes/Climbable/climbable_wall_single_half.tscn" id="2_7whuw"]
+[ext_resource type="PackedScene" uid="uid://b02rlapr1y80n" path="res://Scenes/Clutter/florescent_lights_03.tscn" id="3_7whuw"]
 
 [node name="climbable_hallway_stacked" type="Node3D"]
 
@@ -12,3 +13,6 @@ transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 10,
 
 [node name="climbable_wall_single_half2" parent="." instance=ExtResource("2_7whuw")]
 transform = Transform3D(1.31134e-07, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, 1.31134e-07, -5.73206e-15, -10, 10, 0)
+
+[node name="florescent_lights_01" parent="." instance=ExtResource("3_7whuw")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 9.94436, 0)

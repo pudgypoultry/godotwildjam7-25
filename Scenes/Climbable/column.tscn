@@ -7,6 +7,8 @@
 size = Vector3(10, 1, 200)
 
 [sub_resource type="QuadMesh" id="QuadMesh_af5wo"]
+lightmap_size_hint = Vector2i(52, 1002)
+add_uv2 = true
 size = Vector2(10, 200)
 
 [node name="Column" type="Node3D"]
