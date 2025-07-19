@@ -1,0 +1,211 @@
+[gd_scene load_steps=11 format=3 uid="uid://05ccieqhy5g3"]
+
+[ext_resource type="Script" uid="uid://6ygrbclwoud4" path="res://Scripts/Spider/ClimbableWall.gd" id="1_sq18o"]
+[ext_resource type="Material" uid="uid://cqy4q2exdnktp" path="res://Materials/climbable_wall_Mat.material" id="2_kqqkn"]
+[ext_resource type="PackedScene" uid="uid://52v55fhdoadb" path="res://Scenes/Climbable/balcony_floor.tscn" id="3_dwvmc"]
+[ext_resource type="PackedScene" uid="uid://jml8r0cye2e" path="res://Scenes/Climbable/climbable_hallway_01.tscn" id="4_lwnce"]
+[ext_resource type="PackedScene" uid="uid://cgy8ydqlwhsku" path="res://Scenes/Climbable/climbable_wall_single.tscn" id="5_opcvx"]
+[ext_resource type="PackedScene" uid="uid://b77xa3vijt13p" path="res://Scenes/Climbable/climbable_wall_single_half.tscn" id="6_e8qtr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jrol3"]
+size = Vector3(100, 0.5, 40)
+
+[sub_resource type="QuadMesh" id="QuadMesh_jrol3"]
+size = Vector2(100, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_palbq"]
+size = Vector3(100, 0.5, 50)
+
+[sub_resource type="QuadMesh" id="QuadMesh_o8iy4"]
+size = Vector2(100, 50)
+
+[node name="multi_level_area" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="storefronts_floor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 51)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="storefronts_floor" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
+script = ExtResource("1_sq18o")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="storefronts_floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_jrol3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="storefronts_floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("2_kqqkn")
+mesh = SubResource("QuadMesh_jrol3")
+skeleton = NodePath("")
+
+[node name="Marker3D" type="Marker3D" parent="storefronts_floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.58405, 0)
+
+[node name="storefronts_floor2" type="Node3D" parent="."]
+transform = Transform3D(1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -20, 51, 100)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="storefronts_floor2" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
+script = ExtResource("1_sq18o")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="storefronts_floor2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_jrol3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="storefronts_floor2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("2_kqqkn")
+mesh = SubResource("QuadMesh_jrol3")
+skeleton = NodePath("")
+
+[node name="Marker3D" type="Marker3D" parent="storefronts_floor2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.58405, 0)
+
+[node name="storefronts_floor3" type="Node3D" parent="."]
+transform = Transform3D(-1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -4.37114e-08, 1, 4.37114e-08, -20, 51, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="storefronts_floor3" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
+script = ExtResource("1_sq18o")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="storefronts_floor3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_jrol3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="storefronts_floor3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("2_kqqkn")
+mesh = SubResource("QuadMesh_jrol3")
+skeleton = NodePath("")
+
+[node name="Marker3D" type="Marker3D" parent="storefronts_floor3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.58405, 0)
+
+[node name="storefronts_floor4" type="Node3D" parent="."]
+transform = Transform3D(-0.866025, 0.5, 1.25278e-07, -0.5, -0.866025, -5.38547e-08, 8.15666e-08, -1.09278e-07, 1, -19.9999, 71, 51)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="storefronts_floor4" node_paths=PackedStringArray("climbDirection") groups=["Walkable"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
+script = ExtResource("1_sq18o")
+climbDirection = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="storefronts_floor4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_palbq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="storefronts_floor4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("2_kqqkn")
+mesh = SubResource("QuadMesh_o8iy4")
+skeleton = NodePath("")
+
+[node name="Marker3D" type="Marker3D" parent="storefronts_floor4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.58405, 0)
+
+[node name="balcony_floor" parent="." instance=ExtResource("3_dwvmc")]
+
+[node name="balcony_floor2" parent="." instance=ExtResource("3_dwvmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="climbable_hallway_stacked" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 10)
+
+[node name="climbable_hallway_stacked4" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 50)
+
+[node name="climbable_hallway_stacked3" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 90)
+
+[node name="climbable_wall_single" parent="." instance=ExtResource("5_opcvx")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -40, 10, 70)
+
+[node name="climbable_wall_single2" parent="." instance=ExtResource("5_opcvx")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -40, 10, 30)
+
+[node name="climbable_wall_single_half" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 20, 50)
+
+[node name="climbable_wall_single_half2" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 20, 90)
+
+[node name="climbable_wall_single_half3" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 20, 10)
+
+[node name="climbable_hallway_stacked2" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 20, 10)
+
+[node name="climbable_hallway_stacked5" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 20, 50)
+
+[node name="climbable_hallway_stacked6" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 20, 90)
+
+[node name="climbable_wall_single6" parent="." instance=ExtResource("5_opcvx")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -40, 30, 70)
+
+[node name="climbable_wall_single9" parent="." instance=ExtResource("5_opcvx")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -40, 30, 30)
+
+[node name="climbable_wall_single_half6" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 40, 50)
+
+[node name="climbable_wall_single_half7" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 40, 90)
+
+[node name="climbable_wall_single_half9" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 40, 10)
+
+[node name="climbable_hallway_stacked7" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 20, 10)
+
+[node name="climbable_hallway_stacked8" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 20, 50)
+
+[node name="climbable_hallway_stacked9" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 20, 90)
+
+[node name="climbable_wall_single10" parent="." instance=ExtResource("5_opcvx")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -40, 30, 70)
+
+[node name="climbable_wall_single13" parent="." instance=ExtResource("5_opcvx")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -40, 30, 30)
+
+[node name="climbable_wall_single_half11" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 40, 50)
+
+[node name="climbable_wall_single_half12" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 40, 90)
+
+[node name="climbable_wall_single_half14" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 40, 10)
+
+[node name="climbable_wall_single_half15" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, -30, 40, 0)
+
+[node name="climbable_hallway_stacked10" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 40, 10)
+
+[node name="climbable_hallway_stacked11" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 40, 50)
+
+[node name="climbable_hallway_stacked12" parent="." instance=ExtResource("4_lwnce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 40, 90)
+
+[node name="climbable_wall_single14" parent="." instance=ExtResource("5_opcvx")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -40, 50, 70)
+
+[node name="climbable_wall_single17" parent="." instance=ExtResource("5_opcvx")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -40, 50, 30)
+
+[node name="climbable_wall_single_half17" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 60, 50)
+
+[node name="climbable_wall_single_half18" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 60, 90)
+
+[node name="climbable_wall_single_half19" parent="." instance=ExtResource("6_e8qtr")]
+transform = Transform3D(-4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73205e-15, -40, 60, 10)
