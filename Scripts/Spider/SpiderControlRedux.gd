@@ -34,18 +34,10 @@ var isActiveController : bool = true
 var canSpawnSpider : bool = true
 var canSpawnWebbing : bool = true
 var spiderlingArray : Array = []
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 var health := 10
 
-=======
 var overWebbing : bool = false
 var webbings : Array = []
->>>>>>> Stashed changes
-=======
-var overWebbing : bool = false
-var webbings : Array = []
->>>>>>> Stashed changes
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

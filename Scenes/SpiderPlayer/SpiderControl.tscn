@@ -20,14 +20,14 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_pxwkk")
-spiderlingScene = ExtResource("2_acyfo")
-webbingScene = Array[PackedScene]([ExtResource("3_ft2r6"), ExtResource("4_75ah1"), ExtResource("5_hcqef")])
 head = NodePath("CameraMount")
 camera = NodePath("CameraMount/Camera3D")
 camTarget = NodePath("CameraMount/Camera3D/Marker3D")
 rayFolder = NodePath("RayFolder")
 spiderAnimation = NodePath("SpiderActor")
 spawnRay = NodePath("UtilitySpawner/RayCast3D")
+spiderlingScene = ExtResource("2_acyfo")
+webbingScene = Array[PackedScene]([ExtResource("3_ft2r6"), ExtResource("4_75ah1"), ExtResource("5_hcqef")])
 
 [node name="CameraMount" type="Node3D" parent="."]
 
