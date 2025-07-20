@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bhv1qxah1gn0m" path="res://Sandboxes/Andrew/HudFPS.tscn" id="4_k3mnh"]
 [ext_resource type="PackedScene" uid="uid://w1cxclsxctrr" path="res://Scenes/SpiderPlayer/WebObject3.tscn" id="5_hcqef"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_gxvbj"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_7blp2"]
 radius = 1.25
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_gxvbj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_acyfo"]
 
@@ -38,8 +38,19 @@ current = true
 [node name="Marker3D" type="Marker3D" parent="CameraMount/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.492841, -4.40349)
 
+[node name="AttackChecker" type="Area3D" parent="CameraMount/Camera3D"]
+transform = Transform3D(2.15505, 0, 0, 0, 2.14168, -0.239698, 0, 0.239698, 2.14168, 0, -0.59831, -2.60728)
+collision_layer = 3
+collision_mask = 3
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraMount/Camera3D/AttackChecker"]
+shape = SubResource("SphereShape3D_gxvbj")
+debug_color = Color(0.7, 0.0770987, 0, 0.42)
+
 [node name="CollisionChecker" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.39216)
+collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionChecker"]
 transform = Transform3D(-1.91069e-15, -4.37114e-08, 1, 1.06581e-14, 1, 4.37114e-08, -1, 1.06581e-14, 0, 0, 0, 0)
@@ -47,14 +58,6 @@ shape = SubResource("SphereShape3D_7blp2")
 
 [node name="SpiderActor" parent="." instance=ExtResource("2_7blp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.208656, 0)
-
-[node name="AttackChecker" type="Area3D" parent="."]
-transform = Transform3D(2.15505, 0, 0, 0, 2.15505, 0, 0, 0, 2.15505, 0, 0.819745, -2.12513)
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackChecker"]
-shape = SubResource("SphereShape3D_gxvbj")
 
 [node name="UtilitySpawner" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82571, 2.43965)
@@ -205,6 +208,8 @@ shape = SubResource("SphereShape3D_acyfo")
 
 [node name="HudFPS" parent="." instance=ExtResource("4_k3mnh")]
 
+[connection signal="body_entered" from="CameraMount/Camera3D/AttackChecker" to="." method="PlayerSensed"]
+[connection signal="body_exited" from="CameraMount/Camera3D/AttackChecker" to="." method="PlayerLost"]
 [connection signal="area_entered" from="CollisionChecker" to="." method="AreaEntered"]
 [connection signal="area_exited" from="CollisionChecker" to="." method="AreaExited"]
 [connection signal="body_entered" from="CollisionChecker" to="." method="bodyEntered"]

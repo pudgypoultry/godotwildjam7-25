@@ -6,10 +6,13 @@
 radius = 3.0
 
 [node name="WebObject1" type="Area3D" groups=["Webbing"]]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("CylinderShape3D_7vbo8")
 
 [node name="clutter_web_02" parent="." instance=ExtResource("1_pr1do")]
-transform = Transform3D(5.67063, 0, 0, 0, 1, 0, 0, 0, 5.67063, 0, 0.5, 0)
+transform = Transform3D(5.67063, 0, 0, 0, 1, 0, 0, 0, 5.67063, 0, 0.25, 0)

@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1buuvos5xd2h"]
+
+[ext_resource type="PackedScene" uid="uid://1v6iq7d5a8rg" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="1_p0ayt"]
+[ext_resource type="PackedScene" uid="uid://beotv63xman8r" path="res://Scenes/npc_m_actor_01.tscn" id="2_o87us"]
+[ext_resource type="PackedScene" uid="uid://c1w1trblnec4p" path="res://Scenes/npc_f_actor_01.tscn" id="3_ks73k"]
+[ext_resource type="PackedScene" uid="uid://cbjlg73v3v262" path="res://Scenes/mall_level.tscn" id="4_3wew3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="SpiderControl" parent="." instance=ExtResource("1_p0ayt")]
+transform = Transform3D(-0.806414, 0, -0.591352, 0, 1, 0, 0.591352, 0, -0.806414, 0, 0, 0)
+
+[node name="HudFPS" parent="SpiderControl" index="6"]
+visible = false
+
+[node name="NPC_f" parent="." instance=ExtResource("2_o87us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0325201, -0.0657994, 2.02344)
+
+[node name="Skeleton3D" parent="NPC_f/NPC/NPCArmature" index="0"]
+bones/1/position = Vector3(-0.0459938, -0.261604, 0.769893)
+bones/1/rotation = Quaternion(-0.185509, -0.00558253, 0.0108089, 0.982567)
+bones/2/rotation = Quaternion(0.658326, 0.0096913, 0.00847706, 0.752623)
+bones/3/rotation = Quaternion(0.0410254, 0.0174989, 0.00177614, 0.999003)
+bones/4/rotation = Quaternion(-0.00241353, 0.993317, 0.108826, 0.0383679)
+bones/5/rotation = Quaternion(0.00204257, 0.968575, 0.248587, -0.00795797)
+bones/6/rotation = Quaternion(0.232589, -0.0716511, -0.0118261, 0.96986)
+bones/8/rotation = Quaternion(0.365621, 0.71152, -0.486593, 0.351122)
+bones/9/rotation = Quaternion(0.0771081, 0.0184233, -0.474221, 0.876829)
+bones/10/rotation = Quaternion(0.0847876, 0.004698, -0.198096, 0.976497)
+bones/17/rotation = Quaternion(0.408385, 0.73757, -0.382714, 0.377811)
+bones/18/rotation = Quaternion(0.106872, -0.0184068, 0.634682, 0.765126)
+bones/19/rotation = Quaternion(0.104553, -0.00654851, 0.266808, 0.958039)
+bones/26/position = Vector3(0.15635, 0.265649, 0.439073)
+bones/26/rotation = Quaternion(-0.696947, 0.0900687, 0.707014, -0.079275)
+bones/27/position = Vector3(-0.188523, -0.0794129, -0.385445)
+bones/27/rotation = Quaternion(-0.645715, 0.00627353, 0.00530548, 0.763534)
+bones/28/position = Vector3(-0.187907, -0.270517, -0.334836)
+bones/30/rotation = Quaternion(0.18832, -0.272009, 0.620904, 0.710651)
+bones/31/rotation = Quaternion(-0.0216841, -3.53961e-06, 0.585377, 0.810471)
+bones/32/rotation = Quaternion(0.374081, 0.582234, -0.403709, 0.598403)
+bones/35/rotation = Quaternion(-0.0381792, -0.330415, 0.942023, 0.0442829)
+bones/36/rotation = Quaternion(-0.000102455, 4.35321e-06, -0.00276586, 0.999996)
+bones/37/rotation = Quaternion(0.374081, -0.582234, 0.403709, 0.598403)
+bones/39/position = Vector3(1.3835e-07, 0.586293, 1.24354)
+bones/39/rotation = Quaternion(0.59155, -6.79039e-06, -5.06558e-06, 0.806268)
+bones/40/position = Vector3(-0.0490232, 0.386243, 0.451568)
+bones/41/position = Vector3(-0.0304351, -0.467526, 0.0752966)
+bones/42/position = Vector3(0.102009, 0.386243, 0.451568)
+bones/43/position = Vector3(0.0701741, 0.237377, 0.299195)
+
+[node name="NPC_f2" parent="." instance=ExtResource("3_ks73k")]
+transform = Transform3D(0.848233, 0, 0.529623, 0, 1, 0, -0.529623, 0, 0.848233, 1.17014, -0.0657994, 1.46262)
+
+[node name="Skeleton3D" parent="NPC_f2/NPC/NPCArmature" index="0"]
+bones/1/position = Vector3(-0.0459938, -0.261604, 0.769893)
+bones/1/rotation = Quaternion(-0.185509, -0.00558253, 0.0108089, 0.982567)
+bones/2/rotation = Quaternion(0.658326, 0.0096913, 0.00847706, 0.752623)
+bones/3/rotation = Quaternion(0.0410254, 0.0174989, 0.00177614, 0.999003)
+bones/4/rotation = Quaternion(-0.00241353, 0.993317, 0.108826, 0.0383679)
+bones/5/rotation = Quaternion(0.00204257, 0.968575, 0.248587, -0.00795797)
+bones/6/rotation = Quaternion(0.232589, -0.0716511, -0.0118261, 0.96986)
+bones/8/rotation = Quaternion(0.365621, 0.71152, -0.486593, 0.351122)
+bones/9/rotation = Quaternion(0.0771081, 0.0184233, -0.474221, 0.876829)
+bones/10/rotation = Quaternion(0.0847876, 0.004698, -0.198096, 0.976497)
+bones/17/rotation = Quaternion(0.408385, 0.73757, -0.382714, 0.377811)
+bones/18/rotation = Quaternion(0.106872, -0.0184068, 0.634682, 0.765126)
+bones/19/rotation = Quaternion(0.104553, -0.00654851, 0.266808, 0.958039)
+bones/26/position = Vector3(0.15635, 0.265649, 0.439073)
+bones/26/rotation = Quaternion(-0.696947, 0.0900687, 0.707014, -0.079275)
+bones/27/position = Vector3(-0.188523, -0.0794129, -0.385445)
+bones/27/rotation = Quaternion(-0.645715, 0.00627353, 0.00530548, 0.763534)
+bones/28/position = Vector3(-0.187907, -0.270517, -0.334836)
+bones/30/rotation = Quaternion(0.18832, -0.272009, 0.620904, 0.710651)
+bones/31/rotation = Quaternion(-0.0216841, -3.53961e-06, 0.585377, 0.810471)
+bones/32/rotation = Quaternion(0.374081, 0.582234, -0.403709, 0.598403)
+bones/35/rotation = Quaternion(-0.0381792, -0.330415, 0.942023, 0.0442829)
+bones/36/rotation = Quaternion(-0.000102455, 4.35321e-06, -0.00276586, 0.999996)
+bones/37/rotation = Quaternion(0.374081, -0.582234, 0.403709, 0.598403)
+bones/39/position = Vector3(1.3835e-07, 0.586293, 1.24354)
+bones/39/rotation = Quaternion(0.59155, -6.79039e-06, -5.06558e-06, 0.806268)
+bones/40/position = Vector3(-0.0490232, 0.386243, 0.451568)
+bones/41/position = Vector3(-0.0304351, -0.467526, 0.0752966)
+bones/42/position = Vector3(0.102009, 0.386243, 0.451568)
+bones/43/position = Vector3(0.0701741, 0.237377, 0.299195)
+
+[node name="Mall_Level" parent="." instance=ExtResource("4_3wew3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0916, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.478922, 0, 0.877858, 0, 1, 0, -0.877858, 0, 0.478922, 1.96216, 1.07065, 2.8536)
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78639, 2.0848, 0.743725)
+visible = false
+light_energy = 13.024
+light_indirect_energy = 3.005
+omni_range = 197.004
+
+[editable path="SpiderControl"]
+[editable path="NPC_f"]
+[editable path="NPC_f/NPC"]
+[editable path="NPC_f2"]
+[editable path="NPC_f2/NPC"]

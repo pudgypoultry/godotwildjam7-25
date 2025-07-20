@@ -3,8 +3,8 @@ extends CharacterBody3D
 @export_category("Game Rules")
 @export var rotationSpeed : float = 5.0
 @export var verticalCameraClamp : float = 75
-@export var speed : float = 5.0
-@export var runSpeed : float = 10.0
+@export var speed : float = 5
+@export var runSpeed : float = 10
 
 @export_category("Plugging in Nodes")
 @export var head : Node3D
@@ -34,8 +34,7 @@ var isActiveController : bool = true
 var canSpawnSpider : bool = true
 var canSpawnWebbing : bool = true
 var spiderlingArray : Array = []
-var health := 10
-
+var health : int =  10
 var overWebbing : bool = false
 var webbings : Array = []
 
@@ -87,6 +86,8 @@ func checkRays() -> void:
 		if r.is_colliding():
 			numOfRaysColliding += 1
 			avgNor += r.get_collision_normal()
+			if r.get_collider().is_in_group("Webbing"):
+				print("POOP")
 	if avgNor:
 		avgNor /= numOfRaysColliding
 		avgNormal = avgNor.normalized()
@@ -172,6 +173,20 @@ func OrientCharacterToDirection(direction : Vector3, delta : float):
 		#print("Original Basis:")
 		#print(basis)
 		basis = basis.get_rotation_quaternion().slerp(rotationBasis, delta * rotationSpeed)
+
+
+func PlayerSensed(body) -> void:
+	print("Found: " + body.name)
+	if body.is_in_group("npc"):
+		print("Found Player")
+		currentTarget = body
+		print(currentTarget.name)
+
+
+func PlayerLost(body) -> void:
+	if body.is_in_group("npc"):
+		print("Eew Player is missing")
+		currentTarget = null
 
 
 func Attack():

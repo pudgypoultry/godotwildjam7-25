@@ -47,15 +47,11 @@ var spiderlingArray : Array[Node3D]
 var currentWalkableCollision : Node3D
 var goingToWalkableCollision : Node3D
 var currentState : SpiderState = SpiderState.CRAWLING
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
 var input : Vector3 = Vector3.ZERO
 var rayCastBrigade : Array
 var currentAverage : Vector3
 
 # Average normals from raycast collisions that do collide
-# Check for raycast closest to average normal, grab whatever wall that collides with, use that as up_direction
-=======
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
 
 
 func _ready() -> void:
@@ -76,11 +72,7 @@ func BodyEntered(body) -> void:
 			bodyOn = body
 			up_direction = body.GetGlobalClimbDirection()
 			gravityVector = -up_direction
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
 			ChangeSpiderState(SpiderState.REORIENTING, up_direction)
-=======
-			ChangeState(SpiderState.REORIENTING, up_direction)
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
 			print("New up_direction: " + str(up_direction))
 			jumpVector = Vector3.ZERO
 			needsToReorient = true
@@ -128,31 +120,24 @@ func _process(delta: float) -> void:
 
 
 func Jump() -> void:
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
 	#print("Trying to jump")
 	#ChangeSpiderState(SpiderState.JUMPING, up_direction)
-=======
 	print("Trying to jump")
-	ChangeState(SpiderState.JUMPING, up_direction)
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
+	ChangeSpiderState(SpiderState.JUMPING, up_direction)
 	if up_direction == originalUpDirection or needsToReorient:
 		jumpVector = up_direction * baseJumpForce
 	else:
 		jumpVector = up_direction * jumpForce
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
 		#up_direction = originalUpDirection
 	#jumping = true
 	velocity += jumpVector * basis.y
-=======
-		up_direction = originalUpDirection
+	up_direction = originalUpDirection
 	jumping = true
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
 
 
 
 func _physics_process(delta: float) -> void:
 	if isActiveController:
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
 		currentAverage = GetAverageNormal()
 		#if acos(currentAverage.dot(up_direction)) > dotTolerance:
 			#ChangeSpiderState(SpiderState.REORIENTING, currentAverage)
@@ -164,8 +149,6 @@ func _physics_process(delta: float) -> void:
 		
 		if acos(up_direction.dot(currentAverage)) > dotTolerance:
 			OrientCharacterToDirection(currentAverage, delta)
-=======
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
 		HandleStateBehavior(currentState, delta)
 		Attack()
 		SpawnSpider()
@@ -298,7 +281,6 @@ func MakeActiveController():
 
 
 func HandleStateBehavior(state : SpiderState, delta):
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
 	# print(SpiderState.keys()[state])
 	match state:
 		SpiderState.CRAWLING:
@@ -310,7 +292,6 @@ func HandleStateBehavior(state : SpiderState, delta):
 			#if needsToReorient:
 				#print("Trying to reorient")
 				#OrientCharacterToDirection(up_direction, delta)
-=======
 	print(SpiderState.keys()[state])
 	match state:
 		SpiderState.CRAWLING:
@@ -329,7 +310,6 @@ func HandleStateBehavior(state : SpiderState, delta):
 				spiderCollision.disabled = true
 			else:
 				spiderCollision.disabled = false
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
 			
 			if !is_on_floor():
 				if !needsToReorient:
@@ -337,20 +317,16 @@ func HandleStateBehavior(state : SpiderState, delta):
 			elif is_on_floor() && jumping:
 				jumpVector = Vector3.ZERO
 				jumping = false
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
 
 
-=======
 			if Input.is_action_just_pressed("Jump"):
 				Jump()
 				up_direction = originalUpDirection
 				needsToReorient = true
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
 				gravityVector = originalUpDirection * -gravityForce
 			velocity += gravityVector
 		
 		SpiderState.JUMPING:
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
 			#if acos(basis.y.dot(originalUpDirection)) < dotTolerance:
 				#OrientCharacterToDirection(originalUpDirection, delta)
 			gravityVector = up_direction * -gravityForce
@@ -366,34 +342,28 @@ func HandleStateBehavior(state : SpiderState, delta):
 					ChangeSpiderState(SpiderState.CRAWLING, up_direction)
 				else:
 					ChangeSpiderState(SpiderState.JUMPING, originalUpDirection)
-=======
 			if acos(basis.y.dot(originalUpDirection)) < dotTolerance:
 				OrientCharacterToDirection(originalUpDirection, delta)
 			gravityVector = up_direction * -gravityForce
 			velocity += jumpVector
 			if is_on_floor():
-				ChangeState(SpiderState.CRAWLING, up_direction)
+				ChangeSpiderState(SpiderState.CRAWLING, up_direction)
 		
 		SpiderState.REORIENTING:
 			OrientCharacterToDirection(up_direction, delta)
 			velocity = movementSpeed * (-basis.z) * GetModelOrientedInput()
 			if acos(basis.y.dot(up_direction)) < dotTolerance:
 				if is_on_floor():
-					ChangeState(SpiderState.CRAWLING, up_direction)
+					ChangeSpiderState(SpiderState.CRAWLING, up_direction)
 				else:
-					ChangeState(SpiderState.JUMPING, originalUpDirection)
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
+					ChangeSpiderState(SpiderState.JUMPING, originalUpDirection)
 			# also handle how movement works while in this state, disable gravity if was on floor within short amount of time
 		
 		SpiderState.ATTACKING:
 			pass
 
 
-<<<<<<< Updated upstream:Sandboxes/Andrew/SpiderMovementFinal.gd
 func ChangeSpiderState(newState : SpiderState, newUpDirection : Vector3):
-=======
-func ChangeState(newState : SpiderState, newUpDirection : Vector3):
->>>>>>> Stashed changes:Scripts/Spider/SpiderMovementFinal.gd
 	match newState:
 		SpiderState.CRAWLING:
 			needsToReorient = false
