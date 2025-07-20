@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="GodotWildJam7-25"
-run/main_scene="uid://baqyi4mjhxol"
+run/main_scene="uid://b7yji8n3x4417"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/aspect="expand"
 
 [editor]
 

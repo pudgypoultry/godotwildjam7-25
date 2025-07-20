@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7yji8n3x4417"]
+
+[ext_resource type="Texture2D" uid="uid://cue46lxyb4hep" path="res://Assets/Textures/TitleSplash.png" id="1_bkwd7"]
+[ext_resource type="Texture2D" uid="uid://c8rrc6v4046jc" path="res://Assets/Webs/cartoonweb.png" id="2_tself"]
+[ext_resource type="Script" uid="uid://cudpuqjfk7xkd" path="res://Scenes/Menu/arrow.gd" id="3_7jtkx"]
+[ext_resource type="Script" uid="uid://de3ddj8cwj4by" path="res://Scenes/Menu/SceneButton.gd" id="4_ab7fb"]
+[ext_resource type="Script" uid="uid://b4x71nrkrg610" path="res://Scenes/Menu/ExitButton.gd" id="5_gpijq"]
+
+[sub_resource type="FontVariation" id="FontVariation_7jtkx"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_bkwd7")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 1650.0
+offset_bottom = 1650.0
+scale = Vector2(0.188732, 0.188732)
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_tself")
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.145098, 0.580392, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/normal_font = SubResource("FontVariation_7jtkx")
+theme_override_font_sizes/normal_font_size = 200
+text = "MALL 
+CRAWLERS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Start" type="HBoxContainer" parent="MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Arrow" type="Label" parent="MarginContainer3/VBoxContainer/Start"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+script = ExtResource("3_7jtkx")
+
+[node name="Text" type="Button" parent="MarginContainer3/VBoxContainer/Start"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Start"
+flat = true
+script = ExtResource("4_ab7fb")
+nextScene = "res://Scenes/MallCrawlers_Level.tscn"
+
+[node name="Credits" type="HBoxContainer" parent="MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Arrow" type="Label" parent="MarginContainer3/VBoxContainer/Credits"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+script = ExtResource("3_7jtkx")
+
+[node name="Text" type="Button" parent="MarginContainer3/VBoxContainer/Credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+flat = true
+script = ExtResource("4_ab7fb")
+nextScene = "res://Scenes/Menu/Credits.tscn"
+
+[node name="Exit" type="HBoxContainer" parent="MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Arrow" type="Label" parent="MarginContainer3/VBoxContainer/Exit"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+script = ExtResource("3_7jtkx")
+
+[node name="Text" type="Button" parent="MarginContainer3/VBoxContainer/Exit"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+flat = true
+script = ExtResource("5_gpijq")
+
+[connection signal="mouse_entered" from="MarginContainer3/VBoxContainer/Start" to="MarginContainer3/VBoxContainer/Start/Arrow" method="ShowArrow"]
+[connection signal="mouse_exited" from="MarginContainer3/VBoxContainer/Start" to="MarginContainer3/VBoxContainer/Start/Arrow" method="HideArrow"]
+[connection signal="mouse_entered" from="MarginContainer3/VBoxContainer/Start/Text" to="MarginContainer3/VBoxContainer/Start/Arrow" method="ShowArrow"]
+[connection signal="mouse_exited" from="MarginContainer3/VBoxContainer/Start/Text" to="MarginContainer3/VBoxContainer/Start/Arrow" method="HideArrow"]
+[connection signal="pressed" from="MarginContainer3/VBoxContainer/Start/Text" to="MarginContainer3/VBoxContainer/Start/Text" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer3/VBoxContainer/Credits" to="MarginContainer3/VBoxContainer/Credits/Arrow" method="ShowArrow"]
+[connection signal="mouse_exited" from="MarginContainer3/VBoxContainer/Credits" to="MarginContainer3/VBoxContainer/Credits/Arrow" method="HideArrow"]
+[connection signal="mouse_entered" from="MarginContainer3/VBoxContainer/Credits/Text" to="MarginContainer3/VBoxContainer/Credits/Arrow" method="ShowArrow"]
+[connection signal="mouse_exited" from="MarginContainer3/VBoxContainer/Credits/Text" to="MarginContainer3/VBoxContainer/Credits/Arrow" method="HideArrow"]
+[connection signal="pressed" from="MarginContainer3/VBoxContainer/Credits/Text" to="MarginContainer3/VBoxContainer/Credits/Text" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer3/VBoxContainer/Exit" to="MarginContainer3/VBoxContainer/Exit/Arrow" method="ShowArrow"]
+[connection signal="mouse_exited" from="MarginContainer3/VBoxContainer/Exit" to="MarginContainer3/VBoxContainer/Exit/Arrow" method="HideArrow"]
+[connection signal="mouse_entered" from="MarginContainer3/VBoxContainer/Exit/Text" to="MarginContainer3/VBoxContainer/Exit/Arrow" method="ShowArrow"]
+[connection signal="mouse_exited" from="MarginContainer3/VBoxContainer/Exit/Text" to="MarginContainer3/VBoxContainer/Exit/Arrow" method="HideArrow"]
+[connection signal="pressed" from="MarginContainer3/VBoxContainer/Exit/Text" to="MarginContainer3/VBoxContainer/Exit/Text" method="_on_pressed"]

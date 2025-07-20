@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://drbff43586lou"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "INTRODUCTION TO"
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "BASIC CRYPTOGRAPHY"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 36
+text = "START"
+
+[node name="CenterContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "EXIT"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Made in Godot by Andrew Teske
+Written and Edited by Jonny Nelson
+For University of Oregon CS 533, and for anyone curious about topics in network security"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer/Button" to="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer2/Button" to="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer2/Button" method="_on_pressed"]
