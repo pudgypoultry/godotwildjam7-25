@@ -30,7 +30,6 @@ shape = SubResource("CapsuleShape3D_q3xt4")
 target_desired_distance = 0.75
 path_max_distance = 5.41
 avoidance_enabled = true
-debug_enabled = true
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "npc_animator")]
 script = ExtResource("2_knyxn")

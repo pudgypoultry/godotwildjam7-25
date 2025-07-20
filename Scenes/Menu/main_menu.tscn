@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7yji8n3x4417"]
+[gd_scene load_steps=8 format=3 uid="uid://b7yji8n3x4417"]
 
 [ext_resource type="Texture2D" uid="uid://cue46lxyb4hep" path="res://Assets/Textures/TitleSplash.png" id="1_bkwd7"]
 [ext_resource type="Texture2D" uid="uid://c8rrc6v4046jc" path="res://Assets/Webs/cartoonweb.png" id="2_tself"]
 [ext_resource type="Script" uid="uid://cudpuqjfk7xkd" path="res://Scenes/Menu/arrow.gd" id="3_7jtkx"]
 [ext_resource type="Script" uid="uid://de3ddj8cwj4by" path="res://Scenes/Menu/SceneButton.gd" id="4_ab7fb"]
 [ext_resource type="Script" uid="uid://b4x71nrkrg610" path="res://Scenes/Menu/ExitButton.gd" id="5_gpijq"]
+[ext_resource type="AudioStream" uid="uid://qofiby55ca5c" path="res://Assets/Sounds/mainmenutheme.wav" id="6_gpijq"]
 
 [sub_resource type="FontVariation" id="FontVariation_7jtkx"]
 
@@ -85,7 +86,7 @@ theme_override_font_sizes/font_size = 50
 text = "Start"
 flat = true
 script = ExtResource("4_ab7fb")
-nextScene = "res://Scenes/MallCrawlers_Level.tscn"
+nextScene = "res://Sandboxes/Stella/Cory_Sandbox_Level-test.tscn"
 
 [node name="Credits" type="HBoxContainer" parent="MarginContainer3/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -123,6 +124,10 @@ theme_override_font_sizes/font_size = 50
 text = "Exit"
 flat = true
 script = ExtResource("5_gpijq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_gpijq")
+autoplay = true
 
 [connection signal="mouse_entered" from="MarginContainer3/VBoxContainer/Start" to="MarginContainer3/VBoxContainer/Start/Arrow" method="ShowArrow"]
 [connection signal="mouse_exited" from="MarginContainer3/VBoxContainer/Start" to="MarginContainer3/VBoxContainer/Start/Arrow" method="HideArrow"]

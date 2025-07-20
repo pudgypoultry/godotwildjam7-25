@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1v6iq7d5a8rg"]
+[gd_scene load_steps=12 format=3 uid="uid://1v6iq7d5a8rg"]
 
 [ext_resource type="Script" uid="uid://djxdmtsp2ecol" path="res://Scripts/Spider/SpiderControlRedux.gd" id="1_pxwkk"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_7blp2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ck3sd7v2loawt" path="res://Scenes/SpiderPlayer/WebObject2.tscn" id="4_75ah1"]
 [ext_resource type="PackedScene" uid="uid://bhv1qxah1gn0m" path="res://Sandboxes/Andrew/HudFPS.tscn" id="4_k3mnh"]
 [ext_resource type="PackedScene" uid="uid://w1cxclsxctrr" path="res://Scenes/SpiderPlayer/WebObject3.tscn" id="5_hcqef"]
+[ext_resource type="AudioStream" uid="uid://qofiby55ca5c" path="res://Assets/Sounds/mainmenutheme.wav" id="8_75ah1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gxvbj"]
 
@@ -208,6 +209,10 @@ shape = SubResource("SphereShape3D_acyfo")
 
 [node name="HudFPS" parent="." instance=ExtResource("4_k3mnh")]
 visible = false
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_75ah1")
+autoplay = true
 
 [connection signal="body_entered" from="CameraMount/Camera3D/AttackChecker" to="." method="PlayerSensed"]
 [connection signal="body_exited" from="CameraMount/Camera3D/AttackChecker" to="." method="PlayerLost"]
