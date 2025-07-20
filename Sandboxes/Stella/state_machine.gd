@@ -14,6 +14,7 @@ var states : Dictionary = {}
 # away from each other soon
 var speed : float = 2 + randf_range(0.0, 0.5)
 
+
 func _ready(): 
 	# here we can assign some of the child variables like references to the player
 	player = get_tree().get_first_node_in_group("Player")

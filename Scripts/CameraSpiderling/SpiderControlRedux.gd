@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export_category("Game Rules")
 @export var rotationSpeed : float = 5.0
-@export var verticalCameraClamp : float = 80.0
+@export var verticalCameraClamp : float = 75
 
 @export_category("Plugging in Nodes")
 @export var head : Node3D
