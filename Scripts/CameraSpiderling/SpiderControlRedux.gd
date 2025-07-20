@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export_category("Game Rules")
 @export var rotationSpeed : float = 5.0
+@export var verticalCameraClamp : float = 80.0
 
 @export_category("Plugging in Nodes")
 @export var head : Node3D
@@ -15,7 +16,7 @@ extends CharacterBody3D
 
 
 var gravity := Vector3(0,-3,0)
-var jumpVec := Vector3( 0, 80, 0)
+var jumpVec := Vector3(0, 75, 0)
 var avgNormal : Vector3 = Vector3.ZERO
 var MOUSE_SENS := 0.005
 var speed := 5.0
@@ -34,6 +35,7 @@ var canSpawnSpider : bool = true
 var canSpawnWebbing : bool = true
 var spiderlingArray : Array = []
 
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	velocity = Vector3.ZERO
@@ -45,13 +47,14 @@ func bodyEntered(body) -> void:
 		bodyOn = body
 		jumpVectors = Vector3.ZERO
 
+
 func _input(event: InputEvent) -> void:
 	if isActiveController:
 		if event is InputEventMouseMotion:
 			camera.rotation.x += -event.relative.y * MOUSE_SENS 
+			camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(verticalCameraClamp), deg_to_rad(verticalCameraClamp))
 			head.rotation.y += -event.relative.x * MOUSE_SENS * mouseSensMulti
 			spiderAnimation.rotation.y += -event.relative.x * MOUSE_SENS * mouseSensMulti
-		
 		if abs(camera.rotation_degrees.x) >= 360:
 			camera.rotation_degrees.x = 0
 		if abs(head.rotation_degrees.y) >= 360:
@@ -60,6 +63,7 @@ func _input(event: InputEvent) -> void:
 			mouseSensMulti = -1
 		else:
 			mouseSensMulti = 1
+
 
 func checkRays() -> void:
 	var avgNor := Vector3.ZERO
@@ -91,11 +95,13 @@ func _process(delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
 func jump() -> void:
 	jumpVectors += jumpVec
 	avgNormal = Vector3.UP
 	jumpVec = avgNormal * 50
 	gravity = avgNormal * -3
+
 
 func _physics_process(delta: float) -> void:
 	if isActiveController:

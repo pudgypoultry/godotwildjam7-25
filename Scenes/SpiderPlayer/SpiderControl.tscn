@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://1v6iq7d5a8rg"]
+[gd_scene load_steps=8 format=3 uid="uid://1v6iq7d5a8rg"]
 
 [ext_resource type="Script" uid="uid://djxdmtsp2ecol" path="res://Scripts/CameraSpiderling/SpiderControlRedux.gd" id="1_pxwkk"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_7blp2"]
 [ext_resource type="PackedScene" uid="uid://dl7jlb8rwftgr" path="res://Scenes/SpiderPlayer/Spiderling.tscn" id="2_acyfo"]
+[ext_resource type="PackedScene" uid="uid://bhv1qxah1gn0m" path="res://Sandboxes/Andrew/HudFPS.tscn" id="4_k3mnh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7blp2"]
 radius = 1.25
@@ -198,5 +199,7 @@ target_position = Vector3(0, 3, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_acyfo")
+
+[node name="HudFPS" parent="." instance=ExtResource("4_k3mnh")]
 
 [connection signal="body_entered" from="CollisionChecker" to="." method="bodyEntered"]

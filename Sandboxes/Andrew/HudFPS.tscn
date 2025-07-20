@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhv1qxah1gn0m"]
+
+[ext_resource type="Texture2D" uid="uid://b783x2yt784sb" path="res://Sandboxes/Andrew/HealthBarBack.png" id="1_a6g6u"]
+[ext_resource type="Script" uid="uid://ch1n8j7sn0j11" path="res://Sandboxes/Andrew/HudFPS.gd" id="1_sa8km"]
+[ext_resource type="Texture2D" uid="uid://bdyuklcwito3t" path="res://Sandboxes/Andrew/HealthBarOver.png" id="2_2x8ri"]
+[ext_resource type="Texture2D" uid="uid://dygu18p2soff8" path="res://Sandboxes/Andrew/HealthBar.png" id="3_bgj42"]
+[ext_resource type="Texture2D" uid="uid://cmqld58dlex2m" path="res://Sandboxes/Andrew/StaminaBarBack.png" id="4_hdnj1"]
+[ext_resource type="Texture2D" uid="uid://bqxikfi36s1v2" path="res://Sandboxes/Andrew/StaminaBarOver.png" id="5_0i7ep"]
+[ext_resource type="Texture2D" uid="uid://dinltralx730g" path="res://Sandboxes/Andrew/StaminaBar.png" id="5_lhp80"]
+
+[node name="HudFPS" type="Control" node_paths=PackedStringArray("healthBar", "staminaBar", "debugLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sa8km")
+healthBar = NodePath("ReferenceRect/VBoxContainer/Health")
+staminaBar = NodePath("ReferenceRect/VBoxContainer/Stamina")
+debugLabel = NodePath("Label")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 450.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -47.0
+offset_right = 200.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="TextureProgressBar" parent="ReferenceRect/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+value = 100.0
+texture_under = ExtResource("1_a6g6u")
+texture_over = ExtResource("2_2x8ri")
+texture_progress = ExtResource("3_bgj42")
+
+[node name="Stamina" type="TextureProgressBar" parent="ReferenceRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+max_value = 300.0
+value = 300.0
+texture_under = ExtResource("4_hdnj1")
+texture_over = ExtResource("5_0i7ep")
+texture_progress = ExtResource("5_lhp80")
+tint_over = Color(1, 1, 1, 0.145098)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Debug On"
