@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export_category("Game Rules")
 @export var rotationSpeed : float = 5.0
 @export var verticalCameraClamp : float = 75
+@export var speed : float = 5.0
+@export var runSpeed : float = 10.0
 
 @export_category("Plugging in Nodes")
 @export var head : Node3D
@@ -12,16 +14,14 @@ extends CharacterBody3D
 @export var spiderAnimation : Node3D
 @export var spawnRay : RayCast3D
 @export var spiderlingScene : PackedScene
-@export var webbingScene : PackedScene
+@export var webbingScene : Array[PackedScene]
 
 
 var gravity := Vector3(0,-3,0)
 var jumpVec := Vector3(0, 75, 0)
 var avgNormal : Vector3 = Vector3.ZERO
 var MOUSE_SENS := 0.005
-var speed := 5.0
 var baseSpeed
-var runSpeed := 10.0
 var jumpNum := 0
 var maxJumpAmt := 10
 var extravelocity := Vector3.ZERO
@@ -34,8 +34,13 @@ var isActiveController : bool = true
 var canSpawnSpider : bool = true
 var canSpawnWebbing : bool = true
 var spiderlingArray : Array = []
+<<<<<<< Updated upstream
 var health := 10
 
+=======
+var overWebbing : bool = false
+var webbings : Array = []
+>>>>>>> Stashed changes
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -47,6 +52,17 @@ func bodyEntered(body) -> void:
 	if body and body != bodyOn and body is StaticBody3D:
 		bodyOn = body
 		jumpVectors = Vector3.ZERO
+
+func AreaEntered(body):
+	if body.is_in_group("Webbing"):
+		overWebbing = true
+		webbings.append(body)
+
+func AreaExited(body) -> void:
+	if body.is_in_group("Webbing"):
+		webbings.erase(body)
+		if len(webbings) == 0:
+			overWebbing = false
 
 
 func _input(event: InputEvent) -> void:
@@ -87,9 +103,9 @@ func checkRays() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Reset"):
 		get_tree().reload_current_scene()
-	if Input.is_action_just_pressed("Run"):
+	if overWebbing:
 		speed = runSpeed
-	if Input.is_action_just_released("Run"):
+	else:
 		speed = baseSpeed
 	if Input.is_key_pressed(KEY_ESCAPE):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -140,13 +156,13 @@ func get_dir() -> Vector3:
 	animationTree.set("parameters/blend_position", 
 		Vector2(lerp(current_blend_pos.x, rawInput.x, 0.3), lerp(current_blend_pos.y, -rawInput.y, 0.3)))
 	if Input.is_action_pressed("MoveForward"):
-		dir = dirBase.rotated( avgNormal.normalized(), -PI/2 )
+		dir += dirBase.rotated( avgNormal.normalized(), -PI/2 )
 	if Input.is_action_pressed("MoveBackward"):
-		dir = dirBase.rotated( avgNormal.normalized(), PI/2 )
+		dir += dirBase.rotated( avgNormal.normalized(), PI/2 )
 	if Input.is_action_pressed("RotateLeft"):
-		dir = dirBase
+		dir += dirBase
 	if Input.is_action_pressed("RotateRight"):
-		dir = dirBase.rotated(avgNormal.normalized(), PI)
+		dir += dirBase.rotated(avgNormal.normalized(), PI)
 	return dir.normalized()
 
 
@@ -187,11 +203,10 @@ func SpawnWebbing():
 		print("Spawning webbing")
 		if canSpawnWebbing && spawnRay.is_colliding():
 			canSpawnSpider = false
-			var newWeb : Node3D = webbingScene.instantiate()
+			var newWeb : Node3D = webbingScene.pick_random().instantiate()
 			get_tree().root.add_child(newWeb)
 			newWeb.global_position = spawnRay.get_collision_point()
 			newWeb.basis = basis
-			newWeb.parentSpider = self
 
 
 func SenseWebbing():

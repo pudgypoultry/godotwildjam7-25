@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://1v6iq7d5a8rg"]
+[gd_scene load_steps=11 format=3 uid="uid://1v6iq7d5a8rg"]
 
 [ext_resource type="Script" uid="uid://djxdmtsp2ecol" path="res://Scripts/CameraSpiderling/SpiderControlRedux.gd" id="1_pxwkk"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_7blp2"]
 [ext_resource type="PackedScene" uid="uid://dl7jlb8rwftgr" path="res://Scenes/SpiderPlayer/Spiderling.tscn" id="2_acyfo"]
+[ext_resource type="PackedScene" uid="uid://bjwunckpps70c" path="res://Scenes/SpiderPlayer/WebObject1.tscn" id="3_ft2r6"]
+[ext_resource type="PackedScene" uid="uid://ck3sd7v2loawt" path="res://Scenes/SpiderPlayer/WebObject2.tscn" id="4_75ah1"]
 [ext_resource type="PackedScene" uid="uid://bhv1qxah1gn0m" path="res://Sandboxes/Andrew/HudFPS.tscn" id="4_k3mnh"]
+[ext_resource type="PackedScene" uid="uid://w1cxclsxctrr" path="res://Scenes/SpiderPlayer/WebObject3.tscn" id="5_hcqef"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7blp2"]
 radius = 1.25
@@ -24,7 +27,7 @@ rayFolder = NodePath("RayFolder")
 spiderAnimation = NodePath("SpiderActor")
 spawnRay = NodePath("UtilitySpawner/RayCast3D")
 spiderlingScene = ExtResource("2_acyfo")
-webbingScene = ExtResource("2_acyfo")
+webbingScene = Array[PackedScene]([ExtResource("3_ft2r6"), ExtResource("4_75ah1"), ExtResource("5_hcqef")])
 
 [node name="CameraMount" type="Node3D" parent="."]
 
@@ -202,4 +205,6 @@ shape = SubResource("SphereShape3D_acyfo")
 
 [node name="HudFPS" parent="." instance=ExtResource("4_k3mnh")]
 
+[connection signal="area_entered" from="CollisionChecker" to="." method="AreaEntered"]
+[connection signal="area_exited" from="CollisionChecker" to="." method="AreaExited"]
 [connection signal="body_entered" from="CollisionChecker" to="." method="bodyEntered"]
