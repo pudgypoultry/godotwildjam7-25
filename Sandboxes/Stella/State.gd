@@ -7,12 +7,16 @@ var nav_npc : CharacterBody3D
 var navigation_agent : NavigationAgent3D
 var speed : float
 
+# abstract base State, more or less. 
+
 signal Transitioned
 
 func Enter():
+	# called when the state is entered
 	pass
 	
 func Exit():
+	# called when the state is exited
 	pass
 	
 func Update(_delta):

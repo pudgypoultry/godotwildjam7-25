@@ -21,6 +21,8 @@ func _ready():
 		print("Error: player not found.")
 	for child in get_children():
 		if child is State:
+			# add convenience vars to each state,
+			# set up the states dictionary
 			states[child.name.to_lower()] = child
 			child.Transitioned.connect(on_child_transition)
 			child.player = player

@@ -22,6 +22,7 @@ func Physics_Update(delta):
 				
 		direction.y = 0  # keep rotation flat
 
+		# handle rotation
 		var current_rotation = nav_npc.rotation.y
 		var target_rotation = atan2(-direction.x, -direction.z)
 		var new_rotation = lerp_angle(current_rotation, target_rotation, 5.0 * delta)
@@ -31,10 +32,11 @@ func Physics_Update(delta):
 		nav_npc.move_and_slide()
 	
 	else:
-		# not pathing. have character wait for a bit before picking new dest
 		timer = 0
 		pathing = true
 		
+		# select new position offset.
+		# this could be changed to have further exploration
 		var current_position = nav_npc.global_position
 		current_position.x += randf_range(-20.0, 20.0)
 		current_position.z += randf_range(-20.0, 20.0)
@@ -47,6 +49,7 @@ func _on_navigation_agent_3d_target_reached():
 
 
 func _on_area_3d_body_entered(body):
+	# this is not really being used right now
 	if body.is_in_group("Player"):
 		print("player detected!")
 		Transitioned.emit(self, "playerseen")

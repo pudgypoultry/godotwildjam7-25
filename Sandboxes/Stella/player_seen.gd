@@ -4,8 +4,12 @@ class_name PlayerSeen
 @export var debug = false
 
 var chase_threshold = 1
+var timer : float = 0.0
+#randomizing so each agent is slightly different(?)
+var stuck_time : float = 0.25 + randfn(0.1, 0.01)
 
 func Enter():
+	# set up the first target based on what the npc's behavior is
 	if nav_npc.brave:
 		print("i'm brave!")
 		navigation_agent.set_target_position(player.global_position)
@@ -13,16 +17,15 @@ func Enter():
 		print("i'm scared!")
 		navigation_agent.set_target_position(nav_npc.home_base.global_position)
 
-# instead of beeline, trying pathfinding. 
-var timer : float = 0.0
-#randomizing so each agent is slightly different(?)
-var stuck_time : float = 0.25 + randfn(0.1, 0.01)
 
 func Physics_Update(delta): 
 	timer += delta
+	
 	if navigation_agent.is_navigation_finished() or timer > stuck_time:
 		if nav_npc.brave:
+			# pick the next position
 			navigation_agent.set_target_position(player.global_position)
+		# else: the npc may have reached home base. handle that here, maybe.
 		timer = 0.0
 
 	var next_position = navigation_agent.get_next_path_position()
@@ -37,6 +40,8 @@ func Physics_Update(delta):
 
 	norm_dir.y = 0  # keep rotation flat
 
+	# handling look rotation
+	# to make this work, had to flip the npc's mesh
 	var current_rotation = nav_npc.rotation.y
 	var target_rotation = atan2(-norm_dir.x, -norm_dir.z)
 	var new_rotation = lerp_angle(current_rotation, target_rotation, 5.0 * delta)

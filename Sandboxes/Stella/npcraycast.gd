@@ -6,4 +6,5 @@ func _process(delta):
 		var hit = get_collider()
 		if hit.is_in_group("Player"):
 			print("spider seen!")
+			# garbo
 			state_machine.current_state.Transitioned.emit(state_machine.current_state, "playerseen")
