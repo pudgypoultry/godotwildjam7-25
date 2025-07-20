@@ -5,7 +5,7 @@ class_name HumanExplore
 
 
 var pathing = false
-var idle_time : float = 6.0
+var idle_time : float = 36.0
 
 var timer : float = 0.0
 
@@ -14,6 +14,7 @@ func Physics_Update(delta):
 	if debug:
 		print(navigation_agent.distance_to_target())
 	if pathing and timer < idle_time:
+		npc_animator.anim_state = npc_animator.NPC_ANIM_STATE.Walk
 		var destination = navigation_agent.get_next_path_position()
 		var local_destination = destination - nav_npc.global_position
 		var direction = local_destination.normalized()
@@ -34,6 +35,7 @@ func Physics_Update(delta):
 	else:
 		timer = 0
 		pathing = true
+		npc_animator.anim_state = npc_animator.NPC_ANIM_STATE.Idle
 		
 		# select new position offset.
 		# this could be changed to have further exploration

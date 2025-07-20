@@ -6,6 +6,7 @@ var player : CharacterBody3D
 var nav_npc : CharacterBody3D
 var navigation_agent : NavigationAgent3D
 var speed : float
+var npc_animator:NpcAnimator
 
 # abstract base State, more or less. 
 

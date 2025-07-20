@@ -9,6 +9,7 @@ var timer : float = 0.0
 var stuck_time : float = 0.25 + randfn(0.1, 0.01)
 
 func Enter():
+	Transitioned.emit()
 	# set up the first target based on what the npc's behavior is
 	if nav_npc.brave:
 		navigation_agent.set_target_position(player.global_position)
@@ -18,7 +19,7 @@ func Enter():
 
 func Physics_Update(delta): 
 	timer += delta
-	
+	npc_animator.anim_state = npc_animator.NPC_ANIM_STATE.Run
 	if navigation_agent.is_navigation_finished() or timer > stuck_time:
 		if nav_npc.brave:
 			# pick the next position

@@ -13,6 +13,8 @@ var states : Dictionary = {}
 # random so that hopefully if two npcs are overlapping, they will move
 # away from each other soon
 var speed : float = 2 + randf_range(0.0, 0.5)
+var run_speed : float = 5 + randf_range(0.0, 0.5)
+@export var npc_animator:NpcAnimator
 
 
 func _ready(): 
@@ -29,7 +31,11 @@ func _ready():
 			child.player = player
 			child.nav_npc = $".."
 			child.navigation_agent = $"../NavigationAgent3D"
-			child.speed = speed
+			child.npc_animator = npc_animator
+			if child.name == "PlayerSeen":
+				child.speed = run_speed
+			else:
+				child.speed = speed
 
 	if initial_state:
 		initial_state.Enter()

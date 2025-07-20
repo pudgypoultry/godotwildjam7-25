@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djxdmtsp2ecol" path="res://Scripts/Spider/SpiderControlRedux.gd" id="1_pxwkk"]
 [ext_resource type="PackedScene" uid="uid://bapr6nymlyejw" path="res://Scenes/spider_actor.tscn" id="2_7blp2"]
-[ext_resource type="PackedScene" uid="uid://dl7jlb8rwftgr" path="res://Scenes/SpiderPlayer/Spiderling.tscn" id="2_acyfo"]
+[ext_resource type="PackedScene" path="res://Scenes/SpiderPlayer/Spiderling.tscn" id="2_acyfo"]
 [ext_resource type="PackedScene" uid="uid://bjwunckpps70c" path="res://Scenes/SpiderPlayer/WebObject1.tscn" id="3_ft2r6"]
 [ext_resource type="PackedScene" uid="uid://ck3sd7v2loawt" path="res://Scenes/SpiderPlayer/WebObject2.tscn" id="4_75ah1"]
 [ext_resource type="PackedScene" uid="uid://bhv1qxah1gn0m" path="res://Sandboxes/Andrew/HudFPS.tscn" id="4_k3mnh"]

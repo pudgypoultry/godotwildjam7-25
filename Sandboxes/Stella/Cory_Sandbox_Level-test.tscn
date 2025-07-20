@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bp8jb8up5hwlt" path="res://Scenes/Climbable/climbable_ramp_hallway.tscn" id="3_yu63u"]
 [ext_resource type="PackedScene" uid="uid://c7qn5pcyc7cou" path="res://Scenes/Climbable/climbable_hallway_4way_junction.tscn" id="4_o3dc0"]
 [ext_resource type="PackedScene" uid="uid://ch831xpyj3tt6" path="res://Scenes/Climbable/column.tscn" id="5_ihvdj"]
-[ext_resource type="PackedScene" path="res://Scenes/Climbable/climbable_hallway_right.tscn" id="6_holwq"]
+[ext_resource type="PackedScene" uid="uid://dg6rp5ee115au" path="res://Scenes/Climbable/climbable_hallway_right.tscn" id="6_holwq"]
 [ext_resource type="PackedScene" uid="uid://ggv8ikw1m42u" path="res://Scenes/Climbable/climbable_shaft_base.tscn" id="7_qm8je"]
 [ext_resource type="PackedScene" uid="uid://du2w4ji1h06i1" path="res://Scenes/Climbable/climbable_shaft_mid.tscn" id="8_tyx88"]
 [ext_resource type="PackedScene" uid="uid://dpstxx8vkncfr" path="res://Scenes/Climbable/climbable_shaft_top.tscn" id="9_ahkpt"]

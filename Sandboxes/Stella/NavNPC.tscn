@@ -32,9 +32,10 @@ path_max_distance = 5.41
 avoidance_enabled = true
 debug_enabled = true
 
-[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "npc_animator")]
 script = ExtResource("2_knyxn")
 initial_state = NodePath("IdleExplore")
+npc_animator = NodePath("../NPC_f")
 
 [node name="IdleExplore" type="Node" parent="State Machine"]
 script = ExtResource("2_uafth")
@@ -65,6 +66,8 @@ shape = SubResource("SphereShape3D_q3xt4")
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
 [connection signal="target_reached" from="NavigationAgent3D" to="State Machine/IdleExplore" method="_on_navigation_agent_3d_target_reached"]
 [connection signal="target_reached" from="NavigationAgent3D" to="State Machine/PlayerSeen" method="_on_navigation_agent_3d_target_reached"]
+[connection signal="Transitioned" from="State Machine/IdleExplore" to="NPC_f" method="_on_idle_explore_transitioned"]
+[connection signal="Transitioned" from="State Machine/PlayerSeen" to="NPC_f" method="_on_player_seen_transitioned"]
 [connection signal="body_entered" from="SpiderDetector" to="." method="DetectSpider"]
 [connection signal="body_exited" from="SpiderDetector" to="." method="LoseSpider"]
 [connection signal="body_entered" from="AttackRange" to="." method="AttackSpider"]
