@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://hn3kmt40ii4s" path="res://Assets/Models/clutter_web_03.glb" id="18_dy814"]
 [ext_resource type="PackedScene" uid="uid://b3k5l2ucr6hnq" path="res://Assets/Models/clutter_web_02.glb" id="19_cmu07"]
 [ext_resource type="PackedScene" uid="uid://d0vq4ph84ji6r" path="res://Assets/Models/clutter_web_01.glb" id="20_pcp3e"]
-[ext_resource type="PackedScene" uid="uid://ccfwrjsxc26mo" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="21_716ia"]
+[ext_resource type="PackedScene" uid="uid://1v6iq7d5a8rg" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="21_716ia"]
 [ext_resource type="PackedScene" uid="uid://bycw3ydt4rvmd" path="res://Sandboxes/Stella/NavNPC.tscn" id="22_jbjk0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
@@ -580,22 +580,27 @@ home_base = NodePath("../NPCExit")
 
 [node name="NavNPC3" parent="." node_paths=PackedStringArray("home_base") instance=ExtResource("22_jbjk0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.8114, -11.9818, 39.8379)
+brave = true
 home_base = NodePath("../NPCExit")
 
 [node name="NavNPC4" parent="." node_paths=PackedStringArray("home_base") instance=ExtResource("22_jbjk0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1937, 14.0171, -60.1815)
+brave = true
 home_base = NodePath("../NPCExit")
 
 [node name="NavNPC5" parent="." node_paths=PackedStringArray("home_base") instance=ExtResource("22_jbjk0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5527, 1.43525, 40.4379)
+brave = true
 home_base = NodePath("../NPCExit")
 
 [node name="NavNPC6" parent="." node_paths=PackedStringArray("home_base") instance=ExtResource("22_jbjk0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.5811, 26.021, 60.1671)
+brave = true
 home_base = NodePath("../NPCExit")
 
 [node name="NavNPC7" parent="." node_paths=PackedStringArray("home_base") instance=ExtResource("22_jbjk0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.863, -11.7476, 105.821)
+brave = true
 home_base = NodePath("../NPCExit")
 
 [node name="NavNPC8" parent="." node_paths=PackedStringArray("home_base") instance=ExtResource("22_jbjk0")]
@@ -604,4 +609,5 @@ home_base = NodePath("../NPCExit")
 
 [node name="NavNPC9" parent="." node_paths=PackedStringArray("home_base") instance=ExtResource("22_jbjk0")]
 transform = Transform3D(-0.132118, 0, -0.991234, 0, 1, 0, 0.991234, 0, -0.132118, 138.219, -11.7476, 40.7909)
+brave = true
 home_base = NodePath("../NPCExit")

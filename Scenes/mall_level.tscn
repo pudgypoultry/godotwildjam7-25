@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://05ccieqhy5g3" path="res://Scenes/Climbable/multi_level_area.tscn" id="11_e7yk2"]
 [ext_resource type="PackedScene" uid="uid://rsa7s2fy2jgw" path="res://Scenes/Climbable/climbable_shaft_mid_exit.tscn" id="12_n4qvv"]
 [ext_resource type="PackedScene" uid="uid://b77xa3vijt13p" path="res://Scenes/Climbable/climbable_wall_single_half.tscn" id="13_1w5qk"]
-[ext_resource type="PackedScene" uid="uid://dy6sfofvnum2d" path="res://Scenes/Entry.tscn" id="14_1xxiy"]
+[ext_resource type="PackedScene" path="res://Scenes/Entry.tscn" id="14_1xxiy"]
 [ext_resource type="PackedScene" uid="uid://3gs752pk6yef" path="res://Scenes/Clutter/clutter_pile_03.tscn" id="15_yqf3o"]
 [ext_resource type="PackedScene" uid="uid://gnts3gt0apwl" path="res://Scenes/Clutter/clutter_pile_01.tscn" id="16_llt4m"]
 [ext_resource type="PackedScene" uid="uid://s6sxw6i0kqtr" path="res://Scenes/Clutter/clutter_pile_02.tscn" id="17_aachs"]

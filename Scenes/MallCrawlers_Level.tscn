@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cbjlg73v3v262" path="res://Scenes/mall_level.tscn" id="1_amoki"]
 [ext_resource type="PackedScene" uid="uid://1v6iq7d5a8rg" path="res://Scenes/SpiderPlayer/SpiderControl.tscn" id="2_6mh82"]
-[ext_resource type="LightmapGIData" uid="uid://2hkluqkt3xah" path="res://Scenes/LightmapData/mainscene_lightmap_gi_data.tres" id="3_cp3sp"]
+[ext_resource type="LightmapGIData" uid="uid://2hkluqkt3xah" path="res://Scenes/LightmapData/HighSetting/mainscene_lightmap_gi_data.tres" id="3_cp3sp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqsy8"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)

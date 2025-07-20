@@ -11,10 +11,8 @@ var stuck_time : float = 0.25 + randfn(0.1, 0.01)
 func Enter():
 	# set up the first target based on what the npc's behavior is
 	if nav_npc.brave:
-		print("i'm brave!")
 		navigation_agent.set_target_position(player.global_position)
 	else:
-		print("i'm scared!")
 		navigation_agent.set_target_position(nav_npc.home_base.global_position)
 
 

@@ -34,6 +34,7 @@ var isActiveController : bool = true
 var canSpawnSpider : bool = true
 var canSpawnWebbing : bool = true
 var spiderlingArray : Array = []
+var health := 10
 
 
 func _ready() -> void:
@@ -211,3 +212,9 @@ func SwapToSpiderling():
 func MakeActiveController():
 	camera.current = true
 	isActiveController = true
+
+
+func Harm():
+	health -= 1
+	print("SPIDER HARMED!")
+	

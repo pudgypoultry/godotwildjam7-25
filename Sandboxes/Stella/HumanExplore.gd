@@ -44,7 +44,6 @@ func Physics_Update(delta):
 
 
 func _on_navigation_agent_3d_target_reached():
-	print("target reached!")
 	pathing = false
 
 
